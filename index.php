@@ -1,6 +1,5 @@
 
         <?php
-        session_start();
         if (!isset($_SESSION["prixPanier"])){
         $_SESSION["prixPanier"] = 0;
         }
