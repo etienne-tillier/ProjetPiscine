@@ -1,5 +1,6 @@
 
         <?php
+        echo "test";
         if (!isset($_SESSION["prixPanier"])){
         $_SESSION["prixPanier"] = 0;
         }
@@ -11,6 +12,7 @@
         $DS = DIRECTORY_SEPARATOR;
         require_once $ROOT_FOLDER . $DS.join($DS, array('lib','Session.php'));
         require_once "{$ROOT_FOLDER}$DS". "lib" . "$DS" . "File.php";
+        //appel routeur
         require_once File::build_path(array("controller", "routeur.php"));
         ?>
 
