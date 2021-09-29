@@ -1,9 +1,10 @@
 <?php
-
-
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 require_once File::build_path(array('controller','ControllerPierre.php'));
 require_once File::build_path(array('controller','ControllerUtilisateur.php'));
 require_once File::build_path(array('controller','ControllerCommande.php'));
+require_once File::build_path(array('controller','ControllerIngredient.php'));
 // On recupère l'action passée dans l'URL
 if (isset($_GET['action'])){
     $action = $_GET["action"];
@@ -25,18 +26,19 @@ $method = get_class_methods($controller_class);
 
 if(class_exists($controller_class)){
     if (in_array($action, $method)){
+
+        
+
     $controller_class::$action(); 
+    }
+    else {
+        ControllerPierre::error();
+        
+    }
 }
 else {
     ControllerPierre::error();
 }
-}
-else {
-    ControllerPierre::error();
-}
 
-
-
-// Appel de la méthode statique $action de Co&immat=7854123ntrollerVoiture
 
 ?>

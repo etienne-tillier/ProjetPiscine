@@ -66,7 +66,7 @@ class ModelIngredient extends Model{
         return $this->unite;
     }
 
-    function getAllegene(){
+    function getAllergene(){
         return $this->allergene;
     }
 
