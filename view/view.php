@@ -27,6 +27,7 @@ $login_label = (isset($_SESSION['login']) ? "Déconnexion" : "Connexion" );
                     <?= (!isset($_SESSION['login']) ? '<p><a href="index.php?action=create&controller=utilisateur">Inscription</a></p>' : "") ?>
                     <?= (isset($_SESSION['login']) ? "<p><a href=\"index.php?action=read&controller=utilisateur&login=" . $_SESSION["login"] . "\">Profil</a></p>" : "") ?>
                     <?= "<p><a href=\"index.php?controller=pierre&action=afficherPanier\">Mon panier</a>"?>
+                    <?= "<p><a href=\"index.php?controller=ingredient&action=create\">Créer ingredient</a>"?>
                     <?= (Session::is_admin()) ? "<p><a href =\"index.php?action=readAll&controller=utilisateur\">Tous les utilisateurs (admin)</a></p>" : "" ?>
                 </nav>
             </header>

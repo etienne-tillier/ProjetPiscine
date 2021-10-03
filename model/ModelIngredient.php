@@ -10,7 +10,7 @@ class ModelIngredient extends Model{
     private $unite;
     private $allergene;
     private $prixUnitaire;
-    protected static $object = "Ingredient";
+    protected static $object = "ingredient";
     protected static $primary='idIngredient';
     
     
@@ -52,6 +52,14 @@ class ModelIngredient extends Model{
         return $this->idIngredient;
     }
 
+    function getIdTypeIngredient() {
+        return $this->idTypeIngredient;
+    }
+
+    function getIdTVA(){
+        return $this->idTVA;
+    }
+
 
     function getNomIngredient() {
         return $this->nomIngredient;
@@ -81,7 +89,7 @@ class ModelIngredient extends Model{
     }
 
     function setIdTypeTVA($idTypeTVA): void {
-        $this->IdTypeTVA + $IdTypeTVA;
+        $this->IdTypeTVA + $idTypeTVA;
     }
 
     function setNomIngredient($nomIngredient): void {

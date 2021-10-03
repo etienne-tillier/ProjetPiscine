@@ -1,8 +1,6 @@
 <?php
 
 require_once (File::build_path(array("model", "ModelIngredient.php")));
-require_once (File::build_path(array("model", "ModelTypeIngredient.php")));
-require_once (File::build_path(array("model", "ModelTVA.php")));
 
 class ControllerIngredient {
 
@@ -10,7 +8,6 @@ class ControllerIngredient {
 
     public static function readAll() {
         $tab_i = ModelIngredient::selectAll();     //appel au modèle pour gerer la BD
-        $typeIngredient = ModelTypeIngredient::selectAll();
         $controller = ('ingredient');
         $view = 'list';
         $pagetitle = 'Stonezone : Tous nos minéraux';
@@ -37,17 +34,12 @@ class ControllerIngredient {
     public static function create() {
             $idIngredient = "";
             $nomIngredient = "";
-            $typeIngredientList = ModelTypeIngredient::selectAll();
-            $typeTVAList = ModelTVA::selectAll();
-            $typeIngredient= "";
-            $typeTVA = "";
             $unite = "";
             $allergene = "";
             $prixUnitaire = "";
             $form = "readonly";
             $act = "created";
-            $create = true;
-            $pagetitle = 'Nouveau ingredient';
+            $pagetitle = 'Nouveau produit';
             $controller = 'ingredient';
             $view = 'update';
             require (File::build_path(array("view", "view.php")));
@@ -57,16 +49,14 @@ class ControllerIngredient {
         //à faire (pas fini)
     public static function created() {
             $data = array(
-                //"idIngredient" => "",
-                "idTypeIngredient" => $_GET["idTypeIngredient"],
-                "nomTVA" => $_GET["nomTVA"],
+                "idIngredient" => "",
                 "nomIngredient" => $_GET["nomIngredient"],
                 "unite" => $_GET["unite"],
                 "allergene" => $_GET["allergene"],
                 "prixUnitaire" => $_GET["prixUnitaire"],
             );
 
-            $p = new ModelIngredient($_GET["idTypeIngredient"], $_GET["nomTVA"], $_GET["nomIngredient"], $_GET["unite"], $_GET["allergene"], $_GET["prixUnitaire"]);
+            $p = new ModelIngredient($_GET["nomIngredient"], $_GET["unite"], $_GET["allergene"], $_GET["prixUnitaire"], $_GET["paysProvenance"]);
             ModelIngredient::save($data);
             $tab_p = ModelIngredient::selectAll();
             $controller = ('ingredient');

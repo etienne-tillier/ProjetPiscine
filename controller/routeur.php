@@ -13,7 +13,7 @@ else {
     $action = "readAll";
 }
 
-    $controller_default = 'pierre';
+    $controller_default = 'ingredient';
 
 
 if (isset($_GET['controller'])){
