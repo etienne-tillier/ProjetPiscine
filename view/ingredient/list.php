@@ -2,7 +2,7 @@
 <?php
 //possible de faire mieux avec requete sql dans le modelIngredient
 //en verifiant l'idTypeIngredient
-foreach($typeIngredient as $type){
+foreach($typeIngredientListe as $type){
 
 
     $idType = $type->getIdTypeIngredient();
@@ -20,7 +20,7 @@ foreach($typeIngredient as $type){
         //echo '<div class = "produit">' . '<a href= "index.php?action=read&idpierre=' . rawurlencode($p->getIdPierre()) .'"><img src="' . $link . '"alt="id1" height=150px width=150px/><br><strong>' . $p->getNom() . " : " . $p->getPrix() . 'euros</strong></a></div>';
 
                 echo '<div class="ingredient">
-                    <a href= "index.php?action=read&idpierre=' . $id . '"><strong>' . $nom . " : " . $prix . "€/ ". $unite . "</strong></a>"
+                    <a href= "index.php?action=read&idIngredient=' . $ingredient->getIdIngredient() . '"><strong>' . $nom . " : " . $prix . "€/ ". $unite . "</strong></a>"
                 . '
                 </div>';
             

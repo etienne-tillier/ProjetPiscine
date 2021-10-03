@@ -20,9 +20,9 @@ class ModelIngredient extends Model{
             $this->idTypeIngredient = $idTypeIngredient;
             $this->idTVA = $idTVA;
             $this->nom = $nomIngredient;
-            $this->prix = $unite;
-            $this->poids = $allergene;
-            $this->volume = $prixUnitaire;
+            $this->prix = $prixUnitaire;
+            $this->unite = $unite;
+            $this->allergene = $allergene;
             
         }
     }

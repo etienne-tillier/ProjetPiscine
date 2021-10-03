@@ -37,7 +37,7 @@ class ModelTVA extends Model{
             
     // }
     
-    function getnomTVA() {
+    function getNomTVA() {
         return $this->nomTVA;
     }
 

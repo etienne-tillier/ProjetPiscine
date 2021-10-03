@@ -10,7 +10,7 @@ class ControllerIngredient {
 
     public static function readAll() {
         $tab_i = ModelIngredient::selectAll();     //appel au modèle pour gerer la BD
-        $typeIngredient = ModelTypeIngredient::selectAll();
+        $typeIngredientListe = ModelTypeIngredient::selectAll();
         $controller = ('ingredient');
         $view = 'list';
         $pagetitle = 'Stonezone : Tous nos minéraux';
@@ -20,8 +20,8 @@ class ControllerIngredient {
     public static function read() {
         $pagetitle = 'Détails';
         $idIngredient = $_GET["idIngredient"];
-        $p = ModelIngredient::select($idIngredient);
-        if ($p == null) {
+        $i = ModelIngredient::select($idIngredient);
+        if ($i == null) {
             $controller = ('ingredient');
             $view = 'error';
             require (File::build_path(array("view", "view.php")));
@@ -57,7 +57,7 @@ class ControllerIngredient {
         //à faire (pas fini)
     public static function created() {
             $data = array(
-                //"idIngredient" => "",
+                "idIngredient" => 0,
                 "idTypeIngredient" => $_GET["idTypeIngredient"],
                 "nomTVA" => $_GET["nomTVA"],
                 "nomIngredient" => $_GET["nomIngredient"],
@@ -68,7 +68,8 @@ class ControllerIngredient {
 
             $p = new ModelIngredient($_GET["idTypeIngredient"], $_GET["nomTVA"], $_GET["nomIngredient"], $_GET["unite"], $_GET["allergene"], $_GET["prixUnitaire"]);
             ModelIngredient::save($data);
-            $tab_p = ModelIngredient::selectAll();
+            $tab_i = ModelIngredient::selectAll();
+            $typeIngredientListe = ModelTypeIngredient::selectAll();
             $controller = ('ingredient');
             $view = 'created';
             $pagetitle = 'Tous nos produits';
@@ -129,7 +130,8 @@ class ControllerIngredient {
         }
 
     public static function delete() {
-            $tab_p = ModelIngredient::selectAll();     //appel au modèle pour gerer la BD
+            $tab_i = ModelIngredient::selectAll();     //appel au modèle pour gerer la BD
+            $typeIngredientListe = ModelTypeIngredient::selectAll();
             $idIngredient = $_GET["idIngredient"];
             $p = ModelIngredient::select($idIngredient);
             if ($p == null) {
