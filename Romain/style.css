@@ -1,0 +1,95 @@
+#Menu
+{
+	height: 120px;
+	width: auto;
+	background-color: black ;
+}
+
+#corps
+{
+	background-color: white;
+	display: flex;
+}
+
+#fenetre
+{
+	display: flex;
+	flex-direction: column;
+	width: 70%;
+	height: 500px;
+}
+
+#entete
+{
+	margin: 10px;
+	margin-bottom: 0px;
+	border-style: solid;
+	border-color: black;
+	display: flex;
+	height: 40px;
+	align-items: center;
+	font-size: 25px;
+	font-family: 'Arial','Verdana';
+}
+
+#entete ul 
+{
+	display: flex;
+	list-style: none;
+	width: 100%;
+	justify-content: space-between;
+}
+
+#entete ul li
+{
+	margin-right: 10px;
+}
+
+
+#contenu
+{
+	border-style: solid;
+	border-color: black;
+	background-color: rgb(240, 240, 240);
+	padding-right: 30px;
+	padding-left: 30px;
+	margin: 10px;
+	height: 440px;
+	overflow: overlay;
+	scroll-behavior: ;
+	text-align: justify;
+	font-size: 30px;
+	font-family: 'Arial','Verdana';
+
+}
+
+#boutons
+{
+	display: flex;
+	width: 30%;
+	height: 480px;
+	margin: 10px;
+	font-size: 25px;
+	font-weight: bold;
+	font-family: 'Arial','Verdana';
+}
+
+#boutons ul
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: top;
+	align-items: center;
+	list-style: none;
+	width: 100%;
+	margin-right: 10px;
+	padding-right: 15px;
+}
+
+#boutons li 
+{
+	padding: 25px;
+	margin-bottom: 20px;
+	border-style: solid;
+	border-color: rgb(196, 156, 108);
+}
