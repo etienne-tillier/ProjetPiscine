@@ -11,19 +11,19 @@
         </p>
         <p>Type Ingredient</p>
         <select name="idTypeIngredient" required>
-            <option value="" disabled selected>Choisissez un type</option>
+            <option value="" disabled <?= ($create ? "selected" : "") ?>>Choisissez un type</option>
             <?php
                 foreach($typeIngredientList as $type){
-                    echo '<option value="' . $type->getIdTypeIngredient() . '" ' . ($type->getNomTypeIngredient() == $typeIngredient ? "selected" : "") . '>' .  $type->getNomTypeIngredient() . '</option>';
+                    echo '<option value="' . $type->getIdTypeIngredient() . '" ' . ($type->getIdTypeIngredient() == $typeIngredient ? "selected" : "") . '>' .  $type->getNomTypeIngredient() . '</option>';
                 }
             ?>
         </select>
         <p>Type TVA</p>
         <select name="nomTVA" required>
-            <option value="" disabled selected>Choisissez une TVA</option>
+            <option value="" disabled <?= ($create ? "selected" : "") ?>>Choisissez une TVA</option>
             <?php
                 foreach($typeTVAList as $type){
-                    echo '<option value="' . $type->getNomTVA() . '" ' . ($type->getNomTVA() == $typeTVA ? "selected" : "") . '>' .  $type->getNomTVA() . '</option>';
+                    echo '<option value="' . $type->getNomTVA() . '" ' . ($type->getNomTVA() == $nomTVA ? "selected" : "") . '>' .  $type->getNomTVA() . '</option>';
                 }
             ?>
         </select>
@@ -47,6 +47,7 @@
             <input type="radio" id="allergeneN" name="allergene" value="0" checked>
             <label for="allergeneN">Non</label>
         </div>
+        <?=($create ? "" : '<input type ="hidden" name ="idIngredient" value="' . rawurldecode($idIngredient) . '"/>') ?>
             <input type="submit" value="<?= $create ? "Ajouter" : "Mettre à jour" ?>" />
         </p>
 </form>

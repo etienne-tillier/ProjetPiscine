@@ -13,7 +13,7 @@ class ControllerIngredient {
         $typeIngredientListe = ModelTypeIngredient::selectAll();
         $controller = ('ingredient');
         $view = 'list';
-        $pagetitle = 'Stonezone : Tous nos minéraux';
+        $pagetitle = 'Ingrédients';
         require (File::build_path(array("view", "view.php")));  //"redirige" vers la vue
     }
 
@@ -72,7 +72,7 @@ class ControllerIngredient {
             $typeIngredientListe = ModelTypeIngredient::selectAll();
             $controller = ('ingredient');
             $view = 'created';
-            $pagetitle = 'Tous nos produits';
+            $pagetitle = 'Ingrédients';
             require (File::build_path(array("view", "view.php")));
         }
 
@@ -89,16 +89,19 @@ class ControllerIngredient {
     public static function update() {
             $act = "updated";
             $form = "readonly";
-            $pagetitle = 'Mise à jour informations produit';
+            $pagetitle = 'Mise à jour ingrédient';
             $idIngredient = $_GET["idIngredient"];
-
-            $p = ModelIngredient::select($idIngredient);
-            $nomIngredient = $p->getNomIngredient();
-            $allergene = $p->getallergene();
-            $unite = $p->getunite();
-            $prixUnitaire = $p->getprixUnitaire();
-            $paysProvenance = $p->getPaysProvenance();
-            if ($p == null) {
+            $create = false;
+            $typeIngredientList = ModelTypeIngredient::selectAll();
+            $typeTVAList = ModelTVA::selectAll();
+            $i = ModelIngredient::select($idIngredient);
+            $nomIngredient = $i->getNomIngredient();
+            $allergene = $i->getAllergene();
+            $unite = $i->getunite();
+            $prixUnitaire = $i->getPrixUnitaire();
+            $idTypeIngredient = $i->getIdTypeIngredient();
+            $nomTVA = $i->getIdTVA();
+            if ($i == null) {
                 $controller = ('ingredient');
                 $view = 'error';
                 require (File::build_path(array("view", "view.php")));
@@ -112,18 +115,21 @@ class ControllerIngredient {
 
     //TODO
     public static function updated() {
-            $tab_p = ModelIngredient::selectAll();
+            $tab_i = ModelIngredient::selectAll();
             $pagetitle = 'Produit mis à jour';
             $idIngredient = $_GET["idIngredient"];
             $data = array(
                 "nomIngredient" => $_GET["nomIngredient"],
                 "unite" => $_GET["unite"],
                 "prixUnitaire" => $_GET["prixUnitaire"],
-                "paysProvenance" => $_GET["paysProvenance"],
+                "allergene" => $_GET["allergene"],
                 "primary" => $_GET["idIngredient"],
+                "idTVA" => $_GET["nomTVA"],
+                "idTypeIngredient" => $_GET["idTypeIngredient"]
             );
-            $p = ModelIngredient::select($idIngredient);
-            $p->update($data);
+            $i = ModelIngredient::select($idIngredient);
+            $typeIngredientListe = ModelTypeIngredient::selectAll();
+            $i->update($data);
             $controller = "ingredient";
             $view = 'updated';
             require (File::build_path(array("view", "view.php")));

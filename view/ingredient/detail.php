@@ -3,7 +3,8 @@
 echo '<div class = "precision"><h2>' . ucfirst($i->getNomIngredient()) . "</h2>" .
  "<li class> prix : " . htmlspecialchars($i->getPrixUnitaire()) . "/" . htmlspecialchars($i->getUnite()) . "</li>" .
  "<li class> Allergene ? : " . (($i->getAllergene() == 1 ? "Oui" : "Non") . "</li>");
- echo '<a href="index.php?action=delete&controller=ingredient&idIngredient=' . rawurlencode($i->getIdIngredient()) . '"> Supprimer l\'ingrédient </a>'?>
+ echo '<a href="index.php?action=delete&controller=ingredient&idIngredient=' . rawurlencode($i->getIdIngredient()) . '"> Supprimer l\'ingrédient </a>';
+ echo '<a href="index.php?action=update&controller=ingredient&idIngredient=' . rawurlencode($i->getIdIngredient()) . '"> Modifier l\'ingrédient </a>';?>
 
 <?//= ModelPierre::estAchete($i->getIdPierre()) ? "" : "<p><a href=\"index.php?controller=pierre&action=ajouterPanier&idpierre=" . $i->getIdPierre() . "\">Ajouter au panier</a></p>"?>
     
