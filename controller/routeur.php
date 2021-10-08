@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
+require_once File::build_path(array('controller','ControllerRecette.php'));
 require_once File::build_path(array('controller','ControllerPierre.php'));
 require_once File::build_path(array('controller','ControllerUtilisateur.php'));
 require_once File::build_path(array('controller','ControllerCommande.php'));

@@ -22,7 +22,7 @@ $login_label = (isset($_SESSION['login']) ? "Déconnexion" : "Connexion" );
             <header>
                 <nav>
                     <p><a href = index.php?action=readAll > Accueil</a></p>
-
+                    <p><a href = index.php?action=readAll&controller=recette > Recettes</a></p>
                     <p><a href="index.php?action=<?= $login_action ?>&controller=utilisateur"><?= $login_label ?></a></p> 
                     <?= (!isset($_SESSION['login']) ? '<p><a href="index.php?action=create&controller=utilisateur">Inscription</a></p>' : "") ?>
                     <?= (isset($_SESSION['login']) ? "<p><a href=\"index.php?action=read&controller=utilisateur&login=" . $_SESSION["login"] . "\">Profil</a></p>" : "") ?>

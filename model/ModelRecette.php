@@ -17,8 +17,7 @@ class ModelRecette extends Model{
     
     
     function __construct($idRecette = null, $idTypeRecette = null, $idAuteur = null, $nomRecette = null, $nombrePortion = null, $descriptif = null, $progression = null, $prixMainOeuvre = null, $multiplicateur = null) {
-        if (!is_null($idRecette) && !is_null($nomRecette) && !is_null($descriptif) && !is_null($nombrePortion) && !is_null($prixMainOeuvre) && !is_null($idTypeRecette)&& !is_null($idAuteur) && !is_null($progression)&& !is_null($    function __construct($idRecette = null, $idTypeRecette = null, $idAuteur = null, $nomRecette = null, $nombrePortion = null, $descriptif = null, $progression = null, $prixMainOeuvre = null, $multiplicateur = null) {
-            ) {
+        if (!is_null($idRecette) && !is_null($nomRecette) && !is_null($descriptif) && !is_null($nombrePortion) && !is_null($prixMainOeuvre) && !is_null($idTypeRecette)&& !is_null($idAuteur) && !is_null($progression)) {
             $this->idRecette = $idRecette;
             $this->idTypeRecette = $idTypeRecette;
             $this->idAuteur = $idAuteur;
@@ -105,7 +104,7 @@ class ModelRecette extends Model{
     }
 
     function setIdAuteur($idTypeAuteur): void {
-        $this->idTypeAuteur = $idTypeAuteur
+        $this->idTypeAuteur = $idTypeAuteur;
     }
 
     function setNomRecette($nomRecette): void {
