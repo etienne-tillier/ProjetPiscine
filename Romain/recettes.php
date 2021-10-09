@@ -9,7 +9,7 @@
 	<header>
 		<!-- Menu -->
 		<div id='Menu'>	
-			<?php include("Menu/menu.php"); ?>
+			<?php include("menu.php"); ?>
 		</div>
 	</header>
 
@@ -62,10 +62,10 @@
 		</div>
 		<div id="boutons">
 			<ul>
-				<li>Modifier</li>
-				<li>Supprimer</li>
-				<li>Ajouter</li>
-				<li>Imprimer</li>
+				<li id="case_upt_rece"><a href="modifier_recettes.php">Modifier</li>
+				<li id="case_del_rece"><a href="supprimer_recettes.php">Supprimer</li>
+				<li id="case_add_rece"><a href="ajouter_recettes.php">Ajouter</li>
+				<li id="case_imp_rece"><a href="imprimer_recettes.php">Imprimer</li>
 			</ul>
 		</div>
 	</div>

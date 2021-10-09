@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:8889
--- Généré le : lun. 27 sep. 2021 à 08:14
--- Version du serveur :  5.7.34
--- Version de PHP : 7.4.21
+-- Host: localhost:3306
+-- Generation Time: Oct 08, 2021 at 11:30 AM
+-- Server version: 5.7.24
+-- PHP Version: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,28 +18,35 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `Piscine`
+-- Database: `piscine`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `AUTEUR`
+-- Table structure for table `auteur`
 --
 
-CREATE TABLE `AUTEUR` (
+CREATE TABLE `auteur` (
   `idAuteur` int(11) NOT NULL,
   `nomAuteur` varchar(50) NOT NULL,
   `prenomAuteur` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `auteur`
+--
+
+INSERT INTO `auteur` (`idAuteur`, `nomAuteur`, `prenomAuteur`) VALUES
+(1, 'Maurin', 'Jean');
+
 -- --------------------------------------------------------
 
 --
--- Structure de la table `CHARGE`
+-- Table structure for table `charge`
 --
 
-CREATE TABLE `CHARGE` (
+CREATE TABLE `charge` (
   `nomCharge` varchar(50) NOT NULL,
   `montantCharge` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -47,26 +54,38 @@ CREATE TABLE `CHARGE` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `INGREDIENT`
+-- Table structure for table `ingredient`
 --
 
-CREATE TABLE `INGREDIENT` (
+CREATE TABLE `ingredient` (
   `idIngredient` int(11) NOT NULL,
   `idTypeIngredient` int(11) NOT NULL,
   `idTVA` varchar(50) NOT NULL,
   `nomIngredient` varchar(50) NOT NULL,
   `unite` varchar(50) NOT NULL,
   `allergene` tinyint(1) NOT NULL,
-  `prixUnitaire` decimal(10,0) NOT NULL
+  `prixUnitaire` float(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ingredient`
+--
+
+INSERT INTO `ingredient` (`idIngredient`, `idTypeIngredient`, `idTVA`, `nomIngredient`, `unite`, `allergene`, `prixUnitaire`) VALUES
+(1, 1, 'Fruit', 'Pomme', 'kg', 0, 5.00),
+(2, 1, 'Fruit', 'Banane', 'kg', 0, 1.00),
+(4, 1, 'Fruit', 'poire', 'kg', 1, 2.00),
+(5, 6, 'Fruit', 'Oeuf Poule', 'unité', 0, 0.30),
+(6, 1, 'Fruit', 'Tomate', 'kg', 0, 2.00),
+(7, 4, 'Fruit', 'poivre', 'g', 0, 4.00);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `INGREDIENTDANSRECETTE`
+-- Table structure for table `ingredientdansrecette`
 --
 
-CREATE TABLE `INGREDIENTDANSRECETTE` (
+CREATE TABLE `ingredientdansrecette` (
   `idRecette` int(11) NOT NULL,
   `idIngredient` int(11) NOT NULL,
   `quantiteIngredient` int(11) NOT NULL
@@ -75,10 +94,10 @@ CREATE TABLE `INGREDIENTDANSRECETTE` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `RECETTE`
+-- Table structure for table `recette`
 --
 
-CREATE TABLE `RECETTE` (
+CREATE TABLE `recette` (
   `idRecette` int(11) NOT NULL,
   `idTypeRecette` int(11) NOT NULL,
   `idAuteur` int(11) NOT NULL,
@@ -90,13 +109,20 @@ CREATE TABLE `RECETTE` (
   `multiplicateur` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `recette`
+--
+
+INSERT INTO `recette` (`idRecette`, `idTypeRecette`, `idAuteur`, `nomRecette`, `nombrePortion`, `descriptif`, `progression`, `prixMainOeuvre`, `multiplicateur`) VALUES
+(1, 1, 1, 'Salade niçoise', 6, 'Salade préparé par nos soins contenant du poulet', 'Bien laver les tomates avant de les servir', '2', '4');
+
 -- --------------------------------------------------------
 
 --
--- Structure de la table `RECETTEDANSRECETTE`
+-- Table structure for table `recettedansrecette`
 --
 
-CREATE TABLE `RECETTEDANSRECETTE` (
+CREATE TABLE `recettedansrecette` (
   `idRecetteMere` int(11) NOT NULL,
   `idRecetteFille` int(11) NOT NULL,
   `quantite` int(11) NOT NULL
@@ -105,163 +131,190 @@ CREATE TABLE `RECETTEDANSRECETTE` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `TVA`
+-- Table structure for table `tva`
 --
 
-CREATE TABLE `TVA` (
+CREATE TABLE `tva` (
   `nomTVA` varchar(50) NOT NULL,
   `tauxTVA` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `tva`
+--
+
+INSERT INTO `tva` (`nomTVA`, `tauxTVA`) VALUES
+('Fruit', '0');
+
 -- --------------------------------------------------------
 
 --
--- Structure de la table `TYPEINGREDIENT`
+-- Table structure for table `typeingredient`
 --
 
-CREATE TABLE `TYPEINGREDIENT` (
+CREATE TABLE `typeingredient` (
   `idTypeIngredient` int(11) NOT NULL,
   `nomTypeIngredient` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `typeingredient`
+--
+
+INSERT INTO `typeingredient` (`idTypeIngredient`, `nomTypeIngredient`) VALUES
+(1, 'Fruit'),
+(2, 'poisson'),
+(3, 'herbes'),
+(4, 'assaisonnement'),
+(5, 'vinaigres'),
+(6, 'Oeufs'),
+(7, 'Légumes');
+
 -- --------------------------------------------------------
 
 --
--- Structure de la table `TYPERECETTE`
+-- Table structure for table `typerecette`
 --
 
-CREATE TABLE `TYPERECETTE` (
+CREATE TABLE `typerecette` (
   `idTypeRecette` int(11) NOT NULL,
   `nomTypeRecette` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Index pour les tables déchargées
+-- Dumping data for table `typerecette`
+--
+
+INSERT INTO `typerecette` (`idTypeRecette`, `nomTypeRecette`) VALUES
+(1, 'Salades');
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `AUTEUR`
+-- Indexes for table `auteur`
 --
-ALTER TABLE `AUTEUR`
+ALTER TABLE `auteur`
   ADD PRIMARY KEY (`idAuteur`);
 
 --
--- Index pour la table `CHARGE`
+-- Indexes for table `charge`
 --
-ALTER TABLE `CHARGE`
+ALTER TABLE `charge`
   ADD PRIMARY KEY (`nomCharge`);
 
 --
--- Index pour la table `INGREDIENT`
+-- Indexes for table `ingredient`
 --
-ALTER TABLE `INGREDIENT`
+ALTER TABLE `ingredient`
   ADD PRIMARY KEY (`idIngredient`),
   ADD KEY `TVA` (`idTVA`),
   ADD KEY `typeIngredient` (`idTypeIngredient`);
 
 --
--- Index pour la table `INGREDIENTDANSRECETTE`
+-- Indexes for table `ingredientdansrecette`
 --
-ALTER TABLE `INGREDIENTDANSRECETTE`
+ALTER TABLE `ingredientdansrecette`
   ADD KEY `recette` (`idRecette`),
   ADD KEY `ingredient` (`idIngredient`);
 
 --
--- Index pour la table `RECETTE`
+-- Indexes for table `recette`
 --
-ALTER TABLE `RECETTE`
+ALTER TABLE `recette`
   ADD PRIMARY KEY (`idRecette`),
   ADD KEY `typeRecette` (`idTypeRecette`),
   ADD KEY `auteur` (`idAuteur`);
 
 --
--- Index pour la table `RECETTEDANSRECETTE`
+-- Indexes for table `recettedansrecette`
 --
-ALTER TABLE `RECETTEDANSRECETTE`
+ALTER TABLE `recettedansrecette`
   ADD KEY `recetteMere` (`idRecetteMere`),
   ADD KEY `recetteFille` (`idRecetteFille`);
 
 --
--- Index pour la table `TVA`
+-- Indexes for table `tva`
 --
-ALTER TABLE `TVA`
+ALTER TABLE `tva`
   ADD PRIMARY KEY (`nomTVA`);
 
 --
--- Index pour la table `TYPEINGREDIENT`
+-- Indexes for table `typeingredient`
 --
-ALTER TABLE `TYPEINGREDIENT`
+ALTER TABLE `typeingredient`
   ADD PRIMARY KEY (`idTypeIngredient`);
 
 --
--- Index pour la table `TYPERECETTE`
+-- Indexes for table `typerecette`
 --
-ALTER TABLE `TYPERECETTE`
+ALTER TABLE `typerecette`
   ADD PRIMARY KEY (`idTypeRecette`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `AUTEUR`
+-- AUTO_INCREMENT for table `auteur`
 --
-ALTER TABLE `AUTEUR`
-  MODIFY `idAuteur` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `auteur`
+  MODIFY `idAuteur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `INGREDIENT`
+-- AUTO_INCREMENT for table `ingredient`
 --
-ALTER TABLE `INGREDIENT`
-  MODIFY `idIngredient` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ingredient`
+  MODIFY `idIngredient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT pour la table `RECETTE`
+-- AUTO_INCREMENT for table `recette`
 --
-ALTER TABLE `RECETTE`
-  MODIFY `idRecette` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `recette`
+  MODIFY `idRecette` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `TYPEINGREDIENT`
+-- AUTO_INCREMENT for table `typeingredient`
 --
-ALTER TABLE `TYPEINGREDIENT`
-  MODIFY `idTypeIngredient` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `typeingredient`
+  MODIFY `idTypeIngredient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT pour la table `TYPERECETTE`
+-- AUTO_INCREMENT for table `typerecette`
 --
-ALTER TABLE `TYPERECETTE`
-  MODIFY `idTypeRecette` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `typerecette`
+  MODIFY `idTypeRecette` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `INGREDIENT`
+-- Constraints for table `ingredient`
 --
-ALTER TABLE `INGREDIENT`
+ALTER TABLE `ingredient`
   ADD CONSTRAINT `TVA` FOREIGN KEY (`idTVA`) REFERENCES `tva` (`nomTVA`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `typeIngredient` FOREIGN KEY (`idTypeIngredient`) REFERENCES `typeingredient` (`idTypeIngredient`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `INGREDIENTDANSRECETTE`
+-- Constraints for table `ingredientdansrecette`
 --
-ALTER TABLE `INGREDIENTDANSRECETTE`
+ALTER TABLE `ingredientdansrecette`
   ADD CONSTRAINT `ingredient` FOREIGN KEY (`idIngredient`) REFERENCES `ingredient` (`idIngredient`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `recette` FOREIGN KEY (`idRecette`) REFERENCES `recette` (`idRecette`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `RECETTE`
+-- Constraints for table `recette`
 --
-ALTER TABLE `RECETTE`
-  ADD CONSTRAINT `auteur` FOREIGN KEY (`idAuteur`) REFERENCES `AUTEUR` (`idAuteur`) ON DELETE CASCADE ON UPDATE CASCADE,
+ALTER TABLE `recette`
+  ADD CONSTRAINT `auteur` FOREIGN KEY (`idAuteur`) REFERENCES `auteur` (`idAuteur`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `typeRecette` FOREIGN KEY (`idTypeRecette`) REFERENCES `typerecette` (`idTypeRecette`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `RECETTEDANSRECETTE`
+-- Constraints for table `recettedansrecette`
 --
-ALTER TABLE `RECETTEDANSRECETTE`
+ALTER TABLE `recettedansrecette`
   ADD CONSTRAINT `recetteFille` FOREIGN KEY (`idRecetteFille`) REFERENCES `recette` (`idRecette`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `recetteMere` FOREIGN KEY (`idRecetteMere`) REFERENCES `recette` (`idRecette`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
