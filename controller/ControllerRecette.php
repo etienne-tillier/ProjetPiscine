@@ -4,7 +4,6 @@ require_once (File::build_path(array("model", "ModelRecette.php")));
 require_once(File::build_path(array("model","ModelTypeRecette.php")));
 require_once(File::build_path(array("model","ModelIngredientDansRecette.php")));
 require_once(File::build_path(array("model","ModelAuteur.php")));
-
 class ControllerRecette {
 
     protected static $object = 'Recette';

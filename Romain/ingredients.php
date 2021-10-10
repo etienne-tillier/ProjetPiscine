@@ -9,7 +9,7 @@
 	<header>
 		<!-- Menu -->
 		<div id='Menu'>	
-			<?php include("Menu/menu.php"); ?>
+			<?php include("menu.php"); ?>
 		</div>
 	</header>
 
@@ -56,9 +56,9 @@
 		</div>
 		<div id="boutons">
 			<ul>
-				<li>Modifier</li>
-				<li>Supprimer</li>
-				<li>Ajouter</li>
+				<li id="case_upt_ingr"><a href="modifier_ingredients.php">Modifier</li>
+				<li id="case_del_ingr"><a href="supprimer_ingredients.php">Supprimer</li>
+				<li id="case_add_ingr"><a href="ajouter_ingredients.php">Ajouter</li>
 			</ul>
 		</div>
 	</div>

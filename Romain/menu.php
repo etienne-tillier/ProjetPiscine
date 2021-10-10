@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="Menu/style_menu.css">
+<link rel="stylesheet" href="style_menu.css">
 <div id="Bloc_menu">
 	<div>
-		<img id='logo' src="Menu/logo.png">
+		<img id='logo' src="logo.png">
 	</div>
 	<nav id="menu">
 		<ul>
