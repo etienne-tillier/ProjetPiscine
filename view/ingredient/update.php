@@ -1,13 +1,10 @@
-
-
-
 <form method="get" action="index.php" controller="ingredient">
     <fieldset>
         <legend><?= ($create ? "Ajout d'un nouvel ingrédient" : "Mise à jour d'un ingrédient") ?></legend>
         <p>
             <input type ="hidden" name ="action" value=<?php echo "\"$act\"" ?>/>
             <label for="nom_ingredient">Nom</label> :
-            <input type="text" placeholder="Ex : courgette" name="nomIngredient" <?= ($create ? "required" : "readonly") ?> value="<?= htmlspecialchars($nomIngredient) ?>" id="nom_ingredient"/>
+            <input type="text" placeholder="Ex : courgette" name="nomIngredient" <?= ($create ? "required" : "required") ?> value="<?= htmlspecialchars($nomIngredient) ?>" id="nom_ingredient"/>
         </p>
         <p>Type Ingredient</p>
         <select name="idTypeIngredient" required>
@@ -28,7 +25,7 @@
             ?>
         </select>
         <p>
-            <label for="unite_ingredient">Unite</label> :
+            <label for="unite_ingredient">Unité</label> :
             <input type="text" name="unite" value="<?= htmlspecialchars($unite) ?>" id="unite_ingredient" required/>
         </p>
         <p>
