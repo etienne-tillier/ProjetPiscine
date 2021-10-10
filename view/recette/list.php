@@ -29,7 +29,7 @@
                                     $nombrePortion = $recette->getNombrePortion();
                                     $nom = $recette->getNomRecette();
                                     $id = rawurlencode($recette->getIdRecette()); 
-                                    echo '<div id="list_recette"><a href= "index.php?action=read&idRecette=' . $id . '">' . $nom . " : " . $nombrePortion . " personnes </a>" . '</div>';
+                                    echo '<div id="list_recette"><a href= "index.php?action=read&controller=recette&idRecette=' . $id . '">' . $nom . " : " . $nombrePortion . " personnes </a>" . '</div>';
                                 }
                             }
                         }
