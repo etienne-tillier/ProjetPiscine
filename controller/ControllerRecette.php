@@ -2,6 +2,8 @@
 
 require_once (File::build_path(array("model", "ModelRecette.php")));
 require_once(File::build_path(array("model","ModelTypeRecette.php")));
+require_once(File::build_path(array("model","ModelIngredientDansRecette.php")));
+require_once(File::build_path(array("model","ModelAuteur.php")));
 
 class ControllerRecette {
 
@@ -17,10 +19,16 @@ class ControllerRecette {
     }
 
     public static function read() {
-        $pagetitle = 'Détails';
         $idRecette = $_GET["idRecette"];
-        $p = ModelRecette::select($idRecette);
-        if ($p == null) {
+        $r = ModelRecette::select($idRecette);
+        $auteur = ModelAuteur::select($r->getIdAuteur());
+        $tabIngredientDansRecette = ModelIngredientDansRecette::selectIngredientDansRecette($idRecette);
+        $tabIngredients = [];
+        foreach($tabIngredientDansRecette as $ingredientDansRecette){
+            array_push($tabIngredients, [ModelIngredient::select($ingredientDansRecette->getIdIngredient()),$ingredientDansRecette->getQuantiteIngredient()]);
+        }
+        $pagetitle = $r->getNomRecette();
+        if ($r == null) {
             $controller = ('Recette');
             $view = 'error';
             require (File::build_path(array("view", "view.php")));
@@ -57,12 +65,12 @@ class ControllerRecette {
             $data = array(
                 "idRecette" => "",
                 "nomRecette" => $_GET["nomRecette"],
-                "nombrePortion$nombrePortion" => $_GET["nombrePortion$nombrePortion"],
+                "nombrePortion" => $_GET["nombrePortion"],
                 "descriptif" => $_GET["descriptif"],
                 "progression" => $_GET["progression"],
             );
 
-            $p = new ModelRecette($_GET["nomRecette"], $_GET["nombrePortion$nombrePortion"], $_GET["descriptif"], $_GET["progression"], $_GET["paysProvenance"]);
+            $p = new ModelRecette($_GET["nomRecette"], $_GET["nombrePortion"], $_GET["descriptif"], $_GET["progression"], $_GET["paysProvenance"]);
             ModelRecette::save($data);
             $tab_p = ModelRecette::selectAll();
             $controller = ('Recette');
@@ -112,7 +120,7 @@ class ControllerRecette {
             $idRecette = $_GET["idRecette"];
             $data = array(
                 "nomRecette" => $_GET["nomRecette"],
-                "nombrePortion$nombrePortion" => $_GET["nombrePortion$nombrePortion"],
+                "nombrePortion" => $_GET["nombrePortion"],
                 "progression" => $_GET["progression"],
                 "paysProvenance" => $_GET["paysProvenance"],
                 "primary" => $_GET["idRecette"],

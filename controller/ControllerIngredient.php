@@ -18,9 +18,9 @@ class ControllerIngredient {
     }
 
     public static function read() {
-        $pagetitle = 'Détails';
         $idIngredient = $_GET["idIngredient"];
         $i = ModelIngredient::select($idIngredient);
+        $pagetitle = $i->getNomIngredient();
         if ($i == null) {
             $controller = ('ingredient');
             $view = 'error';

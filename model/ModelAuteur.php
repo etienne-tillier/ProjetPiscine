@@ -12,7 +12,6 @@ class ModelAuteur extends Model{
     
     function __construct($idAuteur = null, $prenomAuteur = null, $nomAuteur = null) {
         if (!is_null($idAuteur) && !is_null($nomAuteur) && !is_null($prenomAuteur)) {
-            ) {
             $this->idAuteur = $idAuteur;
             $this->prenomAuteur = $prenomAuteur;
             $this->nomAuteur = $nomAuteur;
@@ -47,11 +46,11 @@ class ModelAuteur extends Model{
     }
 
     
-    function getprenomAuteur() {
+    function getPrenomAuteur() {
         return $this->prenomAuteur;
     }
 
-    function getnomAuteur() {
+    function getNomAuteur() {
         return $this->nomAuteur;
     }
 
@@ -59,7 +58,7 @@ class ModelAuteur extends Model{
 
 
     function setIdAuteur($idAuteur): void {
-        $this->idAuteur = $idAuteur
+        $this->idAuteur = $idAuteur;
     }
 
     function setPrenomAuteur($prenomAuteur): void {

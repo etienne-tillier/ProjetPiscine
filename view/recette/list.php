@@ -18,7 +18,7 @@ foreach($tabTypeRecette as $type){
         //echo '<div class = "produit">' . '<a href= "index.php?action=read&idpierre=' . rawurlencode($p->getIdPierre()) .'"><img src="' . $link . '"alt="id1" height=150px width=150px/><br><strong>' . $p->getNom() . " : " . $p->getPrix() . 'euros</strong></a></div>';
 
                 echo '<div class="recette">
-                    <a href= "index.php?action=read&idRecette=' . $id . '"><strong>' . $nom . " : " . $nombrePortion . "pers </strong></a>"
+                    <a href= "index.php?action=read&controller=recette&idRecette=' . $id . '"><strong>' . $nom . " : " . $nombrePortion . "pers </strong></a>"
                 . '
                 </div>';
             
