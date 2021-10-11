@@ -1,5 +1,4 @@
-
-        <?php
+<?php
         echo "test";
         echo phpversion();
         // if (!isset($_SESSION["prixPanier"])){
@@ -15,5 +14,4 @@
         require_once "{$ROOT_FOLDER}$DS". "lib" . "$DS" . "File.php";
         //appel routeur
         require_once File::build_path(array("controller", "routeur.php"));
-        ?>
-
+?>
