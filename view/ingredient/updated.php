@@ -1,6 +1,3 @@
-
-
-
 <?php
 $create = false;
 echo "<p>Les modifications apportées au produit " . htmlspecialchars($idIngredient) . " ont été enregistrées</p>";

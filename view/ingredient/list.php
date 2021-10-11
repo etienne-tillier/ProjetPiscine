@@ -21,19 +21,13 @@ foreach($typeIngredientListe as $type){
 
                 echo '<div class="ingredient">
                     <a href= "index.php?action=read&idIngredient=' . $ingredient->getIdIngredient() . '"><strong>' . $nom . " : " . $prix . "€/ ". $unite . "</strong></a>"
-                . '
-                </div>';
+                . '</div>';
             
         //}
         }
     }
 }
 ?>
-
-
-
-
-
 
 <?= Session::is_admin() ? '<br><a class="addP" href="index.php?action=create" class="ajout"> Ajouter un nouveau produit </a>' : "" ?>
 

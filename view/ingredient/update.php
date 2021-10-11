@@ -1,6 +1,5 @@
 
 
-
 <form method="get" action="index.php" controller="ingredient">
     <fieldset>
         <legend><?= ($create ? "Ajout d'un nouvel ingrédient" : "Mise à jour d'un ingrédient") ?></legend>
@@ -18,6 +17,9 @@
                 }
             ?>
         </select>
+        <?= "<p ><a href=\"index.php?controller=typeingredient&action=create\"  style=\" color : blue;  text-decoration:none; font-style :cursive; border : 2px groove green; \">Créer Type ingredient</a>"?>
+
+
         <p>Type TVA</p>
         <select name="nomTVA" required>
             <option value="" disabled <?= ($create ? "selected" : "") ?>>Choisissez une TVA</option>
