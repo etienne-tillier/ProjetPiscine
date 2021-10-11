@@ -9,16 +9,10 @@ class ModelAuteur extends Model{
     protected static $object = "Auteur";
     protected static $primary='idAuteur';
     
-    
-<<<<<<< HEAD
-    function __construct($idAuteur = null, $prenomAuteur = null, $nomAuteur = null) 
-    {
-        if (!is_null($idAuteur) && !is_null($nomAuteur) && !is_null($prenomAuteur)) 
-        {
-=======
+
+
     function __construct($idAuteur = null, $prenomAuteur = null, $nomAuteur = null) {
         if (!is_null($idAuteur) && !is_null($nomAuteur) && !is_null($prenomAuteur)) {
->>>>>>> etienne
             $this->idAuteur = $idAuteur;
             $this->prenomAuteur = $prenomAuteur;
             $this->nomAuteur = $nomAuteur;
