@@ -1,0 +1,52 @@
+#Bloc_footer
+{
+	display: flex;
+	background-color: black;
+	height: 60px;
+	font-family: 'Arial','Verdana';
+	color: white;
+	align-items: middle;
+	font-size: 20px;
+
+}
+
+#lien
+{
+	display: flex;
+	width: 50%;
+	align-items: center;
+	justify-content: center;
+
+}
+
+#lien a 
+{
+	text-decoration: none;
+	color: white;
+}
+
+#lien a:hover
+{
+	color: rgb(196, 156, 108);
+} 
+
+#nous
+{
+	display: flex;
+	width: 50%;
+	align-items: center;
+	justify-content: center;
+
+}
+
+#nous ul
+{
+	display: flex;
+	list-style-type: none;
+}
+
+#nous li
+{
+	display: flex;
+	padding: 10px;
+}

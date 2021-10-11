@@ -1,20 +1,22 @@
-
-<?php
-$login_action = (isset($_SESSION['login']) ? "deconnect" : "connect" );
-$login_label = (isset($_SESSION['login']) ? "Déconnexion" : "Connexion" );
-?>
-
 <!DOCTYPE html>
 
 <html>
 
+<head>
+    <title><?php echo $pagetitle; ?></title>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+    
+<header>
+    <!-- Menu -->
+    <div id='Menu'> 
+        <?php include("menu.php"); ?>
+    </div>   
+</header>
 
-    <head>
-        <title><?php echo $pagetitle; ?></title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+<body>
 
-
-
+<<<<<<< HEAD
     </head>
 
     <body>
@@ -33,23 +35,26 @@ $login_label = (isset($_SESSION['login']) ? "Déconnexion" : "Connexion" );
                     <?= (Session::is_admin()) ? "<p><a href =\"index.php?action=readAll&controller=utilisateur\">Tous les utilisateurs (admin)</a></p>" : "" ?>
                 </nav>
             </header>
+=======
+>>>>>>> etienne
             <div>
 
                 <?php
 // Si $controleur='voiture' et $view='list',
 // alors $filepath="/chemin_du_site/view/voiture/list.php"
-
-
                 $filepath = File::build_path(array("view", $controller, "$view.php"));
                 require $filepath;
                 ?>
 
             </div>
-    </body>
-    <footer>
-        <p>Site vente de pierres de Elie Roure, Etienne Tillier et Guilhem Cros</p>
-    </footer>
-</div>
+</body>
+
+<footer>
+    <!-- Footer -->
+    <div id='Footer'>   
+        <?php include("footer.php"); ?>
+    </div>
+</footer>
 
 
 
