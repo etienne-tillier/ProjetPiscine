@@ -3,7 +3,7 @@
 <div id="detail">
     <div  id = "precision_titre"><?php echo ucfirst($i->getNomIngredient())?></div>
     <div id="precision_contenu"><?php echo "<li class> Prix : " . htmlspecialchars($i->getPrixUnitaire()) . "€ / " . htmlspecialchars($i->getUnite()) . "</li>" . "<br>" . "<li class> Allergene : " . (($i->getAllergene() == 1 ? "Oui" : "Non") . "</li>");?></div>
-    <div id="precision_fontion">
+    <div id="precision_fonction">
         <ul>
             <li><?php echo '<a href="index.php?action=delete&controller=ingredient&idIngredient=' . rawurlencode($i->getIdIngredient()) . '"> Supprimer l\'ingrédient </a>';?></li>
             <li><?php echo '<a href="index.php?action=update&controller=ingredient&idIngredient=' . rawurlencode($i->getIdIngredient()) . '"> Modifier l\'ingrédient </a>';?></li>
