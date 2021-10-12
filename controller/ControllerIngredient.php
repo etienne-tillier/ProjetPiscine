@@ -113,9 +113,7 @@ class ControllerIngredient {
         }
 
 
-    //TODO
     public static function updated() {
-            $tab_i = ModelIngredient::selectAll();
             $pagetitle = 'Produit mis à jour';
             $idIngredient = $_GET["idIngredient"];
             $data = array(
@@ -132,11 +130,11 @@ class ControllerIngredient {
             $i->update($data);
             $controller = "ingredient";
             $view = 'updated';
+            $tab_i = ModelIngredient::selectAll();
             require (File::build_path(array("view", "view.php")));
         }
 
     public static function delete() {
-            $tab_i = ModelIngredient::selectAll();     //appel au modèle pour gerer la BD
             $typeIngredientListe = ModelTypeIngredient::selectAll();
             $idIngredient = $_GET["idIngredient"];
             $p = ModelIngredient::select($idIngredient);
@@ -144,6 +142,7 @@ class ControllerIngredient {
                 $pagetitle = 'Erreur produit';
                 $controller = ('ingredient');
                 $view = 'error';
+                $tab_i = ModelIngredient::selectAll();     //appel au modèle pour gerer la BD
                 require (File::build_path(array("view", "view.php")));
             } else {
                 
@@ -152,6 +151,7 @@ class ControllerIngredient {
                 $controller = ('ingredient');
                 $view = 'delete';
                 $pagetitle = 'Suppression de produit';
+                $tab_i = ModelIngredient::selectAll();     //appel au modèle pour gerer la BD
                 require (File::build_path(array("view", "view.php")));
                 
             }
