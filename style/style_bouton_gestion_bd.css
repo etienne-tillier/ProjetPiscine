@@ -1,0 +1,128 @@
+/* -------------------------------------------------------------------------------- Bouton Gestion Base de Donnée (Ingrédient) -------------------------------------------------------------------------------- */
+
+#boutons
+{
+	display: flex;
+	height: 480px;
+	width: 30%;
+	margin: 10px;
+	font-size: 25px;
+	font-weight: bold;
+	font-family: 'Arial','Verdana';
+}
+
+#boutons ul
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: top;
+	align-items: center;
+	list-style: none;
+	width: 100%;
+	margin-right: 10px;
+	padding-right: 15px;
+}
+
+#boutons li 
+{
+	margin-bottom: 15px;
+	border-style: solid;
+	border-color: rgb(196, 156, 108);
+}
+
+#case_add_ingr
+{
+	width: 150px;
+	height: 60px;
+	text-align: center;
+	padding-top: 25px;
+}
+
+#case_add_ingr a
+{
+	text-decoration: none;
+	color: black;
+}
+
+#case_add_ingr a:hover
+{
+	color: rgb(196, 156, 108);
+} 
+
+/* -------------------------------------------------------------------------------- Bouton Gestion Base de Donnée (Recettes) -------------------------------------------------------------------------------- */
+
+#case_upt_rece
+{
+	width: 150px;
+	height: 60px;
+	text-align: center;
+	padding-top: 25px;
+}
+
+#case_upt_rece a
+{
+	text-decoration: none;
+	color: black;
+}
+
+#case_upt_rece a:hover
+{
+	color: rgb(196, 156, 108);
+} 
+
+#case_del_rece
+{
+	width: 150px;
+	height: 60px;
+	text-align: center;
+	padding-top: 25px;
+}
+
+#case_del_rece a
+{
+	text-decoration: none;
+	color: black;
+}
+
+#case_del_rece a:hover
+{
+	color: rgb(196, 156, 108);
+} 
+
+#case_add_rece
+{
+	width: 150px;
+	height: 60px;
+	text-align: center;
+	padding-top: 25px;
+}
+
+#case_add_rece a
+{
+	text-decoration: none;
+	color: black;
+}
+
+#case_add_rece a:hover
+{
+	color: rgb(196, 156, 108);
+} 
+
+#case_imp_rece
+{
+	width: 150px;
+	height: 60px;
+	text-align: center;
+	padding-top: 25px;
+}
+
+#case_imp_rece a
+{
+	text-decoration: none;
+	color: black;
+}
+
+#case_imp_rece a:hover
+{
+	color: rgb(196, 156, 108);
+} 

@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="style/style_details_recette.css"
+
 <?php
 
 echo '<div class = "precision"><h2>' . htmlspecialchars(ucfirst($r->getNomRecette())) . '</h2>' .

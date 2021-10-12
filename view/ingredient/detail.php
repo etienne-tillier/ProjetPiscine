@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="style/style_details_ingredient.css">
 
 <div id="detail">
     <div  id = "precision_titre"><?php echo ucfirst($i->getNomIngredient())?></div>
