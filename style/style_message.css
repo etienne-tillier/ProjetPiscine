@@ -1,0 +1,19 @@
+.message_ajout
+{
+    font-size: 15px;
+    font-family: 'Arial','Verdana';
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    background-color: chartreuse;
+}
+
+.message_supp
+{
+    font-size: 15px;
+    font-family: 'Arial','Verdana';
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    background-color: crimson;
+}
