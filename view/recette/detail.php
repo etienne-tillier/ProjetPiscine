@@ -7,7 +7,9 @@
             echo '<li> Auteur : ' . htmlspecialchars($auteur->getPrenomAuteur()) . ' ' . htmlspecialchars($auteur->getNomAuteur()) .'</li>' . 
             '<li> Nombre de portion : ' . htmlspecialchars($r->getNombrePortion())  . '</li>' . 
             '<li> Prix de main d\'oeuvre : ' . htmlspecialchars($r->getPrixMainOeuvre()) . '</li>' . 
-            '<li> Multiplicateur : ' . htmlspecialchars($r->getMultiplicateur())  . '</li>';
+            '<li> Multiplicateur : ' . htmlspecialchars($r->getMultiplicateur())  . '</li>' .
+            '<li> Descriptif : ' . htmlspecialchars($r->getDescriptif())  . '</li>' .
+        '<li> Progression : ' . htmlspecialchars($r->getProgression())  . '</li>';
         ?>
     </div>
     <div id="titre_precision_ingredient">
