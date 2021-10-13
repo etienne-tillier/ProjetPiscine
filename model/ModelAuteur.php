@@ -6,7 +6,7 @@ class ModelAuteur extends Model{
     private $idAuteur;
     private $prenomAuteur;
     private $nomAuteur;
-    protected static $object = "Auteur";
+    protected static $object = "Auteur";//propriété d'une classe
     protected static $primary='idAuteur';
     
 

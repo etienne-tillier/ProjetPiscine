@@ -1,19 +1,20 @@
 <?php
-
+//classe mère et elle contient ttes les requetes sql vers la base de données
 require_once File::build_path(array("config", "Conf.php"));
 
 class Model {
 
     public static $pdo;
 
-    public static function Init() {
-        $hostname = Conf::getHostname();
+    public static function Init() {//pour se connecter à la base de données
+        $hostname = Conf::getHostname();//j'utilise le getHostname() de la classe conf (::)
         $database_name = Conf::getDatabase();
         $login = Conf::getLogin();
         $password = Conf::getPassword();
         try {
             self::$pdo = new PDO("mysql:host=$hostname;dbname=$database_name", $login, $password,
-                    array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+                    array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));//PDO objet ds php qui me permet de 
+                    //me connecter à la BD et new PDO càd je crée une instance de connexion à la BD
 
 // On active le mode d'affichage des erreurs, et le lancement d'exception en cas d'erreur
             self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -27,16 +28,20 @@ class Model {
         }
     }
 
-    public static function selectAll() {
+    public static function selectAll() {//ça me renvoie un tableau de pls lignes et chaque ligne est un objet
         $table_name = static::$object;
-        $class_name = "Model" . ucfirst($table_name);
+        $class_name = "Model" . ucfirst($table_name);//entrain de construire le nom de la classe
+        //concaténation de chaîne de caractères et j'auraoos ModelAuteur et ucfirst pour mettre.. 
+        //..la première lettre en Maj
         $rep = (Model::$pdo)->query("Select * From " . ucfirst($table_name));
-        $rep->setFetchMode(PDO::FETCH_CLASS, $class_name);
+        $rep->setFetchMode(PDO::FETCH_CLASS, $class_name);//afficher une requête
         $tab = $rep->fetchAll();
         return $tab;
     }
 
-    public static function select($primary_value) {
+
+
+    public static function select($primary_value) {//renvoie une ligne 
         $table_name = static::$object;
         $class_name = "Model" . ucfirst($table_name);
         $primary_key = static::$primary;
