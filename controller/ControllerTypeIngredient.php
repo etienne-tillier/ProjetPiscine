@@ -1,6 +1,7 @@
 <?php   
 
 require_once (File::build_path(array("model", "ModelTypeIngredient.php")));
+require_once (File::build_path(array("model", "ModelIngredient.php")));
 
 class ControllerTypeIngredient {
     
@@ -9,6 +10,7 @@ class ControllerTypeIngredient {
     public static function readAll() 
     {
         $tab_i = ModelTypeIngredient::selectAll(); //on appele le model pour gerer la BD
+        $IngredientListe = ModelIngredient::selectAll(); 
         $controller = ('typeingredient');
         $view = 'list';
         $pagetitle = 'Tous les types ingredients';
@@ -20,7 +22,7 @@ class ControllerTypeIngredient {
         $pagetitle = 'Détails';
         $idTypeIngredient = $_GET["idTypeIngredient"];
         $type = ModelTypeIngredient::select($idTypeIngredient);
-        $i = ModelTypeIngredient::select($idTypeIngredient);
+        $IngredientListe = ModelIngredient::selectAll();
         if($type == null)
         {
             $controller = ('typeingredient');
@@ -36,6 +38,7 @@ class ControllerTypeIngredient {
     {
         $idTypeIngredient = "";
         $nomTypeIngredient = "";
+        $IngredientListe = ModelIngredient::selectAll();
         $form = "readonly";
         $act = "created";
         $create = true;
@@ -47,6 +50,7 @@ class ControllerTypeIngredient {
     
     public static function created()
     {
+
         $data = array(
             "idTypeIngredient" => 0,
             "nomTypeIngredient" => $_GET["nomTypeIngredient"]
@@ -55,7 +59,7 @@ class ControllerTypeIngredient {
         $p = new ModelTypeIngredient($_GET["nomTypeIngredient"]);
         ModelTypeIngredient::save($data);
         $tab_i = ModelTypeIngredient::selectAll();
-        $typeIngredientListe = ModelTypeIngredient::selectAll();
+        $IngredientListe = ModelIngredient::selectAll();
         $controller = ('typeingredient');
         $view = 'created';
         $pagetitle = 'TypeIngrédients';
@@ -92,9 +96,10 @@ class ControllerTypeIngredient {
 
     public static function updated() 
     {
-        $tab_i = ModeTypelIngredient::selectAll();
+        $tab_i = ModelTypeIngredient::selectAll();
         $pagetitle = 'TypeIngredient mis à jour';
         $idTypeIngredient = $_GET["idTypeIngredient"];
+        $nomTypeIngredient = $_GET["nomTypeIngredient"];
         $data = array(
             "nomTypeIngredient" => $_GET["nomTypeIngredient"],
             "primary" => $_GET["idTypeIngredient"]

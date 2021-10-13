@@ -15,7 +15,8 @@
                 }
             ?>
         </select>
-        <?= "<p ><a href=\"index.php?controller=typeingredient&action=create\"  style=\" color : blue;  text-decoration:none; font-style :cursive; border : 2px groove green; \">Créer Type ingredient</a>"?>
+        <?= "<p ><a href=\"index.php?controller=typeingredient&action=create\"  
+        style=\" color : lightblue;  text-decoration:none; font-style :cursive; border : 3px groove green; padding : 10px;\">Créer Type ingredient</a>"?>
 
 
         <p>Type TVA</p>
@@ -50,5 +51,6 @@
         <?=($create ? "" : '<input type ="hidden" name ="idIngredient" value="' . rawurldecode($idIngredient) . '"/>') ?>
             <input type="submit" value="<?= $create ? "Ajouter" : "Mettre à jour" ?>" />
         </p>
+    </fieldset>
 </form>
 
