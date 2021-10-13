@@ -7,6 +7,7 @@ require_once File::build_path(array('controller','ControllerUtilisateur.php'));
 require_once File::build_path(array('controller','ControllerCommande.php'));
 require_once File::build_path(array('controller','ControllerIngredient.php'));
 require_once File::build_path(array('controller','ControllerTypeIngredient.php'));
+require_once File::build_path(array('controller','ControllerTypeRecette.php'));
 require_once File::build_path(array('controller','ControllerRecette.php'));
 require_once File::build_path(array('controller','ControllerAuteur.php'));
 // On recupère l'action passée dans l'URL

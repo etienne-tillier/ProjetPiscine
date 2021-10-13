@@ -16,6 +16,8 @@
                 }
             ?>
         </select>
+        <?= "<p ><a href=\"index.php?controller=TypeRecette&action=create\"  style=\" color : blue;  text-decoration:none; font-style :cursive; border : 2px groove green; \">Créer Type recette</a>"?>
+
 
 
         <p>Auteur</p>
