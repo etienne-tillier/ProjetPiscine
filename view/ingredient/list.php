@@ -1,8 +1,6 @@
 <!-- possible de faire mieux avec requete sql dans le modelIngredient en verifiant l'idTypeIngredient -->
-<!DOCTYPE html>
-<html>
+
 <head>
-    <meta charset="utf-8">
     <title>Ingredients</title>
     <link rel="stylesheet" type="text/css" href="style/style_contenu_bd.css">
     <link rel="stylesheet" type="text/css" href="style/style_bouton_gestion_bd.css">
@@ -48,4 +46,3 @@
             </div>
     </div>
 </body>
-</html>
