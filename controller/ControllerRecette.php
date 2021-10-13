@@ -41,6 +41,8 @@ class ControllerRecette {
 
             //à faire (pas fini) avec created
     public static function create() {
+            $auteurList = ModelAuteur::selectAll();
+            $typeRecetteList = ModelTypeRecette::selectAll();
             $idRecette = "";
             $nomRecette = "";
             $idTypeRecette = "";
@@ -50,6 +52,7 @@ class ControllerRecette {
             $progression = "";
             $prixMainOeuvre = "";
             $multiplicateur = "";
+            $create = true;
             $form = "readonly";
             $act = "created";
             $pagetitle = 'Nouveau produit';
@@ -62,16 +65,21 @@ class ControllerRecette {
         //à faire (pas fini)
     public static function created() {
             $data = array(
-                "idRecette" => "",
+                "idRecette" => 0,
+                "idTypeRecette" => $_GET["idTypeRecette"],
+                "idAuteur" => $_GET["idAuteur"],
                 "nomRecette" => $_GET["nomRecette"],
                 "nombrePortion" => $_GET["nombrePortion"],
                 "descriptif" => $_GET["descriptif"],
                 "progression" => $_GET["progression"],
+                "prixMainOeuvre" => $_GET["prixMainOeuvre"],
+                "multiplicateur" => $_GET["multiplicateur"],
             );
 
-            $p = new ModelRecette($_GET["nomRecette"], $_GET["nombrePortion"], $_GET["descriptif"], $_GET["progression"], $_GET["paysProvenance"]);
+            $r = new ModelRecette($_GET["idTypeRecette"],$_GET["idAuteur"],$_GET["nomRecette"], $_GET["nombrePortion"], $_GET["descriptif"], $_GET["progression"], $_GET["prixMainOeuvre"],$_GET["multiplicateur"]);
             ModelRecette::save($data);
-            $tab_p = ModelRecette::selectAll();
+            $tabTypeRecette = ModelTypeRecette::selectAll();
+            $tab_r = ModelRecette::selectAll();
             $controller = ('Recette');
             $view = 'created';
             $pagetitle = 'Tous nos produits';

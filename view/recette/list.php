@@ -40,14 +40,13 @@
             </div>
             <div id="boutons">
                 <ul>
-                    <li id="case_add_rece"><a href="ajouter_recette.php">Ajouter</li>
+                    <li id="case_add_rece"><a href="index.php?controller=recette&action=create">Ajouter</li>
                     <li id="case_imp_rece"><a href="imprimer_recette.php">Imprimer</li>
                 </ul>
             </div>
     </div>
 </body>
 </html>
-
 
 
 
