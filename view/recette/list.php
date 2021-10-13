@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <title>Recettes</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style/style_contenu_bd.css">
+    <link rel="stylesheet" type="text/css" href="style/style_bouton_gestion_bd.css">
 </head>
 <body>
     <div id="corps">
