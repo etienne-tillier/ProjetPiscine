@@ -1,6 +1,4 @@
 <?php
-        echo "test";
-        echo phpversion();
         // if (!isset($_SESSION["prixPanier"])){
         // $_SESSION["prixPanier"] = 0;
         // }
