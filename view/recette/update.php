@@ -40,7 +40,6 @@
             <?= "<p ><a class='add_type' href=\"index.php?controller=TypeRecette&action=create\">Créer Type recette</a>"?>
 
 
-
             <p class="sous_titre">Auteur
             <select class="liste_der" name="idAuteur" required>
                 <option value="" disabled <?= ($create ? "selected" : "") ?>>Choisissez un auteur</option>
