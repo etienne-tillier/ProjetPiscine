@@ -1,6 +1,7 @@
 <?php
 
 require_once (File::build_path(array("model", "ModelRecette.php")));
+require_once (File::build_path(array("model", "ModelIngredient.php")));
 require_once(File::build_path(array("model","ModelTypeRecette.php")));
 require_once(File::build_path(array("model","ModelIngredientDansRecette.php")));
 require_once(File::build_path(array("model","ModelAuteur.php")));
@@ -43,6 +44,7 @@ class ControllerRecette {
     public static function create() {
             $auteurList = ModelAuteur::selectAll();
             $typeRecetteList = ModelTypeRecette::selectAll();
+            $listeIngredient = ModelIngredient::selectAll();
             $idRecette = "";
             $nomRecette = "";
             $idTypeRecette = "";

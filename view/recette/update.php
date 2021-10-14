@@ -1,5 +1,22 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
 <link rel="stylesheet" type="text/css" href="style/style_formulaire.css">
+<script type="text/javascript">
+    function ajouterIngredient(){
+        $("#listeIngredient").append("<li><select name='ingredient[]' placeholder='Choisissez ingrédient'></select></li>");
+        <?php foreach ($listeIngredient as $ingredient){?>
+            $("#listeIngredient select:last").append($('<option>', {
+                value: "<?php echo $ingredient->getIdIngredient()?>",
+                text: "<?php echo $ingredient->getNomIngredient()?>"
+            }));
+        <?php }; ?>
+    }
 
+ /*   document.getElementById("ajouterIngredient").addEventListener("onClick",() => {
+        ajouterIngredient();
+    }) */
+</script>
 <form id="ajout_ingredient" method="get" action="index.php" controller="recette">
     <fieldset class="bordure">
         <legend class="titre"><?= ($create ? "Ajout d'une nouvelle recette" : "Mise à jour d'une recette") ?></legend>
@@ -46,6 +63,11 @@
                 <label class="sous_titre" for="multiplicateur_id">Multiplicateur</label> :
                 <input class="entrer_text" type="text" name="multiplicateur" value="<?= htmlspecialchars($multiplicateur) ?>" id="multiplicateur_id" required/>
             </p>
+            <p>Liste des ingrédients</p>
+            <p id="ajouterIngredient" onclick="ajouterIngredient()"> ajouter ingrédient </p>
+            <ul id="listeIngredient">
+
+            </ul>
 
             <label class="sous_titre" for="descriptif_id">Description</label>
             <textarea class="entrer_text" id="descriptif_id" name="descriptif" rows="5" cols="33">
