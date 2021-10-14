@@ -12,10 +12,6 @@
             }));
         <?php }; ?>
     }
-
- /*   document.getElementById("ajouterIngredient").addEventListener("onClick",() => {
-        ajouterIngredient();
-    }) */
 </script>
 <form id="ajout_ingredient" method="get" action="index.php" controller="recette">
     <fieldset class="bordure">
