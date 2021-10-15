@@ -30,7 +30,7 @@
                                     $unite = $ingredient->getUnite();
                                     $allergene = $ingredient->getAllergene();
                                     $id = rawurlencode($ingredient->getIdIngredient());
-                                    echo '<div id="list_ingredient"><a href= "index.php?action=read&idIngredient=' . $ingredient->getIdIngredient() . '">' . $nom . " : " . $prix . "€/ ". $unite . "</a>" . '</div>';
+                                     echo '<div id="list_ingredient"><a href= "index.php?action=read&idIngredient=' . $ingredient->getIdIngredient() . '">' . $nom . " : " . $prix . "€/ ". $unite . "</a>" . '</div>';
                                 }
                             }
                         }

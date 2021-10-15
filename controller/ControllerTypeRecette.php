@@ -46,11 +46,11 @@ class ControllerTypeRecette {
     public static function created() {
             $data = array(
                 "idTypeRecette" => "",
-                "nomTypeRecette" => $_GET["nomTypeRecette"]
+                "nomTypeRecette" => $_POST["nomTypeRecette"]
                 
             );
 
-            $p = new ModelTypeRecette($_GET["nomTypeRecette"]);
+            $p = new ModelTypeRecette($_POST["nomTypeRecette"]);
             ModelTypeRecette::save($data);
             $tab_p = ModelTypeRecette::selectAll();
             $controller = ('TypeRecette');
@@ -93,10 +93,10 @@ class ControllerTypeRecette {
     public static function updated() {
             $tab_p = ModelTypeRecette::selectAll();
             $pagetitle = 'Produit mis à jour';
-            $idTypeRecette = $_GET["idTypeRecette"];
+            $idTypeRecette = $_POST["idTypeRecette"];
             $data = array(
-                "nomTypeRecette" => $_GET["nomTypeRecette"],
-                "primary" => $_GET["idTypeRecette"],
+                "nomTypeRecette" => $_POST["nomTypeRecette"],
+                "primary" => $_POST["idTypeRecette"],
             );
             $p = ModelTypeRecette::select($idTypeRecette);
             $p->update($data);

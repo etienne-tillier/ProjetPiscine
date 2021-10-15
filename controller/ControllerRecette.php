@@ -4,6 +4,7 @@ require_once (File::build_path(array("model", "ModelRecette.php")));
 require_once (File::build_path(array("model", "ModelIngredient.php")));
 require_once(File::build_path(array("model","ModelTypeRecette.php")));
 require_once(File::build_path(array("model","ModelIngredientDansRecette.php")));
+require_once(File::build_path(array("model","ModelRecetteDansRecette.php")));
 require_once(File::build_path(array("model","ModelAuteur.php")));
 class ControllerRecette {
 
@@ -22,7 +23,7 @@ class ControllerRecette {
         $idRecette = $_GET["idRecette"];
         $r = ModelRecette::select($idRecette);
         $auteur = ModelAuteur::select($r->getIdAuteur());
-        $tabIngredientDansRecette = ModelIngredientDansRecette::selectIngredientDansRecette($idRecette);
+        $tabIngredientDansRecette = ModelIngredientDansRecette::selectIngredientDansRecette($idRecette,"recette");
         $tabIngredients = [];
         foreach($tabIngredientDansRecette as $ingredientDansRecette){
             array_push($tabIngredients, [ModelIngredient::select($ingredientDansRecette->getIdIngredient()),$ingredientDansRecette->getQuantiteIngredient()]);
@@ -45,6 +46,7 @@ class ControllerRecette {
             $auteurList = ModelAuteur::selectAll();
             $typeRecetteList = ModelTypeRecette::selectAll();
             $listeIngredient = ModelIngredient::selectAll();
+            $listeRecette = ModelRecette::selectAll();
             $idRecette = "";
             $nomRecette = "";
             $idTypeRecette = "";
@@ -68,20 +70,43 @@ class ControllerRecette {
     public static function created() {
             $data = array(
                 "idRecette" => 0,
-                "idTypeRecette" => $_GET["idTypeRecette"],
-                "idAuteur" => $_GET["idAuteur"],
-                "nomRecette" => $_GET["nomRecette"],
-                "nombrePortion" => $_GET["nombrePortion"],
-                "descriptif" => $_GET["descriptif"],
-                "progression" => $_GET["progression"],
-                "prixMainOeuvre" => $_GET["prixMainOeuvre"],
-                "multiplicateur" => $_GET["multiplicateur"],
+                "idTypeRecette" => $_POST["idTypeRecette"],
+                "idAuteur" => $_POST["idAuteur"],
+                "nomRecette" => $_POST["nomRecette"],
+                "nombrePortion" => $_POST["nombrePortion"],
+                "descriptif" => $_POST["descriptif"],
+                "progression" => $_POST["progression"],
+                "prixMainOeuvre" => $_POST["prixMainOeuvre"],
+                "multiplicateur" => $_POST["multiplicateur"],
             );
-
-            $r = new ModelRecette($_GET["idTypeRecette"],$_GET["idAuteur"],$_GET["nomRecette"], $_GET["nombrePortion"], $_GET["descriptif"], $_GET["progression"], $_GET["prixMainOeuvre"],$_GET["multiplicateur"]);
+            $ingredients = $_POST["ingredients"];
+            $quantitesIngredients = $_POST["quantitesIngredients"];
+            $recettes = $_POST["recettes"];
+            $quantitesRecettes = $_POST["quantitesRecettes"];
+            $r = new ModelRecette($_POST["idTypeRecette"],$_POST["idAuteur"],$_POST["nomRecette"], $_POST["nombrePortion"], $_POST["descriptif"], $_POST["progression"], $_POST["prixMainOeuvre"],$_POST["multiplicateur"]);
             ModelRecette::save($data);
             $tabTypeRecette = ModelTypeRecette::selectAll();
             $tab_r = ModelRecette::selectAll();
+
+            for ($i = 0; $i < count($ingredients); $i++) {
+                $ingredientDansRecette = array(
+                    "idRecette" => $tab_r[count($tab_r)-1]->getIdRecette(),
+                    "idIngredient" => $ingredients[$i],
+                    "quantiteIngredient" =>$quantitesIngredients[$i]
+
+                );
+                ModelIngredientDansRecette::save($ingredientDansRecette);
+            }
+
+            for ($i = 0; $i < count($recettes); $i++) {
+                $recetteDansRecette = array(
+                    "idRecetteMere" => $tab_r[count($tab_r)-1]->getIdRecette(),
+                    "idRecetteFille" => $recettes[$i],
+                    "quantiteRecette" =>$quantitesRecettes[$i]
+
+                );
+                ModelRecetteDansRecette::save($recetteDansRecette);
+            }
             $controller = ('Recette');
             $view = 'created';
             $pagetitle = 'Tous nos produits';
@@ -126,13 +151,13 @@ class ControllerRecette {
     public static function updated() {
             $tab_p = ModelRecette::selectAll();
             $pagetitle = 'Produit mis à jour';
-            $idRecette = $_GET["idRecette"];
+            $idRecette = $_POST["idRecette"];
             $data = array(
-                "nomRecette" => $_GET["nomRecette"],
-                "nombrePortion" => $_GET["nombrePortion"],
-                "progression" => $_GET["progression"],
-                "paysProvenance" => $_GET["paysProvenance"],
-                "primary" => $_GET["idRecette"],
+                "nomRecette" => $_POST["nomRecette"],
+                "nombrePortion" => $_POST["nombrePortion"],
+                "progression" => $_POST["progression"],
+                "paysProvenance" => $_POST["paysProvenance"],
+                "primary" => $_POST["idRecette"],
             );
             $p = ModelRecette::select($idRecette);
             $p->update($data);

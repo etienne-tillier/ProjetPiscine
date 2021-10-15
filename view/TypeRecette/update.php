@@ -1,4 +1,4 @@
-<form method="get" action="index.php" controller="TypeRecette">
+<form method="post" action="index.php?action=<?= ($create ? "created" : "updated" )?>&controller=typeRecette">
     <fieldset>
         <legend><?= ($create ? "Ajout d'un nouveau type" : "Mise à jour d'un type") ?></legend>
         <p>

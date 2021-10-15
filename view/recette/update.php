@@ -4,16 +4,28 @@
 <link rel="stylesheet" type="text/css" href="style/style_formulaire.css">
 <script type="text/javascript">
     function ajouterIngredient(){
-        $("#listeIngredient").append("<li><select name='ingredient[]' placeholder='Choisissez ingrédient'></select></li>");
+        $("#listeIngredient").append("<li><select name='ingredients[]' placeholder='Choisissez ingrédient'></select></li>");
         <?php foreach ($listeIngredient as $ingredient){?>
             $("#listeIngredient select:last").append($('<option>', {
                 value: "<?php echo $ingredient->getIdIngredient()?>",
                 text: "<?php echo $ingredient->getNomIngredient()?>"
             }));
         <?php }; ?>
+        $("#listeIngredient").append("<li><input type='text' name='quantitesIngredients[]' placeholder='Quantité ingredient'></input></li>");
     }
+    function ajouterRecette(){
+        $("#listeIngredient").append("<li><select name='recettes[]' placeholder='Choisissez la recette'></select></li>");
+        <?php foreach ($listeRecette as $recette){?>
+        $("#listeIngredient select:last").append($('<option>', {
+            value: "<?php echo $recette->getIdRecette()?>",
+            text: "<?php echo $recette->getNomRecette()?>"
+        }));
+        <?php }; ?>
+        $("#listeIngredient").append("<li><input type='text' name='quantitesRecettes[]' placeholder='Quantité recette'></input></li>");
+    }
+
 </script>
-<form id="ajout_ingredient" method="get" action="index.php" controller="recette">
+<form id="ajout_ingredient" method="post" action="index.php?action=<?= ($create ? "created" : "updated" )?>&controller=recette">
     <fieldset class="bordure">
         <legend class="titre"><?= ($create ? "Ajout d'une nouvelle recette" : "Mise à jour d'une recette") ?></legend>
         <div class="contenu_form">    
@@ -60,6 +72,7 @@
             </p>
             <p>Liste des ingrédients</p>
             <p id="ajouterIngredient" onclick="ajouterIngredient()"> ajouter ingrédient </p>
+            <p id="ajouterRecette" onclick="ajouterRecette()"> ajouter recette </p>
             <ul id="listeIngredient">
 
             </ul>

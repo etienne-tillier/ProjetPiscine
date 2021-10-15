@@ -1,5 +1,5 @@
 
-<form method="get" action="index.php" controller="typeingredient">
+<form method="post" action="index.php?action=<?= ($create ? "created" : "updated" )?>&controller=typeIngredient">
     <fieldset>
         <legend><?= ($create ? "Ajout d'un nouvel type ingrédient" : "Mise à jour d'un type ingrédient") ?></legend>
         <p>
