@@ -3,25 +3,33 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
 <link rel="stylesheet" type="text/css" href="style/style_formulaire.css">
 <script type="text/javascript">
+    var i = 0;
+
     function ajouterIngredient(){
-        $("#listeIngredient").append("<li><select name='ingredients[]' placeholder='Choisissez ingrédient'></select></li>");
+        $("#listeIngredient").append("<div id='" + i + "'></div>");
+        $("#listeIngredient div:last").append("<li><select id='select-state' name='ingredients[]' placeholder='Choisissez ingrédient'></select></li>");
         <?php foreach ($listeIngredient as $ingredient){?>
-            $("#listeIngredient select:last").append($('<option>', {
+            $("#listeIngredient div:last select:last").append($('<option>', {
                 value: "<?php echo $ingredient->getIdIngredient()?>",
                 text: "<?php echo $ingredient->getNomIngredient()?>"
             }));
         <?php }; ?>
-        $("#listeIngredient").append("<li><input type='text' name='quantitesIngredients[]' placeholder='Quantité ingredient'></input></li>");
+        $("#listeIngredient div:last").append("<li><input type='text' name='quantitesIngredients[]' placeholder='Quantité ingredient'></input></li>");
+        $("#listeIngredient div:last").append("<li><div onclick='$(this).parent().parent().remove()'>Supprimer</div></li>");
+        i++;
     }
     function ajouterRecette(){
-        $("#listeIngredient").append("<li><select name='recettes[]' placeholder='Choisissez la recette'></select></li>");
+        $("#listeIngredient").append("<div id='" + i + "'></div>");
+        $("#listeIngredient div:last").append("<li><select name='recettes[]' placeholder='Choisissez la recette'></select></li>");
         <?php foreach ($listeRecette as $recette){?>
-        $("#listeIngredient select:last").append($('<option>', {
+        $("#listeIngredient div:last select:last").append($('<option>', {
             value: "<?php echo $recette->getIdRecette()?>",
             text: "<?php echo $recette->getNomRecette()?>"
         }));
         <?php }; ?>
-        $("#listeIngredient").append("<li><input type='text' name='quantitesRecettes[]' placeholder='Quantité recette'></input></li>");
+        $("#listeIngredient div:last").append("<li><input type='text' name='quantitesRecettes[]' placeholder='Quantité recette'></input></li>");
+        $("#listeIngredient div:last").append("<li><div onclick='$(this).parent().parent().remove()'>Supprimer</div></li>");
+        i++;
     }
 
 </script>
