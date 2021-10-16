@@ -78,13 +78,13 @@
             </ul>
 
             <label class="sous_titre" for="descriptif_id">Description</label>
-            <textarea class="entrer_text" id="descriptif_id" name="descriptif" rows="5" cols="33">
+            <textarea class="entrer_text" id="descriptif_id" name="descriptif" rows="5" cols="33" required>
                 <?= htmlspecialchars($descriptif) ?>
             </textarea>
 
             
             <label class="sous_titre" for="progression_id">Progression</label>
-            <textarea class="entrer_text" id="progression_id" name="progression" rows="5" cols="33">
+            <textarea class="entrer_text" id="progression_id" name="progression" rows="5" cols="33" required>
                 <?= htmlspecialchars($progression) ?>
             </textarea>
             

@@ -24,9 +24,14 @@ class ControllerRecette {
         $r = ModelRecette::select($idRecette);
         $auteur = ModelAuteur::select($r->getIdAuteur());
         $tabIngredientDansRecette = ModelIngredientDansRecette::selectIngredientDansRecette($idRecette,"recette");
+        $tabRecetteDansRecette = ModelRecetteDansRecette::selectRecetteDansRecette($idRecette,"mère");
+        $tabRecettes = [];
         $tabIngredients = [];
         foreach($tabIngredientDansRecette as $ingredientDansRecette){
             array_push($tabIngredients, [ModelIngredient::select($ingredientDansRecette->getIdIngredient()),$ingredientDansRecette->getQuantiteIngredient()]);
+        }
+        foreach($tabRecetteDansRecette as $recettetDansRecette){
+            array_push($tabRecettes, [ModelRecette::select($recettetDansRecette->getIdRecetteFille()),$recettetDansRecette->getQuantiteRecette()]);
         }
         $pagetitle = $r->getNomRecette();
         if ($r == null) {
