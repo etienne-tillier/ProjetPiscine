@@ -47,7 +47,7 @@
 	font-size: 25px;
 	text-decoration: underline;
 	font-weight: bold;
-	color: coral;
+	width: 10px;
 }
 
 #type_ingredient a
@@ -61,11 +61,27 @@
 	color: rgb(196, 156, 108);
 }
 
+#type_ingredient:hover
+{
+	color: rgb(196, 156, 108);
+}
 
 #list_ingredient
 {
 	font-size: 20px;
 }
+
+#list_ingredient a
+{
+	text-decoration: none;
+	color: black;
+}
+
+#list_ingredient a:hover
+{
+	color: rgb(196, 156, 108);
+}
+
 
 #type_recette
 {
