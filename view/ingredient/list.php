@@ -20,7 +20,7 @@
 
                         foreach($typeIngredientListe as $type){
 
-                            echo "<div id='type_ingredient'><p>" .  '<a href= "index.php?action=read&controller=typeingredient&idTypeIngredient=' . $type->getIdTypeIngredient() . '"><strong>' . $type->getNomTypeIngredient() . "</strong>". '</p></div>';
+                            echo "<div id='type_ingredient'><p>" .  '<a href= "index.php?action=read&controller=typeingredient&idTypeIngredient=' . $type->getIdTypeIngredient() . '">' . $type->getNomTypeIngredient() . '</p></div>';
 
                             $idType = $type->getIdTypeIngredient();
                             foreach ($tab_i as $ingredient) {
@@ -30,7 +30,7 @@
                                     $unite = $ingredient->getUnite();
                                     $allergene = $ingredient->getAllergene();
                                     $id = rawurlencode($ingredient->getIdIngredient());
-                                     echo '<div id="list_ingredient"><a href= "index.php?action=read&idIngredient=' . $ingredient->getIdIngredient() . '">' . $nom . " : " . $prix . "€/ ". $unite . "</a>" . '</div>';
+                                    echo '<div id="list_ingredient"><a href= "index.php?action=read&idIngredient=' . $ingredient->getIdIngredient() . '">' . $nom . " : " . $prix . "€/ ". $unite . "</a>" . '</div>';
                                 }
                             }
                         }
