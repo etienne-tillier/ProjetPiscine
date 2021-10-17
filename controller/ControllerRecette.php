@@ -177,7 +177,7 @@ class ControllerRecette {
                 require (File::build_path(array("view", "view.php")));
             } else {
                 $controller = 'Recette';
-                $view = 'update';
+                $view = ($tabIngredientDansRecette != null && $tabRecetteDansRecette != null ? "update" : ($tabIngredientDansRecette == null ? 'updateRec' : "updateIng" ));
                 require (File::build_path(array("view", "view.php")));
             }
         }
