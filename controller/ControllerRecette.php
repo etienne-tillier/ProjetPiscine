@@ -86,7 +86,7 @@ class ControllerRecette {
             $act = "created";
             $pagetitle = 'Nouveau produit';
             $controller = 'Recette';
-            $view = 'update';
+            $view = 'create';
             require (File::build_path(array("view", "view.php")));
         }
 
@@ -150,23 +150,34 @@ class ControllerRecette {
     // à faire avec udptated
     public static function update() {
             $act = "updated";
+            $create = false;
             $form = "readonly";
             $pagetitle = 'Mise à jour informations produit';
             $idRecette = $_GET["idRecette"];
 
-            $p = ModelRecette::select($idRecette);
-            $nomRecette = $p->getNomRecette();
-            $descriptif = $p->getdescriptif();
-            $nombrePortion = $p->getunite();
-            $progression = $p->getprogression();
-            $paysProvenance = $p->getPaysProvenance();
-            if ($p == null) {
+            $r = ModelRecette::select($idRecette);
+            $nomRecette = $r->getNomRecette();
+            $idAuteur = $r->getIdAuteur();
+            $idTypeRecette = $r->getIdTypeRecette();
+            $descriptif = $r->getdescriptif();
+            $nombrePortion = $r->getNombrePortion();
+            $progression = $r->getProgression();
+            $multiplicateur = $r->getMultiplicateur();
+            $prixMainOeuvre = $r->getPrixMainOeuvre();
+            $auteurList = ModelAuteur::selectAll();
+            $typeRecetteList = ModelTypeRecette::selectAll();
+            $listeIngredient = ModelIngredient::selectAll();
+            $listeRecette = ModelRecette::selectAll();
+            $tabIngredientDansRecette = ModelIngredientDansRecette::selectIngredientDansRecette($idRecette,"recette");
+            $tabRecetteDansRecette = ModelRecetteDansRecette::selectRecetteDansRecette($idRecette,"mère");
+
+            if ($r == null) {
                 $controller = ('Recette');
                 $view = 'error';
                 require (File::build_path(array("view", "view.php")));
             } else {
                 $controller = 'Recette';
-                $view = 'update';
+                $view = ($tabIngredientDansRecette != null && $tabRecetteDansRecette != null ? "update" : ($tabIngredientDansRecette == null ? 'updateRec' : "updateIng" ));
                 require (File::build_path(array("view", "view.php")));
             }
         }
@@ -178,16 +189,47 @@ class ControllerRecette {
             $pagetitle = 'Produit mis à jour';
             $idRecette = $_POST["idRecette"];
             $data = array(
+                "idAuteur" => $_POST["idAuteur"],
+                "idTypeRecette" => $_POST["idTypeRecette"],
                 "nomRecette" => $_POST["nomRecette"],
                 "nombrePortion" => $_POST["nombrePortion"],
                 "progression" => $_POST["progression"],
-                "paysProvenance" => $_POST["paysProvenance"],
+                "prixMainOeuvre" => $_POST["prixMainOeuvre"],
+                "multiplicateur" => $_POST["multiplicateur"],
+                "progression" => $_POST["progression"],
                 "primary" => $_POST["idRecette"],
             );
+            ModelIngredientDansRecette::delete($idRecette);
+            ModelRecetteDansRecette::delete($idRecette);
+            $ingredients = $_POST["ingredients"];
+            $quantitesIngredients = $_POST["quantitesIngredients"];
+            $recettes = $_POST["recettes"];
+            $quantitesRecettes = $_POST["quantitesRecettes"];
+            for ($i = 0; $i < count($ingredients); $i++) {
+                $ingredientDansRecette = array(
+                    "idRecette" => $idRecette,
+                    "idIngredient" => $ingredients[$i],
+                    "quantiteIngredient" =>$quantitesIngredients[$i]
+
+                );
+                ModelIngredientDansRecette::save($ingredientDansRecette);
+            }
+
+            for ($i = 0; $i < count($recettes); $i++) {
+                $recetteDansRecette = array(
+                    "idRecetteMere" => $idRecette,
+                    "idRecetteFille" => $recettes[$i],
+                    "quantiteRecette" =>$quantitesRecettes[$i]
+
+                );
+                ModelRecetteDansRecette::save($recetteDansRecette);
+            }
             $p = ModelRecette::select($idRecette);
             $p->update($data);
             $controller = "Recette";
             $view = 'updated';
+            $tabTypeRecette = ModelTypeRecette::selectAll();
+            $tab_r = ModelRecette::selectAll();
             require (File::build_path(array("view", "view.php")));
         }
 
