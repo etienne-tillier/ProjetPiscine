@@ -53,10 +53,10 @@ class ControllerTypeIngredient {
 
         $data = array(
             "idTypeIngredient" => 0,
-            "nomTypeIngredient" => $_GET["nomTypeIngredient"]
+            "nomTypeIngredient" => $_POST["nomTypeIngredient"]
         );
 
-        $p = new ModelTypeIngredient($_GET["nomTypeIngredient"]);
+        $p = new ModelTypeIngredient($_POST["nomTypeIngredient"]);
         ModelTypeIngredient::save($data);
         $tab_i = ModelTypeIngredient::selectAll();
         $IngredientListe = ModelIngredient::selectAll();
@@ -98,11 +98,11 @@ class ControllerTypeIngredient {
     {
         $tab_i = ModelTypeIngredient::selectAll();
         $pagetitle = 'TypeIngredient mis à jour';
-        $idTypeIngredient = $_GET["idTypeIngredient"];
-        $nomTypeIngredient = $_GET["nomTypeIngredient"];
+        $idTypeIngredient = $_POST["idTypeIngredient"];
+        $nomTypeIngredient = $_POST["nomTypeIngredient"];
         $data = array(
-            "nomTypeIngredient" => $_GET["nomTypeIngredient"],
-            "primary" => $_GET["idTypeIngredient"]
+            "nomTypeIngredient" => $_POST["nomTypeIngredient"],
+            "primary" => $_POST["idTypeIngredient"]
         );
         $i = ModelTypeIngredient::select($idTypeIngredient);
         $typeIngredientListe = ModelTypeIngredient::selectAll();

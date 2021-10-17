@@ -16,9 +16,12 @@
         <p>Ingrédients</p>
     </div>
     <div id="precision_ingredient">
-        <?php 
+        <?php
+        foreach($tabRecettes as $recette) {
+            echo '<li><a href="index.php?action=read&controller=recette&idRecette='. rawurldecode($recette[0]->getIdRecette()) .'">' . htmlspecialchars($recette[1]) . ' ' . htmlspecialchars($recette[0]->getNomRecette()) . '</li>';
+        }
         foreach($tabIngredients as $ingredient) {
-            echo '<li>' . htmlspecialchars($ingredient[0]->getNomIngredient()) . ' ' . htmlspecialchars($ingredient[1]) . ' ' . htmlspecialchars($ingredient[0]->getUnite()) .'</li>';
+            echo '<li><a href="index.php?action=read&controller=ingredient&idIngredient='. rawurldecode($ingredient[0]->getIdIngredient()) .'">' . htmlspecialchars($ingredient[0]->getNomIngredient()) . ' ' . htmlspecialchars($ingredient[1]) . ' ' . htmlspecialchars($ingredient[0]->getUnite()) .'</a></li>';
         }
         ;
         ?>

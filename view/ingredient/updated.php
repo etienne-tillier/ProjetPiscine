@@ -1,8 +1,14 @@
 <?php
 $create = false;
-echo "<p>Les modifications apportées au produit " . htmlspecialchars($idIngredient) . " ont été enregistrées</p>";
+?>
+<script type="text/javascript">
+    alert("Les modifications ont été apportées au produit");
+    window.location = 'index.php';
+</script>
+<?php
 require (File::build_path(array("view", "ingredient", "list.php")));
 ?>
+
     
 
 
