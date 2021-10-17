@@ -69,6 +69,72 @@ class Model {
             return false;
         return $tab[0];
     }
+    
+
+
+    public static function selectname($name_recherche) {//renvoie une ligne
+        $table_name = static::$object;
+        $class_name = "Model" . ucfirst($table_name);//entrain de construire le nom de la classe
+        //concaténation de chaîne de caractères et j'auraoos ModelAuteur et ucfirst pour mettre.. 
+        //..la première lettre en Maj 
+        if(ucfirst($table_name) == "Ingredient")
+        {
+            $rep = (Model::$pdo)->query('Select * From  ' . ucfirst($table_name) . ' 
+            NATURAL JOIN Typeingredient 
+            WHERE (nomIngredient LIKE "%' . $name_recherche .'%"  
+            OR ( prixUnitaire LIKE "' . $name_recherche .'.00") 
+            OR ( nomTypeIngredient LIKE "%' . $name_recherche .'%")
+            OR ( unite LIKE "%' . $name_recherche .'%")
+            )');
+        } else {
+            $rep = (Model::$pdo)->query('Select * From  ' . ucfirst($table_name) . ' 
+            NATURAL JOIN Auteur NATURAL JOIN Typerecette
+            WHERE (nomRecette LIKE "%' . $name_recherche .'%"  
+            OR ( nomAuteur LIKE "' . $name_recherche .'%") 
+            OR ( prenomAuteur LIKE "' . $name_recherche .'%")
+            OR ( nomTypeRecette LIKE "' . $name_recherche .'%")
+            )      ');
+        }
+
+        $rep->setFetchMode(PDO::FETCH_CLASS, $class_name);//afficher une requête
+        $tab = $rep->fetchAll();
+        return $tab;
+    
+    }
+
+
+
+ /*   
+ public static function selectname($name_recherche) {//renvoie une ligne
+        
+        $table_name = static::$object;
+        $class_name = "Model" . ucfirst($table_name);       
+
+        try{
+            $sql = "SELECT * from " . ucfirst($table_name) . " WHERE nomIngredient LIKE "%' . $name_recherhce . '%";
+            
+            //preparation de le requete 
+            $req_prep = Model::$pdo->prepare($sql);
+
+            $values = array(
+                "nom_tag" => $name_recherche,
+                    //nomdutag => valeur, ...
+            );
+            // On donne les valeurs et on exécute la requete 
+            $req_prep->execute($values);
+            
+            // On récupère les résultats comme précédemment
+            $req_prep->setFetchMode(PDO::FETCH_CLASS, $class_name);
+            $tab = $req_prep->fetchAll();
+    // Attention, si il n'y a pas de résultats, on renvoie false
+        } catch (Exception $ex) {
+            echo $ex->getMessage();
+        }
+        if (empty($tab))
+            return false;
+        return $tab[0];
+    }*/
+    
 
     public static function delete($primary) {
         $table_name = static::$object;
@@ -95,7 +161,7 @@ class Model {
              if ($cle != "primary"){
              $sql = $sql." $cle =:$cle,";
              }
-         }
+        }
         try{
             $sql = rtrim($sql, ",");
             $sql = $sql
