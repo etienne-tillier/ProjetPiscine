@@ -1,6 +1,5 @@
 <?php
     echo "<p>$pagetitle <br> 
-    la recette " . $_GET['Recherche'] . "
-    n'est pas retrouver !!</p>";
+    Aucune donnée n'a été retrouver dans recette !!</p>";
 
 ?>
