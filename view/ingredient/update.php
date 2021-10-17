@@ -16,7 +16,7 @@
             ?>
         </select>
         <?= "<p ><a href=\"index.php?controller=typeingredient&action=create\"  style=\" color : blue;  text-decoration:none; font-style :cursive; border : 2px groove green; \">Créer Type ingredient</a>"?>
-
+        <?= "<p ><a href=\"index.php?controller=TVA&action=create\"  style=\" color : blue;  text-decoration:none; font-style :cursive; border : 2px groove green; \">Créer une TVA</a>"?>
 
         <p>Type TVA</p>
         <select name="nomTVA" required>

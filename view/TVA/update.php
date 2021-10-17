@@ -11,13 +11,13 @@
             <input type="text" name="Nom TVA" <?= ($create ? "required" : "readonly") ?> value="<?= htmlspecialchars$nomTVA) ?>" id="NomTVA"/>
             <label for="Taux TVA">Nom</label> :
             <input type="text" name="Taux TVA" <?= ($create ? "required" : "readonly") ?> value="<?= htmlspecialchars$nomTVA) ?>" id="NomTVA"/>
-        
+                
         
         </p>
         
         
         
-        <?=($create ? "" : '<input type ="hidden" name ="NomTVA" value="' . rawurldecode($idTypeRecette) . '"/>') ?>
+        <?=($create ? "" : '<input type ="hidden" name ="NomTVA" value="' . rawurldecode($nomTVA) . '"/>') ?>
             <input type="submit" value="<?= $create ? "Ajouter" : "Mettre à jour" ?>" />
         </p>
 </form>
