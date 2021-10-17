@@ -31,9 +31,30 @@ class ControllerIngredient {
             require (File::build_path(array("view", "view.php")));
         }
     }
+        public static function research()
+        {
+
+            $ingredientRechercher = $_GET["Recherche"];
+            $ListeIngredient = ModelIngredient::selectname($ingredientRechercher);
+            $typeIngredientListe = ModelTypeIngredient::selectAll();
+            $pagetitle = "Resultat de recherche";
+            if(empty($ListeIngredient))
+            {
+                $controller = ('ingredient');
+                $view = 'errorresearch';
+                require (File::build_path(array("view", "view.php")));
+            }else {
+                $controller = 'ingredient';
+                $view = 'recherche';
+                require (File::build_path(array("view", "view.php")));
+            }  
+        }   
 
 
-            //à faire (pas fini) avec created
+    
+
+
+        //à faire (pas fini) avec created
     public static function create() {
             $idIngredient = "";
             $nomIngredient = "";

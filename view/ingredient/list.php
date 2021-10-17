@@ -1,5 +1,6 @@
 <!-- possible de faire mieux avec requete sql dans le modelIngredient en verifiant l'idTypeIngredient -->
 
+
 <head>
     <title>Ingredients</title>
     <link rel="stylesheet" type="text/css" href="style/style_contenu_bd.css">
@@ -11,14 +12,21 @@
                 <div id="entete">
                     <ul>
                         <li>Ingrédients</li>
-                        <li>Filtres</li>
+                        <li>
+                            <form method="GET" action="index.php" controller="ingredient">
+                                <input type ="hidden" name ="action" value="research">
+                                <input type="search" name="Recherche" placeholder="Recherche d'ingredient"> 
+                                <input type="submit" value="Trouver">
+                            </form>    
+                        </li>
                     </ul>
                 </div>
                 <div id="contenu">
                     <p>
                         <?php
 
-                        foreach($typeIngredientListe as $type){
+
+                            foreach($typeIngredientListe as $type){
 
                             echo "<div id='type_ingredient'><p>" .  '<a href= "index.php?action=read&controller=typeingredient&idTypeIngredient=' . $type->getIdTypeIngredient() . '">' . $type->getNomTypeIngredient() . '</p></div>';
 
@@ -35,6 +43,7 @@
                             }
                         }
                         ?>
+                    
                     </p>
                 </div>
             </div>

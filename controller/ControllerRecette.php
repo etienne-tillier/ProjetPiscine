@@ -45,6 +45,26 @@ class ControllerRecette {
         }
     }
 
+    public static function research()
+        {
+
+            $recetteRechercher = $_GET["Recherche"];
+            $ListeRecette = ModelRecette::selectname($recetteRechercher);
+            $typerecetteListe = ModelTypeRecette::selectAll();
+            $pagetitle = "Resultat de recherche recette";
+            if(empty($ListeRecette))
+            {
+                $controller = ('recette');
+                $view = 'erreurrecette';
+                require (File::build_path(array("view", "view.php")));
+            }else {
+                $controller = 'recette';
+                $view = 'recherche';
+                require (File::build_path(array("view", "view.php")));
+            }  
+        }   
+
+
 
             //à faire (pas fini) avec created
     public static function create() {
