@@ -12,8 +12,8 @@
                         <li>
                             <form method="GET" action="index.php" controller="ingredient">
                                 <input type ="hidden" name ="action" value="research">
-                                <input type="search" name="Recherche" placeholder="Recherche d'ingredients"> 
-                                <input type="submit" value="Trouver">
+                                <input id="barre_recherche" type="search" name="Recherche" placeholder="Recherche de recettes"> 
+                                <input id="bouton_recherche" type="submit" value="Trouver">
                             </form>    
                         </li>
                     </ul>

@@ -16,7 +16,7 @@
                             <form method="GET" action="index.php" controller="ingredient">
                                 <input type ="hidden" name ="action" value="research">
 
-                                <input id="barre_recherche" type="search" name="Recherche" placeholder="Recherche d'ingredient"> 
+                                <input id="barre_recherche" type="search" name="Recherche" placeholder="Recherche d'ingredients"> 
                                 <input id="bouton_recherche" type="submit" value="Trouver">
                             </form>    
                         </li>

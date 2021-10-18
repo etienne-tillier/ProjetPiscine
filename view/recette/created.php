@@ -1,9 +1,13 @@
 <link rel="stylesheet" type="text/css" href="style/style_message.css">
-<div class = "message_ajout">
+<div class = "message_ajout">  
     <?php
-        echo "<p>Nouveau produit enregistré !</p>";
         require (File::build_path(array("view", "recette", "list.php")));
     ?>
+    <script type="text/javascript">
+        alert("Nouvelle recette enregistré !");
+        window.location = 'view/recette/list.php';
+    </script>
+
 </div>
     
 

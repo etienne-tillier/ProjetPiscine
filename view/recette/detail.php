@@ -54,17 +54,22 @@
                         <p class="titre_partie_niv1">Dénomination</br></p>
 
                         <div id="contenu_den">
-                            <div id="code">
-                                <p class="titre_partie">Code</p>
-                            </div>
-                            
-                            <div id="nature">
-                                <p class="titre_partie">Nature</p>
-                            </div>
-                            
-                            <div id="unite">
-                                <p class="titre_partie">Unité</p>
-                            </div>
+                            <table>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Nature</th>
+                                    <th>Unité</th>
+                                </tr>
+
+                                <tr>
+                                    <?php
+                                    ?>
+                                    <td><?php ?></td>
+                                    <td><?php ?></td>
+                                    <td><?php ?></td>
+                                </tr>
+
+                            </table>
                         </div>
 
                     </div>
@@ -73,17 +78,21 @@
                         <p class="titre_partie_niv1">Valorisation</p>
                         
                         <div id="contenu_val">
-                            <div id="total">
-                                <p class="titre_partie">Total</p>
-                            </div>
-                            
-                            <div id="prix_u">
-                                <p class="titre_partie">Prix U</p>
-                            </div>
-                            
-                            <div id="ptht">
-                                <p class="titre_partie">PTHT</p>
-                            </div>
+                            <table>
+                                <tr>
+                                    <th>Total</th>
+                                    <th>Prix U</th>
+                                    <th>PTHT</th>
+                                </tr>
+
+                                <tr>
+                                    <?php
+                                    ?>
+                                    <td><?php ?></td>
+                                    <td><?php ?></td>
+                                    <td><?php ?></td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>
