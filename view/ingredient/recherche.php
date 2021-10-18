@@ -3,7 +3,6 @@
         <?php
              echo "<p>$pagetitle <br> Voila la liste d'ingredient Trouvé</p>";
             foreach($typeIngredientListe as $type){
-
                 $idType = $type->getIdTypeIngredient();
                 foreach ($ListeIngredient as $ingredient) {
                     if ($idType == $ingredient->getIdTypeIngredient()){

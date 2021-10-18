@@ -3,9 +3,6 @@
         <?php
         
             foreach($typerecetteListe as $type){
-
-                echo '<div id="type_recette"><p>' . $type->getNomTypeRecette() . '</p></div>';
-
                 $idType = $type->getIdTypeRecette();
                 foreach ($ListeRecette as $recette) {
                     if ($idType == $recette->getIdTypeRecette()){
