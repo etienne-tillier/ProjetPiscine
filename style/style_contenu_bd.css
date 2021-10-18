@@ -105,3 +105,18 @@
 {
 	color: rgb(196, 156, 108);
 }
+
+#barre_recherche
+{
+	font-size: 15px;
+    border:solid 1px rgb(196, 156, 108);
+	width: 200px;
+}
+
+#bouton_recherche
+{
+	border:solid 1px rgb(196, 156, 108);
+	background-color: transparent;
+	font-size: 15px;
+	font-weight: bold;
+}

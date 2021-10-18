@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="style/style_formulaire.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -9,7 +10,7 @@
     function genererSelectUpdate() {
             <?php foreach ($tabIngredientDansRecette as $ingredientDansRecette){?>
             $("#listeIngredient").append("<div id='" + i + "'></div>");
-            $("#listeIngredient div:last").append("<li><select class='choix' name='ingredients[]' placeholder='Choisissez ingrédient'></select></li>");
+            $("#listeIngredient div:last").append("<li><select class='choix' class='liste_der' name='ingredients[]' placeholder='Choisissez ingrédient'></select></li>");
             <?php foreach ($listeIngredient as $ingredient){?>
                     $("#listeIngredient div:last select:last").append($('<option>', {
                         value: "<?php echo $ingredient->getIdIngredient()?>",
@@ -31,8 +32,8 @@
                     <?= ($recetteDansRecette->getIdRecetteFille() == $recette->getIdRecette() ? ',selected : true' : '') ?>
                 }));
                 <?php };?>
-            $("#listeIngredient div:last").append("<li><input type='text' value='<?= $recetteDansRecette->getQuantiteRecette() ?>' name='quantitesRecettes[]' placeholder='Quantité recette'></input></li>");
-            $("#listeIngredient div:last").append("<li><div onclick='$(this).parent().parent().remove()'>Supprimer</div></li>");
+            $("#listeIngredient div:last").append("<li><input class='entrer_text' type='text' value='<?= $recetteDansRecette->getQuantiteRecette() ?>' name='quantitesRecettes[]' placeholder='Quantité recette'></input></li>");
+            $("#listeIngredient div:last").append("<li><div onclick='$(this).parent().parent().remove()'>Supprimer<br></div></li>");
             i++;
             <?php };?>
             $(".choix").chosen();
@@ -117,11 +118,12 @@
                 <label class="sous_titre" for="multiplicateur_id">Multiplicateur</label> :
                 <input class="entrer_text" type="text" name="multiplicateur" value="<?= htmlspecialchars($multiplicateur) ?>" id="multiplicateur_id" required/>
             </p>
-            <p>Liste des ingrédients</p>
-            <p id="ajouterIngredient" onclick="ajouterIngredient()"> ajouter ingrédient </p>
-            <p id="ajouterRecette" onclick="ajouterRecette()"> ajouter recette </p>
-            <ul id="listeIngredient">
-
+            <div id="contener_liste">
+                <p class="sous_titre">Liste des ingrédients</p>
+                <p id="ajouterIngredient" onclick="ajouterIngredient()"> Ajouter ingrédient </p>
+                <p id="ajouterRecette" onclick="ajouterRecette()"> Ajouter recette </p>
+                <ul id="listeIngredient">
+            </div>
             </ul>
 
             <label class="sous_titre" for="descriptif_id">Description</label>

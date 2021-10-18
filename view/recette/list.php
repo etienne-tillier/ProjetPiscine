@@ -15,8 +15,8 @@
                                 <input type ="hidden" name ="controller" value="recette">
                                 <input type ="hidden" name ="action" value="research">
 
-                                <input type="search" name="Recherche" placeholder="Recherche d'une recette"> 
-                                <input type="submit" value="Trouver">
+                                <input id="barre_recherche" type="search" name="Recherche" placeholder="Recherche d'une recette"> 
+                                <input id="bouton_recherche" type="submit" value="Trouver">
                             </form>    
                         </li>
                     </ul>

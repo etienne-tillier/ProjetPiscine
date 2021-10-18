@@ -71,3 +71,36 @@
     font-family:verdana, arial, sans-serif; 
 }
 
+#ajouterIngredient
+{
+    font-weight: bold;
+    text-decoration: underline;
+    color: rgba(196, 156, 108, 0.75);
+}
+
+#ajouterRecette
+{
+    font-weight: bold;
+    text-decoration: underline;
+    color: rgba(196, 156, 108, 0.75);
+}
+
+#contener_liste
+{
+    border: solid 1px rgb(196, 156, 108);
+    padding: 10px;
+    padding-top: 0px;
+    margin-bottom: 10px;
+}
+
+ul
+{
+    list-style: none;
+}
+
+.choix
+{
+    margin-left: 10px;
+    font-size: 15px;
+    border:solid 1px rgb(196, 156, 108); 
+}
