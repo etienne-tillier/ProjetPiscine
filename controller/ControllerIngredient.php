@@ -31,30 +31,32 @@ class ControllerIngredient {
             require (File::build_path(array("view", "view.php")));
         }
     }
-        public static function research()
+        
+    /*---------------------------------------------------------------------*/
+    /* research      la fonction récupére et traite les données retrouvée  */
+    /*                 par la  fonction selectname                         */ 
+    /*                                                                     */
+    /* En sortie: la fonction redérige les données vers "view" afin        */
+    /*            d'effectuer l'affichage                                  */
+    /*---------------------------------------------------------------------*/ 
+    public static function research()
+    {
+        $ingredientRechercher = $_GET["Recherche"];
+        $ListeIngredient = ModelIngredient::selectname($ingredientRechercher);
+        $typeIngredientListe = ModelTypeIngredient::selectAll();
+        $pagetitle = "Resultat de recherche";
+        if(empty($ListeIngredient))
         {
+            $controller = ('ingredient');
+            $view = 'errorresearch';
+            require (File::build_path(array("view", "view.php")));
+        }else {
+            $controller = 'ingredient';
+            $view = 'recherche';
+            require (File::build_path(array("view", "view.php")));
+        }  
+    }   
 
-            $ingredientRechercher = $_GET["Recherche"];
-            $ListeIngredient = ModelIngredient::selectname($ingredientRechercher);
-            $typeIngredientListe = ModelTypeIngredient::selectAll();
-            $pagetitle = "Resultat de recherche";
-            if(empty($ListeIngredient))
-            {
-                $controller = ('ingredient');
-                $view = 'errorresearch';
-                require (File::build_path(array("view", "view.php")));
-            }else {
-                $controller = 'ingredient';
-                $view = 'recherche';
-                require (File::build_path(array("view", "view.php")));
-            }  
-        }   
-
-
-    
-
-
-        //à faire (pas fini) avec created
     public static function create() {
             $idIngredient = "";
             $nomIngredient = "";
