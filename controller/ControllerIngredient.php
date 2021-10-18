@@ -31,9 +31,30 @@ class ControllerIngredient {
             require (File::build_path(array("view", "view.php")));
         }
     }
+        public static function research()
+        {
+
+            $ingredientRechercher = $_GET["Recherche"];
+            $ListeIngredient = ModelIngredient::selectname($ingredientRechercher);
+            $typeIngredientListe = ModelTypeIngredient::selectAll();
+            $pagetitle = "Resultat de recherche";
+            if(empty($ListeIngredient))
+            {
+                $controller = ('ingredient');
+                $view = 'errorresearch';
+                require (File::build_path(array("view", "view.php")));
+            }else {
+                $controller = 'ingredient';
+                $view = 'recherche';
+                require (File::build_path(array("view", "view.php")));
+            }  
+        }   
 
 
-            //à faire (pas fini) avec created
+    
+
+
+        //à faire (pas fini) avec created
     public static function create() {
             $idIngredient = "";
             $nomIngredient = "";
@@ -58,15 +79,15 @@ class ControllerIngredient {
     public static function created() {
             $data = array(
                 "idIngredient" => 0,
-                "idTypeIngredient" => $_GET["idTypeIngredient"],
-                "nomTVA" => $_GET["nomTVA"],
-                "nomIngredient" => $_GET["nomIngredient"],
-                "unite" => $_GET["unite"],
-                "allergene" => $_GET["allergene"],
-                "prixUnitaire" => $_GET["prixUnitaire"],
+                "idTypeIngredient" => $_POST["idTypeIngredient"],
+                "nomTVA" => $_POST["nomTVA"],
+                "nomIngredient" => $_POST["nomIngredient"],
+                "unite" => $_POST["unite"],
+                "allergene" => $_POST["allergene"],
+                "prixUnitaire" => $_POST["prixUnitaire"],
             );
 
-            $p = new ModelIngredient($_GET["idTypeIngredient"], $_GET["nomTVA"], $_GET["nomIngredient"], $_GET["unite"], $_GET["allergene"], $_GET["prixUnitaire"]);
+            $p = new ModelIngredient($_POST["idTypeIngredient"], $_POST["nomTVA"], $_POST["nomIngredient"], $_POST["unite"], $_POST["allergene"], $_POST["prixUnitaire"]);
             ModelIngredient::save($data);
             $tab_i = ModelIngredient::selectAll();
             $typeIngredientListe = ModelTypeIngredient::selectAll();
@@ -115,15 +136,15 @@ class ControllerIngredient {
 
     public static function updated() {
             $pagetitle = 'Produit mis à jour';
-            $idIngredient = $_GET["idIngredient"];
+            $idIngredient = $_POST["idIngredient"];
             $data = array(
-                "nomIngredient" => $_GET["nomIngredient"],
-                "unite" => $_GET["unite"],
-                "prixUnitaire" => $_GET["prixUnitaire"],
-                "allergene" => $_GET["allergene"],
-                "primary" => $_GET["idIngredient"],
-                "idTVA" => $_GET["nomTVA"],
-                "idTypeIngredient" => $_GET["idTypeIngredient"]
+                "nomIngredient" => $_POST["nomIngredient"],
+                "unite" => $_POST["unite"],
+                "prixUnitaire" => $_POST["prixUnitaire"],
+                "allergene" => $_POST["allergene"],
+                "primary" => $_POST["idIngredient"],
+                "idTVA" => $_POST["nomTVA"],
+                "idTypeIngredient" => $_POST["idTypeIngredient"]
             );
             $i = ModelIngredient::select($idIngredient);
             $typeIngredientListe = ModelTypeIngredient::selectAll();

@@ -1,12 +1,10 @@
 <!-- possible de faire mieux avec requete sql dans le modelIngredient en verifiant l'idTypeIngredient -->
-<!DOCTYPE html>
-<html>
+
+
 <head>
-    <meta charset="utf-8">
     <title>Ingredients</title>
     <link rel="stylesheet" type="text/css" href="style/style_contenu_bd.css">
     <link rel="stylesheet" type="text/css" href="style/style_bouton_gestion_bd.css">
-
 </head>
 <body>
     <div id="corps">
@@ -14,16 +12,23 @@
                 <div id="entete">
                     <ul>
                         <li>Ingrédients</li>
-                        <li>Filtres</li>
+                        <li>
+                            <form method="GET" action="index.php" controller="ingredient">
+                                <input type ="hidden" name ="action" value="research">
+                                <input type="search" name="Recherche" placeholder="Recherche d'ingredient"> 
+                                <input type="submit" value="Trouver">
+                            </form>    
+                        </li>
                     </ul>
                 </div>
                 <div id="contenu">
                     <p>
                         <?php
 
-                        foreach($typeIngredientListe as $type){
 
-                            echo '<div id="type_ingredient"><p>' . $type->getNomTypeIngredient() . '</p></div>';
+                            foreach($typeIngredientListe as $type){
+
+                            echo "<div id='type_ingredient'><p>" .  '<a href= "index.php?action=read&controller=typeingredient&idTypeIngredient=' . $type->getIdTypeIngredient() . '">' . $type->getNomTypeIngredient() . '</p></div>';
 
                             $idType = $type->getIdTypeIngredient();
                             foreach ($tab_i as $ingredient) {
@@ -38,6 +43,7 @@
                             }
                         }
                         ?>
+                    
                     </p>
                 </div>
             </div>
@@ -48,4 +54,3 @@
             </div>
     </div>
 </body>
-</html>

@@ -7,20 +7,6 @@
     var i = 0;
 
     function genererSelectUpdate() {
-            <?php foreach ($tabIngredientDansRecette as $ingredientDansRecette){?>
-            $("#listeIngredient").append("<div id='" + i + "'></div>");
-            $("#listeIngredient div:last").append("<li><select class='choix' name='ingredients[]' placeholder='Choisissez ingrédient'></select></li>");
-            <?php foreach ($listeIngredient as $ingredient){?>
-                    $("#listeIngredient div:last select:last").append($('<option>', {
-                        value: "<?php echo $ingredient->getIdIngredient()?>",
-                        text: "<?php echo $ingredient->getNomIngredient()?>"
-                        <?= ($ingredientDansRecette->getIdIngredient() == $ingredient->getIdIngredient() ? ',selected : true' : '') ?>
-                    }));
-                <?php };?>
-            $("#listeIngredient div:last").append("<li><input type='text' value='<?= $ingredientDansRecette->getQuantiteIngredient() ?>'name='quantitesIngredients[]' placeholder='Quantité ingredient'></input></li>");
-            $("#listeIngredient div:last").append("<li><div onclick='$(this).parent().parent().remove()'>Supprimer</div></li>");
-            i++;
-            <?php };?>
             <?php foreach ($tabRecetteDansRecette as $recetteDansRecette){?>
             $("#listeIngredient").append("<div id='" + i + "'></div>");
             $("#listeIngredient div:last").append("<li><select class='choix' name='recettes[]' placeholder='Choisissez la recette'></select></li>");

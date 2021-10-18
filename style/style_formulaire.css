@@ -1,0 +1,73 @@
+#ajout_ingredient
+{
+    font-family: 'Arial','Verdana';
+    font-size: 15px;
+    margin-top: 20px;
+    border: none;
+}
+
+.bordure
+{
+    border: none;
+}
+
+.titre
+{
+    font-size: 25px;
+    font-weight: bolder;
+    text-align: center;
+    border-style: double;
+    width: 100%;
+    height: 40px;
+    padding-top: 10px;
+}
+
+.contenu_form
+{
+    padding: 10px;
+    width: 400px;
+}
+
+.sous_titre
+{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.liste_der
+{
+    margin-left: 10px;
+    font-size: 15px;
+    border:solid 1px rgb(196, 156, 108); 
+
+}
+
+.entrer_text
+{
+    font-size: 15px;
+    border:solid 1px rgb(196, 156, 108); 
+    margin-top: 5px;
+}
+
+.add_type 
+{
+    text-decoration: underline;
+    color: black;
+    font-weight: bold;
+}
+
+.qcm_rond :after
+{
+    padding: 100px;
+}
+
+.bouton_final
+{
+    margin-top: 15px;
+    border:solid 3px rgb(196, 156, 108); 
+    font-weight: bold;
+    background: transparent;
+    padding:10px 50px 10px 50px; 
+    font-family:verdana, arial, sans-serif; 
+}
+

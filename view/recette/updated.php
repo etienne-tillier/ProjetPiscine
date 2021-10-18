@@ -2,7 +2,7 @@
 $create = false;
 ?>
 <script type="text/javascript">
-    alert("Les modifications ont été apportées au produit");
+    alert("Les modifications ont été apportées à la recette");
     window.location = 'index.php';
 </script>
 <?php

@@ -1,6 +1,6 @@
 
 
-<form method="get" action="index.php" controller="auteur">
+<form method="post" action="index.php?action=<?= ($create ? "created" : "updated" )?>&controller=auteur">
     <fieldset>
         <legend><?= ($create ? "Ajout d'un nouvel auteur" : "Mise à jour d'un auteur") ?></legend>
         <p>

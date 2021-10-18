@@ -1,8 +1,5 @@
 <!-- possible de faire mieux avec requete sql dans le modelIngredient en verifiant l'idTypeIngredient -->
-<!DOCTYPE html>
-<html>
 <head>
-    <meta charset="utf-8">
     <title>Recettes</title>
     <link rel="stylesheet" type="text/css" href="style/style_contenu_bd.css">
     <link rel="stylesheet" type="text/css" href="style/style_bouton_gestion_bd.css">
@@ -13,7 +10,15 @@
                 <div id="entete">
                     <ul>
                         <li>Recettes</li>
-                        <li>Filtres</li>
+                        <li> 
+                            <form method="GET" action="index.php" controller="recette">
+                                <input type ="hidden" name ="controller" value="recette">
+                                <input type ="hidden" name ="action" value="research">
+
+                                <input type="search" name="Recherche" placeholder="Recherche d'une recette"> 
+                                <input type="submit" value="Trouver">
+                            </form>    
+                        </li>
                     </ul>
                 </div>
                 <div id="contenu">
@@ -41,12 +46,11 @@
             <div id="boutons">
                 <ul>
                     <li id="case_add_rece"><a href="index.php?controller=recette&action=create">Ajouter</li>
-                    <li id="case_imp_rece"><a href="imprimer_recette.php">Imprimer</li>
                 </ul>
             </div>
     </div>
 </body>
-</html>
+
 
 
 

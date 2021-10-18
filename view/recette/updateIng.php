@@ -21,20 +21,6 @@
             $("#listeIngredient div:last").append("<li><div onclick='$(this).parent().parent().remove()'>Supprimer</div></li>");
             i++;
             <?php };?>
-            <?php foreach ($tabRecetteDansRecette as $recetteDansRecette){?>
-            $("#listeIngredient").append("<div id='" + i + "'></div>");
-            $("#listeIngredient div:last").append("<li><select class='choix' name='recettes[]' placeholder='Choisissez la recette'></select></li>");
-            <?php foreach ($listeRecette as $recette){?>
-                $("#listeIngredient div:last select:last").append($('<option>', {
-                    value: "<?php echo $recette->getIdRecette()?>",
-                    text: "<?php echo $recette->getNomRecette()?>"
-                    <?= ($recetteDansRecette->getIdRecetteFille() == $recette->getIdRecette() ? ',selected : true' : '') ?>
-                }));
-                <?php };?>
-            $("#listeIngredient div:last").append("<li><input type='text' value='<?= $recetteDansRecette->getQuantiteRecette() ?>' name='quantitesRecettes[]' placeholder='Quantité recette'></input></li>");
-            $("#listeIngredient div:last").append("<li><div onclick='$(this).parent().parent().remove()'>Supprimer</div></li>");
-            i++;
-            <?php };?>
             $(".choix").chosen();
     }
 

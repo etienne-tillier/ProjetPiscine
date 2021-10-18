@@ -18,6 +18,22 @@
 	border-color: black;
 }
 
+.sous_titre
+{
+	border-bottom: solid black;
+	font-weight: bold;
+}
+
+.titre_partie_niv1
+{
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.titre_partie
+{
+	font-style: italic;
+}
 #precision_contenu
 {
 	display: flex;
@@ -26,19 +42,123 @@
 	padding-left: 30px;
 	font-family: 'Arial','Verdana';
 	font-size: 20px;
-	font-weight: normal;
 	list-style: none;
 }
 
-#titre_precision_ingredient
+#contenu a
 {
-	height: 50px;
-	font-size: 35px;
-	text-align: center;
-	font-family: 'Arial','Verdana';
+	text-decoration: none;
+	color: black;
+}
+
+#contenu a:hover
+{
+	color: rgb(196, 156, 108);
+}
+
+#entete_fiche
+{
+	display: flex;
+}
+
+#corps_fiche
+{
+	display: flex;
+	width: 100%;
+}
+
+#descriptif
+{
+	border: solid black;
+	width: 30%;
+	max-height: 125px;
+	overflow: scroll;
+}
+
+#nom
+{
+	border: solid black;
+	font-size: 40px;
 	font-weight: bold;
-	border-bottom: solid;
-	border-color: black;
+	width: 70%;
+	max-height: 125px;
+	text-align: center;
+	padding-top: 30px;
+}
+
+#progression
+{
+	border: solid black;
+	width: 30%;
+	padding: 10px;
+}
+
+#denomination
+{
+	border: solid black;
+	width: 35%;
+	padding: 10px;
+}
+
+#contenu_den
+{
+	display: flex;
+	flex-direction: row;
+}
+
+#code
+{
+	border: solid black;
+	width: 33.3333333%;
+	text-align: center;
+}
+
+#nature
+{
+	border: solid black;
+	width: 33.3333333%;
+	text-align: center;
+}
+
+#unite
+{
+	border: solid black;
+	width: 33.3333333%;
+	text-align: center;
+}
+
+#valorisation
+{
+	border: solid black;
+	width: 35%;
+	padding: 10px;
+}
+
+#contenu_val
+{
+	display: flex;
+	flex-direction: row;
+}
+
+#total
+{
+	border: solid black;
+	width: 33.3333333%;
+	text-align: center;
+}
+
+#prix_u
+{
+	border: solid black;
+	width: 33.3333333%;
+	text-align: center;
+}
+
+#ptht
+{
+	border: solid black;
+	width: 33.3333333%;
+	text-align: center;
 }
 
 #precision_fonction

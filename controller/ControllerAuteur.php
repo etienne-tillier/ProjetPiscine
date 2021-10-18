@@ -55,11 +55,11 @@ class ControllerAuteur {
     {
         $data = array(
             "idAuteur" => 0,
-            "nomAuteur" => $_GET["nomAuteur"],
-            "prenomAuteur" => $_GET["prenomAuteur"]
+            "nomAuteur" => $_POST["nomAuteur"],
+            "prenomAuteur" => $_POST["prenomAuteur"]
         );
 
-        $p = new ModelAuteur($_GET["nomAuteur"], $_GET["prenomAuteur"]);
+        $p = new ModelAuteur($_POST["nomAuteur"], $_POST["prenomAuteur"]);
         ModelAuteur::save($data);
         $tab_a = ModelAuteur::selectAll();
         $controller = ('auteur');
@@ -106,11 +106,11 @@ class ControllerAuteur {
     {
         $tab_p = ModelAuteur::selectAll();
         $pagetitle = 'Auteur mis à jour';
-        $idAuteur = $_GET["idAuteur"];
+        $idAuteur = $_POST["idAuteur"];
         $data = array(
-            "nomAuteur" => $_GET["nomAuteur"],
-            "prenomAuteur" => $_GET["prenomAuteur"],
-            "primary" => $_GET["idAuteur"],
+            "nomAuteur" => $_POST["nomAuteur"],
+            "prenomAuteur" => $_POST["prenomAuteur"],
+            "primary" => $_POST["idAuteur"],
         );
         $p = ModelAuteur::select($idAuteur);
         $p->update($data);

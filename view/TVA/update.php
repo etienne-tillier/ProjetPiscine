@@ -1,4 +1,4 @@
-<form method="get" action="index.php" controller="TVA">
+<form method="post" action="index.php?action=<?= ($create ? "created" : "updated" )?>&controller=TVA">
     <fieldset>
         <legend><?= ($create ? "Ajout d'une nouvelle TVA" : "Mise à jour d'une TVA'") ?></legend>
         <p>

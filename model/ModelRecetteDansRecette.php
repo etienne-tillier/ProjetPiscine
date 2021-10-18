@@ -2,17 +2,17 @@
 
 require_once File::build_path(array("model", "Model.php"));
 
-class ModelIngredientDansRecette extends Model{
-    private $idRecette;
-    private $idIngredient;
-    private $quantiteIngredient;
-    protected static $object = "ingredientDansRecette";//propriété d'une classe
-    protected static $primary='idRecette';
+class ModelRecetteDansRecette extends Model{
+    private $idRecetteMere;
+    private $idRecetteFille;
+    private $quantiteRecette;
+    protected static $object = "recetteDansRecette";//propriété d'une classe
+    protected static $primary='idRecetteMere';
 
-    public static function selectIngredientDansRecette($primary_value,$mode) {//renvoie une ligne
+    public static function selectRecetteDansRecette($primary_value,$mode) {//renvoie une ligne
         $table_name = static::$object;
         $class_name = "Model" . ucfirst($table_name);
-        $primary_key = ($mode == "recette" ? "idRecette" : "idIngredient");
+        $primary_key = ($mode == "mère" ? "idRecetteMere" : "idRecetteFille");
         try {
             $sql = "SELECT * from " . ucfirst($table_name) . " WHERE " . $primary_key . "=:nom_tag";
             // Préparation de la requête
@@ -37,6 +37,7 @@ class ModelIngredientDansRecette extends Model{
             return false;
         return $tab;
     }
+
     
     // public static function getPrixTotal($data){
     //     try {
@@ -67,16 +68,16 @@ class ModelIngredientDansRecette extends Model{
     //     return $quantiteIngredients;
     // }
     
-    function getIdRecette() {
-        return $this->idRecette;
+    function getIdRecetteMere() {
+        return $this->idRecetteMere;
     }
 
-    function getIdIngredient() {
-        return $this->idIngredient;
+    function getIdRecetteFille() {
+        return $this->idRecetteFille;
     }
 
-    function getQuantiteIngredient() {
-        return $this->quantiteIngredient;
+    function getQuantiteRecette() {
+        return $this->quantiteRecette;
     }
 
 

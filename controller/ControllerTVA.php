@@ -37,9 +37,9 @@ class ControllerTVA{
         }
      public static function created() {
          $data = array(
-         "nomTVA" => $_GET["nomTVA"],
-         "nomIngredient" => $_GET["nomIngredient"],
-         "tauxTVA"=> $_GET["tauxTVA"],
+         "nomTVA" => $_POST["nomTVA"],
+         "nomIngredient" => $_POST["nomIngredient"],
+         "tauxTVA"=> $_POST["tauxTVA"],
          );
 
         }
