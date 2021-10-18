@@ -70,7 +70,18 @@ class Model {
         return $tab[0];
     }
     
-
+    
+    /*---------------------------------------------------------------------*/
+    /* selectname      cherche des données dans la table ingredients       */ 
+    /*                            ou recette.                              */
+    /*                                                                     */
+    /* En entrée: la fonction prend en entrée le chaine de caractére tapée */
+    /*           par l'utilisateur afin de faire une recherche pour        */
+    /*           trouver un ingredient par exemple ou une recette.         */
+    /*                                                                     */
+    /* En sortie: les valeurs retrouvée seront stockées sur un tableau et  */
+    /*            retournée par la fonction.                               */
+    /*---------------------------------------------------------------------*/        
 
     public static function selectname($name_recherche) {//renvoie une ligne
         $table_name = static::$object;
@@ -82,7 +93,7 @@ class Model {
             $rep = (Model::$pdo)->query('Select * From  ' . ucfirst($table_name) . ' 
             NATURAL JOIN Typeingredient 
             WHERE (nomIngredient LIKE "%' . $name_recherche .'%"  
-            OR ( prixUnitaire LIKE "' . $name_recherche .'.00") 
+            OR ( prixUnitaire LIKE "' . $name_recherche .'%") 
             OR ( nomTypeIngredient LIKE "%' . $name_recherche .'%")
             OR ( unite LIKE "' . $name_recherche .'")
             )');
@@ -90,10 +101,12 @@ class Model {
             $rep = (Model::$pdo)->query('Select * From  ' . ucfirst($table_name) . ' 
             NATURAL JOIN Auteur NATURAL JOIN Typerecette
             WHERE (nomRecette LIKE "%' . $name_recherche .'%"  
-            OR ( nomAuteur LIKE "' . $name_recherche .'%") 
-            OR ( prenomAuteur LIKE "' . $name_recherche .'%")
-            OR ( nomTypeRecette LIKE "' . $name_recherche .'%")
-            )      ');
+            OR ( nomAuteur LIKE "%' . $name_recherche .'%") 
+            OR ( prenomAuteur LIKE "%' . $name_recherche .'%")
+            OR ( nomTypeRecette LIKE "%' . $name_recherche .'%")
+            OR ( nombrePortion LIKE "' . $name_recherche .'%")
+            
+            )');
         }
 
         $rep->setFetchMode(PDO::FETCH_CLASS, $class_name);//afficher une requête
