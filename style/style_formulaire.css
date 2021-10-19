@@ -39,10 +39,9 @@
     margin-left: 10px;
     font-size: 15px;
     border:solid 1px rgb(196, 156, 108); 
-
 }
 
-.entrer_text
+.entrer_text, #newTypeIngredient, #newTVA, #tauxTVA, #newAuteurNom, #newAuteurPrenom, #newTypeRecette
 {
     font-size: 15px;
     border:solid 1px rgb(196, 156, 108); 
@@ -71,20 +70,6 @@
     font-family:verdana, arial, sans-serif; 
 }
 
-#ajouterIngredient
-{
-    font-weight: bold;
-    text-decoration: underline;
-    color: rgba(196, 156, 108, 0.75);
-}
-
-#ajouterRecette
-{
-    font-weight: bold;
-    text-decoration: underline;
-    color: rgba(196, 156, 108, 0.75);
-}
-
 #contener_liste
 {
     border: solid 1px rgb(196, 156, 108);
@@ -98,9 +83,11 @@ ul
     list-style: none;
 }
 
-.choix
+#NewTypeIngredient, #textTVA, #textTypeRecette, #textAuteur, #ajouterIngredient, #ajouterRecette, .bouton_list
 {
-    margin-left: 10px;
-    font-size: 15px;
-    border:solid 1px rgb(196, 156, 108); 
+    font-weight: bold;
+    text-decoration: underline;
+    font-style: italic;
+    margin-bottom: 15px;
+    color: rgb(196, 156, 108);
 }

@@ -86,7 +86,7 @@
             }));
         <?php }; ?>
         $("#listeIngredient div:last").append("<li><input type='text' name='quantitesIngredients[]' placeholder='Quantité ingredient' required></input></li>");
-        $("#listeIngredient div:last").append("<li><div onclick='$(this).parent().parent().remove()'>Supprimer</div></li>");
+        $("#listeIngredient div:last").append("<li><div class=bouton_list onclick='$(this).parent().parent().remove()'>Supprimer</div></li>");
         i++;
         $(".choix").chosen();
     }

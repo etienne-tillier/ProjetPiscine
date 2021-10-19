@@ -3,6 +3,8 @@
 #detail
 {
 	background-color: rgb(240, 240, 240);
+	margin-top: 20px;
+	font-family: 'Arial','Verdana';
 }
 
 #precision_titre
@@ -210,4 +212,9 @@ table
 td, th
 {
     border: 1px solid black;
+}
+
+#fiche_tech
+{
+	margin-top: 20px;
 }
