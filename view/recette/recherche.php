@@ -1,5 +1,3 @@
-
-
 <head>
     <title>Recherche</title>
     <link rel="stylesheet" type="text/css" href="style/style_contenu_bd.css">

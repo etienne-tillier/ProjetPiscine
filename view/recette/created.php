@@ -5,7 +5,7 @@
     ?>
     <script type="text/javascript">
         alert("Nouvelle recette enregistré !");
-        window.location = 'view/recette/list.php';
+        window.location = 'index.php?action=readAll&controller=recette';
     </script>
 
 </div>
