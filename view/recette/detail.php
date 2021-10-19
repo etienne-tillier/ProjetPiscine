@@ -55,6 +55,7 @@
 
                         <div id="contenu_den">
                             <table>
+
                                 <tr>
                                     <th>Code</th>
                                     <th>Nature</th>

@@ -46,6 +46,7 @@
             <div id="boutons">
                 <ul>
                     <li id="case_add_rece"><a href="index.php?controller=recette&action=create">Ajouter</li>
+                    <li id="case_add_type_rece"><a href="index.php?controller=TypeRecette&action=create">Ajouter Type</li>
                 </ul>
             </div>
     </div>

@@ -15,7 +15,7 @@
 </header>
 
 <body>
-
+    <div id="body">
 
 
                 <?php
@@ -25,7 +25,7 @@
                 require $filepath;
                 ?>
 
-            </div>
+    </div>
 </body>
 
 <footer>

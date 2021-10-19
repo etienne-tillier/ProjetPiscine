@@ -8,9 +8,9 @@
            
 
             <label for="Nom TVA">Nom</label> :
-            <input type="text" name="Nom TVA" <?= ($create ? "required" : "readonly") ?> value="<?= htmlspecialchars$nomTVA) ?>" id="NomTVA"/>
+            <input type="text" name="Nom TVA" <?= ($create ? "required" : "readonly") ?> value="<?= htmlspecialchars($nomTVA) ?>" id="NomTVA"/>
             <label for="Taux TVA">Nom</label> :
-            <input type="text" name="Taux TVA" <?= ($create ? "required" : "readonly") ?> value="<?= htmlspecialchars$nomTVA) ?>" id="NomTVA"/>
+            <input type="text" name="Taux TVA" <?= ($create ? "required" : "readonly") ?> value="<?= htmlspecialchars($nomTVA) ?>" id="NomTVA"/>
                 
         
         </p>
