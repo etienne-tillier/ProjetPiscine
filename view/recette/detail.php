@@ -1,107 +1,75 @@
 <link rel="stylesheet" type="text/css" href="style/style_details_recette.css">
 
 <div id="detail">
-    <div id="precision_titre"><?php echo htmlspecialchars(ucfirst($r->getNomRecette())) ?></div>
     <div id="precision_contenu">
-        
-        <div>
-            <p class="sous_titre">Information générale :</p>
-            <?php 
-                echo '<li> Auteur : ' . htmlspecialchars($auteur->getPrenomAuteur()) . ' ' . htmlspecialchars($auteur->getNomAuteur()) .'</li>' . 
-                '<li> Nombre de portion : ' . htmlspecialchars($r->getNombrePortion())  . '</li>' . 
-                '<li> Prix de main d\'oeuvre : ' . htmlspecialchars($r->getPrixMainOeuvre()) . '</li>' . 
-                '<li> Multiplicateur : ' . htmlspecialchars($r->getMultiplicateur());
-            ?>
-        </div>
-        
-        <div>
-            <p class="sous_titre">Contenu :</p>
-        
-            <div id="contenu">
-                <?php
-                foreach($tabRecettes as $recette) {
-                    echo '<li><a href="index.php?action=read&controller=recette&idRecette='. rawurldecode($recette[0]->getIdRecette()) .'">' . htmlspecialchars($recette[1]) . ' ' . htmlspecialchars($recette[0]->getNomRecette()) . '</li>';
-                }
-                foreach($tabIngredients as $ingredient) {
-                    echo '<li><a href="index.php?action=read&controller=ingredient&idIngredient='. rawurldecode($ingredient[0]->getIdIngredient()) .'">' . htmlspecialchars($ingredient[0]->getNomIngredient()) . ' ' . htmlspecialchars($ingredient[1]) . ' ' . htmlspecialchars($ingredient[0]->getUnite()) .'</a></li>';
-                }
-                ;
-                ?>
-            </div>
-        </div>
+        <div id=fiche_tech>
 
-        <div>
-            <p class="sous_titre">Fiche Technique :</p>
-            <div id=fiche_tech>
-
-                <div id=entete_fiche>
-                    <div id="descriptif">
-                        <p class="titre_partie_niv1">Desciptifs</p>
-                        <?php echo htmlspecialchars($r->getDescriptif()); ?>
-                    </div>
-                    <div id="nom">
-                        <?php echo htmlspecialchars(ucfirst($r->getNomRecette())) ?>
-                    </div>
+            <div id=entete_fiche>
+                <div id="descriptif">
+                    <p class="titre_partie_niv1">Desciptifs</p>
+                    <?php echo htmlspecialchars($r->getDescriptif()); ?>
                 </div>
-
-                <div id="corps_fiche">
-                    <div id="progression">
-                        <p class="titre_partie_niv1">Progression</p>
-                        <?php htmlspecialchars($r->getProgression()) ?>
-                    </div>
-                    <div id="denomination">
-
-                        <p class="titre_partie_niv1">Dénomination</br></p>
-
-                        <div id="contenu_den">
-                            <table>
-
-                                <tr>
-                                    <th>Code</th>
-                                    <th>Nature</th>
-                                    <th>Unité</th>
-                                </tr>
-
-                                <tr>
-                                    <?php
-                                    ?>
-                                    <td><?php ?></td>
-                                    <td><?php ?></td>
-                                    <td><?php ?></td>
-                                </tr>
-
-                            </table>
-                        </div>
-
-                    </div>
-                    <div id="valorisation">
-
-                        <p class="titre_partie_niv1">Valorisation</p>
-                        
-                        <div id="contenu_val">
-                            <table>
-                                <tr>
-                                    <th>Total</th>
-                                    <th>Prix U</th>
-                                    <th>PTHT</th>
-                                </tr>
-
-                                <tr>
-                                    <?php
-                                    ?>
-                                    <td><?php ?></td>
-                                    <td><?php ?></td>
-                                    <td><?php ?></td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div id="calcul_couts">
-
+                <div id="nom">
+                    <?php echo htmlspecialchars(ucfirst($r->getNomRecette())) ?>
                 </div>
             </div>
 
+            <div id="corps_fiche">
+                <div id="progression">
+                    <p class="titre_partie_niv1">Progression</p>
+                    <?php htmlspecialchars($r->getProgression()) ?>
+                </div>
+                <div id="denomination">
+
+                    <p class="titre_partie_niv1">Dénomination</br></p>
+
+                    <div id="contenu_den">
+                        <table>
+
+                            <tr>
+                                <th>Code</th>
+                                <th>Nature</th>
+                                <th>Unité</th>
+                            </tr>
+
+                            <tr>
+                                <?php
+                                ?>
+                                <td><?php ?></td>
+                                <td><?php ?></td>
+                                <td><?php ?></td>
+                            </tr>
+
+                        </table>
+                    </div>
+
+                </div>
+                <div id="valorisation">
+
+                    <p class="titre_partie_niv1">Valorisation</p>
+                    
+                    <div id="contenu_val">
+                        <table>
+                            <tr>
+                                <th>Total</th>
+                                <th>Prix U</th>
+                                <th>PTHT</th>
+                            </tr>
+
+                            <tr>
+                                <?php
+                                ?>
+                                <td><?php ?></td>
+                                <td><?php ?></td>
+                                <td><?php ?></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="calcul_couts">
+
+            </div>
         </div>
     </div>
 
