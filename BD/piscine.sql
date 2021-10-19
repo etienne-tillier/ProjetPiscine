@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 08, 2021 at 11:30 AM
+-- Generation Time: Oct 19, 2021 at 06:22 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.16
 
@@ -38,7 +38,8 @@ CREATE TABLE `auteur` (
 --
 
 INSERT INTO `auteur` (`idAuteur`, `nomAuteur`, `prenomAuteur`) VALUES
-(1, 'Maurin', 'Jean');
+(1, 'Maurin', 'Jean'),
+(2, 'Tillier', 'Etienne');
 
 -- --------------------------------------------------------
 
@@ -72,12 +73,22 @@ CREATE TABLE `ingredient` (
 --
 
 INSERT INTO `ingredient` (`idIngredient`, `idTypeIngredient`, `idTVA`, `nomIngredient`, `unite`, `allergene`, `prixUnitaire`) VALUES
-(1, 1, 'Fruit', 'Pomme', 'kg', 0, 5.00),
 (2, 1, 'Fruit', 'Banane', 'kg', 0, 1.00),
-(4, 1, 'Fruit', 'poire', 'kg', 1, 2.00),
+(4, 1, 'Poire', 'poire', 'kg', 0, 2.00),
 (5, 6, 'Fruit', 'Oeuf Poule', 'unité', 0, 0.30),
 (6, 1, 'Fruit', 'Tomate', 'kg', 0, 2.00),
-(7, 4, 'Fruit', 'poivre', 'g', 0, 4.00);
+(7, 4, 'Fruit', 'poivre', 'g', 0, 4.00),
+(10, 12, 'poisson', 'filet d\'anchois', 'kg', 0, 12.00),
+(12, 7, 'Fruit', 'cougette', 'kg', 0, 8.00),
+(13, 7, 'Fruit', 'magnoc', '8', 1, 9.00),
+(14, 1, 'Fruit', 'cacahuete', 'kg', 0, 5.00),
+(15, 8, 'Fruit', 'ada', 'kg', 0, 8.00),
+(16, 9, 'Fruit', 'kiwi', 'unite', 0, 8.00),
+(17, 10, 'Fruit', 'poiron', 'kg', 0, 8.00),
+(18, 11, 'Fruit', 'friz2', 'kg', 0, 7.00),
+(19, 6, 'Fruit', 'autruche oeuf', 'unite', 0, 9.00),
+(20, 1, 'Fruit', 'fraise', 'kg', 0, 6.00),
+(21, 1, 'melon', 'melon', 'kg', 0, 4.00);
 
 -- --------------------------------------------------------
 
@@ -88,8 +99,46 @@ INSERT INTO `ingredient` (`idIngredient`, `idTypeIngredient`, `idTVA`, `nomIngre
 CREATE TABLE `ingredientdansrecette` (
   `idRecette` int(11) NOT NULL,
   `idIngredient` int(11) NOT NULL,
-  `quantiteIngredient` int(11) NOT NULL
+  `quantiteIngredient` decimal(11,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ingredientdansrecette`
+--
+
+INSERT INTO `ingredientdansrecette` (`idRecette`, `idIngredient`, `quantiteIngredient`) VALUES
+(1, 5, '4.00'),
+(1, 6, '2.00'),
+(1, 7, '100.00'),
+(1, 10, '1.00'),
+(1, 4, '5.00'),
+(1, 13, '7.00'),
+(1, 12, '6.00'),
+(1, 4, '5.00'),
+(1, 13, '7.00'),
+(1, 12, '6.00'),
+(1, 2, '5.00'),
+(1, 13, '10.00'),
+(1, 12, '5.00'),
+(14, 2, '2.00'),
+(14, 12, '4.00'),
+(14, 10, '5.00'),
+(16, 12, '5.00'),
+(16, 7, '20.00'),
+(16, 6, '6.00'),
+(17, 2, '5.00'),
+(17, 6, '8.00'),
+(17, 4, '6.00'),
+(19, 2, '2.00'),
+(19, 6, '2.00'),
+(19, 12, '1.00'),
+(22, 12, '5.00'),
+(22, 2, '2.00'),
+(24, 2, '85.00'),
+(15, 10, '1.00'),
+(15, 12, '2.00'),
+(15, 5, '3.00'),
+(25, 2, '5.00');
 
 -- --------------------------------------------------------
 
@@ -114,7 +163,21 @@ CREATE TABLE `recette` (
 --
 
 INSERT INTO `recette` (`idRecette`, `idTypeRecette`, `idAuteur`, `nomRecette`, `nombrePortion`, `descriptif`, `progression`, `prixMainOeuvre`, `multiplicateur`) VALUES
-(1, 1, 1, 'Salade niçoise', 6, 'Salade préparé par nos soins contenant du poulet', 'Bien laver les tomates avant de les servir', '2', '4');
+(1, 1, 1, 'Salade niçoise', 6, 'Salade préparé par nos soins contenant du poulet', 'Bien laver les tomates avant de les servir', '2', '4'),
+(3, 1, 1, 'rizoto', 8, 'du bon riz                    ', 'super bon l\'eau                    ', '5', '5'),
+(4, 1, 1, 'aaaa', 8, '       test                    ', '        test                    ', '7', '5'),
+(5, 1, 1, 'magnoc ultime', 8, '            aaa                ', '                aaa            ', '1', '6'),
+(13, 1, 1, 'soupe', 8, '           dad                 ', '         ada                   ', '5', '4'),
+(14, 1, 1, 'soupe', 8, '           dad                 ', '         ada                   ', '5', '4'),
+(15, 1, 1, 'salade d\'anchois', 4, '          super salade fraiche                  ', '                         acheter de bons anchois                           ', '6', '4'),
+(16, 1, 1, 'gros plat', 8, '           def                 ', '             def               ', '4', '2'),
+(17, 1, 1, 'testtt', 8, '         def                   ', '            ef                ', '5', '2'),
+(18, 1, 1, 'a', 5, '                            ', '                            ', '8', '5'),
+(19, 1, 1, 'Poele champetre', 7, '                    dad        ', '                              dada                          ', '5', '2'),
+(22, 1, 1, 'Pamplemousse chocolat', 4, '             dad               ', '                                                         ada                                                       ', '2', '5'),
+(23, 1, 1, 'plat cuisine', 2, '                    def        ', '              def              ', '3', '5'),
+(24, 1, 1, 'test', 8, '                 def           ', '             def               ', '4', '2'),
+(25, 1, 1, 'plancha de ouf', 4, '                     truc de ouf       ', '                                super bon    sssss                    ', '2', '5');
 
 -- --------------------------------------------------------
 
@@ -125,8 +188,31 @@ INSERT INTO `recette` (`idRecette`, `idTypeRecette`, `idAuteur`, `nomRecette`, `
 CREATE TABLE `recettedansrecette` (
   `idRecetteMere` int(11) NOT NULL,
   `idRecetteFille` int(11) NOT NULL,
-  `quantite` int(11) NOT NULL
+  `quantiteRecette` decimal(11,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `recettedansrecette`
+--
+
+INSERT INTO `recettedansrecette` (`idRecetteMere`, `idRecetteFille`, `quantiteRecette`) VALUES
+(1, 4, '8.00'),
+(1, 1, '1.00'),
+(1, 1, '1.00'),
+(1, 3, '2.00'),
+(14, 1, '2.00'),
+(14, 3, '1.00'),
+(16, 1, '1.00'),
+(16, 3, '2.00'),
+(17, 1, '15.00'),
+(17, 15, '68.00'),
+(19, 16, '5.00'),
+(19, 1, '1.00'),
+(23, 1, '2.00'),
+(23, 3, '1.00'),
+(23, 13, '5.00'),
+(24, 1, '5.00'),
+(15, 1, '7.00');
 
 -- --------------------------------------------------------
 
@@ -136,7 +222,7 @@ CREATE TABLE `recettedansrecette` (
 
 CREATE TABLE `tva` (
   `nomTVA` varchar(50) NOT NULL,
-  `tauxTVA` decimal(10,0) NOT NULL
+  `tauxTVA` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -144,7 +230,10 @@ CREATE TABLE `tva` (
 --
 
 INSERT INTO `tva` (`nomTVA`, `tauxTVA`) VALUES
-('Fruit', '0');
+('Fruit', '0.00'),
+('melon', '0.00'),
+('Poire', '0.30'),
+('poisson', '1.00');
 
 -- --------------------------------------------------------
 
@@ -168,7 +257,12 @@ INSERT INTO `typeingredient` (`idTypeIngredient`, `nomTypeIngredient`) VALUES
 (4, 'assaisonnement'),
 (5, 'vinaigres'),
 (6, 'Oeufs'),
-(7, 'Légumes');
+(7, 'Légumes'),
+(8, 'jar'),
+(9, ''),
+(10, 'friz'),
+(11, 'test'),
+(12, 'petit poisson');
 
 -- --------------------------------------------------------
 
@@ -186,7 +280,8 @@ CREATE TABLE `typerecette` (
 --
 
 INSERT INTO `typerecette` (`idTypeRecette`, `nomTypeRecette`) VALUES
-(1, 'Salades');
+(1, 'Salades'),
+(2, 'apero ');
 
 --
 -- Indexes for dumped tables
@@ -260,31 +355,31 @@ ALTER TABLE `typerecette`
 -- AUTO_INCREMENT for table `auteur`
 --
 ALTER TABLE `auteur`
-  MODIFY `idAuteur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idAuteur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `ingredient`
 --
 ALTER TABLE `ingredient`
-  MODIFY `idIngredient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idIngredient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `recette`
 --
 ALTER TABLE `recette`
-  MODIFY `idRecette` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idRecette` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `typeingredient`
 --
 ALTER TABLE `typeingredient`
-  MODIFY `idTypeIngredient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idTypeIngredient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `typerecette`
 --
 ALTER TABLE `typerecette`
-  MODIFY `idTypeRecette` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idTypeRecette` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

@@ -96,10 +96,37 @@ class ControllerRecette {
 
         //à faire (pas fini)
     public static function created() {
+        $idTypeRecette = "";
+        $idAuteur = "";
+        if ($_POST["newNom"] == "" && $_POST["newPrenom"] == ""){
+            $idAuteur = $_POST["idAuteur"];
+        }
+        else {
+            $dataAuteur = array(
+                "idAuteur" => 0,
+                "nomAuteur" => $_POST["newNom"],
+                "prenomAuteur" => $_POST["newPrenom"]
+            );
+            ModelAuteur::save($dataAuteur);
+            $auteurList = ModelAuteur::selectAll();
+            $idAuteur = $auteurList[count($auteurList) - 1]->getIdAuteur();
+        }
+        if ($_POST["newTypeRecette"] == ""){
+            $idTypeRecette = $_POST["idTypeRecette"];
+        }
+        else {
+            $dataTypeRec = array(
+                "idTypeRecette" => 0,
+                "nomTypeRecette" => $_POST["newTypeRecette"]
+            );
+            ModelTypeRecette::save($dataTypeRec);
+            $typeRecetteListe = ModelTypeRecette::selectAll();
+            $idTypeRecette = $typeRecetteListe[count($typeRecetteListe) - 1]->getIdTypeRecette();
+        }
             $data = array(
                 "idRecette" => 0,
-                "idTypeRecette" => $_POST["idTypeRecette"],
-                "idAuteur" => $_POST["idAuteur"],
+                "idTypeRecette" => $idTypeRecette,
+                "idAuteur" => $idAuteur,
                 "nomRecette" => $_POST["nomRecette"],
                 "nombrePortion" => $_POST["nombrePortion"],
                 "descriptif" => $_POST["descriptif"],
@@ -188,12 +215,39 @@ class ControllerRecette {
 
     //TODO
     public static function updated() {
+        $idTypeRecette = "";
+        $idAuteur = "";
+        if ($_POST["newNom"] == "" && $_POST["newPrenom"] == ""){
+            $idAuteur = $_POST["idAuteur"];
+        }
+        else {
+            $dataAuteur = array(
+                "idAuteur" => 0,
+                "nomAuteur" => $_POST["newNom"],
+                "prenomAuteur" => $_POST["newPrenom"]
+            );
+            ModelAuteur::save($dataAuteur);
+            $auteurList = ModelAuteur::selectAll();
+            $idAuteur = $auteurList[count($auteurList) - 1]->getIdAuteur();
+        }
+        if ($_POST["newTypeRecette"] == ""){
+            $idTypeRecette = $_POST["idTypeRecette"];
+        }
+        else {
+            $dataTypeRec = array(
+                "idTypeRecette" => 0,
+                "nomTypeRecette" => $_POST["newTypeRecette"]
+            );
+            ModelTypeRecette::save($dataTypeRec);
+            $typeRecetteListe = ModelTypeRecette::selectAll();
+            $idTypeRecette = $typeRecetteListe[count($typeRecetteListe) - 1]->getIdTypeRecette();
+        }
             $tab_p = ModelRecette::selectAll();
             $pagetitle = 'Produit mis à jour';
             $idRecette = $_POST["idRecette"];
             $data = array(
-                "idAuteur" => $_POST["idAuteur"],
-                "idTypeRecette" => $_POST["idTypeRecette"],
+                "idAuteur" => $idAuteur,
+                "idTypeRecette" => $idTypeRecette,
                 "nomRecette" => $_POST["nomRecette"],
                 "nombrePortion" => $_POST["nombrePortion"],
                 "progression" => $_POST["progression"],

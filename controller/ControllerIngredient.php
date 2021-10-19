@@ -79,10 +79,36 @@ class ControllerIngredient {
 
         //à faire (pas fini)
     public static function created() {
+            $idTypeIngredient = "";
+            $nomTVA = "";
+            if ($_POST["newTVA"] == "" && $_POST["tauxTVA"] == ""){
+                $idTypeIngredient = $_POST["nomTVA"];
+            }
+            else {
+                $dataTVA= array(
+                    "nomTVA" => $_POST["newTVA"],
+                    "tauxTVA" => $_POST["tauxTVA"]
+                );
+                ModelTVA::save($dataTVA);
+                $TVAliste = ModelTVA::selectAll();
+                $nomTVA = $TVAliste[count($TVAliste) - 1]->getNomTVA();
+            }
+            if ($_POST["newTypeIngredient"] == ""){
+                $idTypeIngredient = $_POST["idTypeIngredient"];
+            }
+            else {
+                $dataTypeIng = array(
+                    "idTypeIngredient" => 0,
+                    "nomTypeIngredient" => $_POST["newTypeIngredient"]
+                );
+                ModelTypeIngredient::save($dataTypeIng);
+                $typeIngredientListe = ModelTypeIngredient::selectAll();
+                $idTypeIngredient = $typeIngredientListe[count($typeIngredientListe) - 1]->getIdTypeIngredient();
+            }
             $data = array(
                 "idIngredient" => 0,
-                "idTypeIngredient" => $_POST["idTypeIngredient"],
-                "nomTVA" => $_POST["nomTVA"],
+                "idTypeIngredient" => $idTypeIngredient,
+                "nomTVA" => $nomTVA,
                 "nomIngredient" => $_POST["nomIngredient"],
                 "unite" => $_POST["unite"],
                 "allergene" => $_POST["allergene"],
@@ -137,6 +163,41 @@ class ControllerIngredient {
 
 
     public static function updated() {
+        $idTypeIngredient = "";
+        $nomTVA = "";
+        if ($_POST["newTVA"] == "" && $_POST["tauxTVA"] == ""){
+            $idTypeIngredient = $_POST["nomTVA"];
+        }
+        else {
+            $dataTVA= array(
+                "nomTVA" => $_POST["newTVA"],
+                "tauxTVA" => $_POST["tauxTVA"]
+            );
+            ModelTVA::save($dataTVA);
+            $TVAliste = ModelTVA::selectAll();
+            $nomTVA = $TVAliste[count($TVAliste) - 1]->getNomTVA();
+        }
+        if ($_POST["newTypeIngredient"] == ""){
+            $idTypeIngredient = $_POST["idTypeIngredient"];
+        }
+        else {
+            $dataTypeIng = array(
+                "idTypeIngredient" => 0,
+                "nomTypeIngredient" => $_POST["newTypeIngredient"]
+            );
+            ModelTypeIngredient::save($dataTypeIng);
+            $typeIngredientListe = ModelTypeIngredient::selectAll();
+            $idTypeIngredient = $typeIngredientListe[count($typeIngredientListe) - 1]->getIdTypeIngredient();
+        }
+        $data = array(
+            "idIngredient" => 0,
+            "idTypeIngredient" => $idTypeIngredient,
+            "nomTVA" => $nomTVA,
+            "nomIngredient" => $_POST["nomIngredient"],
+            "unite" => $_POST["unite"],
+            "allergene" => $_POST["allergene"],
+            "prixUnitaire" => $_POST["prixUnitaire"],
+        );
             $pagetitle = 'Produit mis à jour';
             $idIngredient = $_POST["idIngredient"];
             $data = array(
@@ -145,8 +206,8 @@ class ControllerIngredient {
                 "prixUnitaire" => $_POST["prixUnitaire"],
                 "allergene" => $_POST["allergene"],
                 "primary" => $_POST["idIngredient"],
-                "idTVA" => $_POST["nomTVA"],
-                "idTypeIngredient" => $_POST["idTypeIngredient"]
+                "idTVA" => $nomTVA,
+                "idTypeIngredient" => $idTypeIngredient
             );
             $i = ModelIngredient::select($idIngredient);
             $typeIngredientListe = ModelTypeIngredient::selectAll();
