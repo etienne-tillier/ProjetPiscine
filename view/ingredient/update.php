@@ -85,7 +85,7 @@
                     <input id="newTVA" type="text" name="newTVA" placeholder="Nouvelle TVA" style="display: none">
                     <input id="tauxTVA" type="text" name="tauxTVA" placeholder="taux TVA" style="display: none">
                 </p>
-                <div id="textTVA" onClick="creerTVA()">Creer un nouveau type ingrédient</div>
+                <div id="textTVA" onClick="creerTVA()">Creer un nouveau type TVA</div>
 
             <p>
                 <label class="sous_titre" for="unite_ingredient">Unité</label> :
