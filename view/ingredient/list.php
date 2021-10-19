@@ -51,7 +51,6 @@
             <div id="boutons">
                 <ul>
                 <li id="case_add_ingr"><a href="index.php?controller=ingredient&action=create">Ajouter</li>
-                <li id="case_add_type_ingr"><a href="index.php?controller=typeingredient&action=create">Ajouter Type</li>
                 </ul>
             </div>
     </div>
