@@ -26,5 +26,21 @@ class ControllerTVA{
             require (File::build_path(array("view", "view.php")));
         }
     }
+    public static function create() {
+        $nomCharge = "";
+        $montantCharge = "";
+        $pagetitle = 'Nouvelle charge';
+        $controller = 'Charge';
+        $view = 'update';
+        require (File::build_path(array("view", "view.php")));
+       }
+       public static function created() {
+        $data = array(
+        "nomCharge" => $_POST["nomCharge"],
+        "nomIngredient" => $_POST["nomIngredient"],
+        "tauxTVA"=> $_POST["tauxTVA"],
+        );
+
+       }
 
 }
