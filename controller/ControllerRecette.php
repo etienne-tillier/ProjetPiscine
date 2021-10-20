@@ -6,6 +6,8 @@ require_once(File::build_path(array("model","ModelTypeRecette.php")));
 require_once(File::build_path(array("model","ModelIngredientDansRecette.php")));
 require_once(File::build_path(array("model","ModelRecetteDansRecette.php")));
 require_once(File::build_path(array("model","ModelAuteur.php")));
+require_once(File::build_path(array("lib","Func.php")));
+
 class ControllerRecette {
 
     protected static $object = 'Recette';
@@ -23,16 +25,8 @@ class ControllerRecette {
         $idRecette = $_GET["idRecette"];
         $r = ModelRecette::select($idRecette);
         $auteur = ModelAuteur::select($r->getIdAuteur());
-        $tabIngredientDansRecette = ModelIngredientDansRecette::selectIngredientDansRecette($idRecette,"recette");
-        $tabRecetteDansRecette = ModelRecetteDansRecette::selectRecetteDansRecette($idRecette,"mère");
-        $tabRecettes = [];
-        $tabIngredients = [];
-        foreach($tabIngredientDansRecette as $ingredientDansRecette){
-            array_push($tabIngredients, [ModelIngredient::select($ingredientDansRecette->getIdIngredient()),$ingredientDansRecette->getQuantiteIngredient()]);
-        }
-        foreach($tabRecetteDansRecette as $recettetDansRecette){
-            array_push($tabRecettes, [ModelRecette::select($recettetDansRecette->getIdRecetteFille()),$recettetDansRecette->getQuantiteRecette()]);
-        }
+        $tabIngredients = getListIngredient($idRecette);
+        $listeAllIng = json_encode(genererListeIngredient($tabIngredients));
         $pagetitle = $r->getNomRecette();
         if ($r == null) {
             $controller = ('Recette');
