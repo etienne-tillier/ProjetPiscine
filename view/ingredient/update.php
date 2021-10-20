@@ -46,7 +46,7 @@
 </script>
 
 
-<form id="formulaire" method="post" action="index.php?action=<?= ($create ? "created" : "updated" )?>&controller=ingredient">
+<form id="ajout_ingredient" method="post" action="index.php?action=<?= ($create ? "created" : "updated" )?>&controller=ingredient">
     <fieldset class="bordure">
         <legend class="titre"><?= ($create ? "Ajout d'un nouvel ingrédient" : "Mise à jour d'un ingrédient") ?></legend>
         <div class="contenu_form">
@@ -57,15 +57,15 @@
             </p>
             <p class="sous_titre">Type Ingredient
                 <div id="typeIngredientSelect">
-                    <select id="typeIngredientList" class="liste_der" name="idTypeIngredient" required>
-                        <option value="" disabled <?= ($create ? "selected" : "") ?>>Choisissez un Type</option>
-                        <?php
-                            foreach($typeIngredientList as $type){
-                                echo '<option value="' . $type->getIdTypeIngredient() . '" ' . ($type->getIdTypeIngredient() == $idTypeIngredient ? "selected" : "") . '>' .  $type->getNomTypeIngredient() . '</option>';
-                            }
-                        ?>
-                        <script>$("#typeIngredientList").chosen();</script>
-                    </select>
+                        <select id="typeIngredientList" class="liste_der" name="idTypeIngredient" required>
+                            <option value="" disabled <?= ($create ? "selected" : "") ?>>Choisissez un Type</option>
+                            <?php
+                                foreach($typeIngredientList as $type){
+                                    echo '<option value="' . $type->getIdTypeIngredient() . '" ' . ($type->getIdTypeIngredient() == $idTypeIngredient ? "selected" : "") . '>' .  $type->getNomTypeIngredient() . '</option>';
+                                }
+                            ?>
+                            <script>$("#typeIngredientList").chosen();</script>
+                        </select>
                 </div>
                 <input id="newTypeIngredient" type="text" name="newTypeIngredient" placeholder="Nouveau Type" style="display: none">
             </p>
