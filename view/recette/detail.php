@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="style/style_details_recette.css">
-
+<script>console.log(<?= $listeAllIng ?>)</script>
 <div id="detail">
     <div id="precision_contenu">
         <div id=fiche_tech>
