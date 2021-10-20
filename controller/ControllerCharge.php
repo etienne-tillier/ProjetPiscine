@@ -37,8 +37,8 @@ class ControllerCharge{
        public static function created() {
         $data = array(
         "nomCharge" => $_POST["nomCharge"],
-        "nomIngredient" => $_POST["nomIngredient"],
-        "tauxTVA"=> $_POST["tauxTVA"],
+        "nomRecette" => $_POST["nomRecette"],
+        "montantCharge"=> $_POST["montantCharge"],
         );
 
        }
