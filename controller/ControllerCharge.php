@@ -2,7 +2,7 @@
 
 require_once (File::build_path(array("model", "ModelCharge.php")));
 
-class ControllerTVA{
+class ControllerCharge{
     protected static $object = 'Charge';
 
     public static function readAll() {
