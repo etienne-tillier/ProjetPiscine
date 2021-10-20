@@ -11,6 +11,7 @@ require_once File::build_path(array('controller','ControllerTypeRecette.php'));
 require_once File::build_path(array('controller','ControllerRecette.php'));
 require_once File::build_path(array('controller','ControllerAuteur.php'));
 require_once File::build_path(array('controller','ControllerTVA.php'));
+require_once File::build_path(array('controller','ControllerCharge.php'));
 // On recupère l'action passée dans l'URL
 
 if (isset($_GET['action'])){
