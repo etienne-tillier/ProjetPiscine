@@ -1,0 +1,183 @@
+.titre{
+    text-align: center;
+    font-family: 'Arial','Verdana';
+    font-weight: bold;
+    font-size: 60px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.contenu_form{
+    display: flex;
+    justify-content: center;
+}
+
+.grid > div{
+    font-family: 'Arial','Verdana';
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    border: solid 2px black;
+}
+
+.grid{
+    width: 700px;
+    padding: 40px;
+    background-color: black;
+    border-radius: 30px;
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(11 1fr);
+    
+}
+
+.sous_titre1{
+    grid-column: 1;
+    grid-row: 1;
+    
+}
+
+.reponse1{
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.sous_titre2{
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.reponse2{
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.bouton1{
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    grid-column: 1 / span 2;
+    grid-row: 3;
+}
+
+.sous_titre3{
+    grid-column: 1;
+    grid-row: 4;
+}
+
+.reponse3{
+    grid-column: 2;
+    grid-row: 4;
+}
+
+.bouton2{
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    grid-column: 1 / span 2;
+    grid-row: 5;
+}
+
+.sous_titre4{
+    grid-column: 1;
+    grid-row: 6;
+}
+
+.reponse4{
+    grid-column: 2;
+    grid-row: 6;
+}
+
+.sous_titre5{
+    grid-column: 1;
+    grid-row: 7;
+}
+
+.reponse5{
+    grid-column: 2;
+    grid-row: 7;
+}
+
+.sous_titre6{
+    grid-column: 1;
+    grid-row: 8;
+}
+
+.reponse6{
+    grid-column: 2;
+    grid-row: 8 / 9;
+}
+
+.bouton3{
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    grid-column: 1 / span 2;
+    grid-row: 10;
+}
+
+.bouton_final{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    width: 300px;
+	border:rgb(196, 156, 108) 2px solid;
+    border-radius: 15px;
+    background-color: transparent;
+    transition: 400ms;
+}
+
+.bouton_final:hover{
+    color: rgb(196, 156, 108);
+}
+
+.bouton_js1{
+    margin-left: 170px;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px;
+    width: 300px;
+	border:rgb(196, 156, 108) 2px solid;
+    border-radius: 15px;
+    transition: 400ms;
+}
+
+.bouton_js1:hover{
+    color: rgb(196, 156, 108);
+}
+
+.bouton_js2{
+    margin-left: 170px;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px;
+    width: 300px;
+	border:rgb(196, 156, 108) 2px solid;
+    border-radius: 15px;
+    transition: 400ms;
+}
+
+.bouton_js2:hover{
+    color: rgb(196, 156, 108);
+    
+}
+
+.entrer_text, #newAuteurNom, #newAuteurPrenom, #newTypeRecette{
+    font-size: 20px;
+    margin-top: 30px;
+    width: 100%;
+    text-align: left;
+    border: rgb(196, 156, 108) 1px;
+    border-radius: 5px;
+}
+
+.liste_der{
+    font-size: 20px;
+    margin-right: 200px;
+}
+
+.qcm_rond{
+    margin-top: 30px;
+}
