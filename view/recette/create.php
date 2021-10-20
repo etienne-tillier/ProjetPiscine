@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="style/style_formulaire.css">
+<link rel="stylesheet" type="text/css" href="style/style_formulaire_recette_add.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -83,7 +83,7 @@
 
 
 </script>
-<form id="ajout_ingredient" method="post" action="index.php?action=<?= ($create ? "created" : "updated" )?>&controller=recette">
+<!--<form id="formulaire" method="post" action="index.php?action=<?= ($create ? "created" : "updated" )?>&controller=recette">
     <fieldset class="bordure">
         <legend class="titre"><?= ($create ? "Ajout d'une nouvelle recette" : "Mise à jour d'une recette") ?></legend>
         <div class="contenu_form">    
@@ -146,17 +146,21 @@
             </div>
 
             </ul>
-
-            <label class="sous_titre" for="descriptif_id">Description</label>
+            
+            <div>
+            <p><label class="sous_titre" for="descriptif_id">Description</label></p>
             <textarea class="entrer_text" id="descriptif_id" name="descriptif" rows="5" cols="33" required>
                 <?= htmlspecialchars($descriptif) ?>
             </textarea>
+            </div>
 
             
-            <label class="sous_titre" for="progression_id">Progression</label>
+            <div>
+            <p><label class="sous_titre" for="progression_id">Progression</label></p>
             <textarea class="entrer_text" id="progression_id" name="progression" rows="5" cols="33" required>
                 <?= htmlspecialchars($progression) ?>
             </textarea>
+            </div>
             
 
             <?=($create ? "" : '<input type="hidden" name="idRecette" value="' . rawurldecode($idRecette) . '"/>') ?>
@@ -166,3 +170,117 @@
     </fielset>
 </form>
 
+ -------------------------------------------------------------------------------- -->
+
+<div class="titre"><?= ($create ? "Ajout d'une nouvelle recette" : "Mise à jour d'une recette") ?></div>
+<form id="formulaire" method="post" action="index.php?action=<?= ($create ? "created" : "updated" )?>&controller=recette">
+    <input type ="hidden" name ="action" value=<?php echo "\"$act\"" ?>/>
+    <input type ="hidden" name ="controller" value="recette"/>    
+    <div class="contenu_form">
+        <div class="grid">
+
+            <div class="sous_titre1">
+                <p>NOM</p>
+            </div>
+
+            <div class="sous_titre2">
+                <p>TYPE RECETTE</p>
+            </div>
+
+            <div class="sous_titre3">
+                <p>AUTEUR</p>
+            </div>
+
+            <div class="sous_titre4">
+                <p>PORTION</p>
+            </div>
+            <div class="sous_titre5">
+                <p>MAIN D'OEUVRE</p>
+            </div>
+
+            <div class="sous_titre6">
+                <p>MULTIPLICATEUR</p>
+            </div>
+
+            <div class="sous_titre7">
+                <p>DESCRIPTION</p>
+            </div>
+
+            <div class="sous_titre8">
+                <p>PROGRESSION</p>
+            </div>
+
+            <div class="reponse1">
+                <input class="entrer_text" type="text" placeholder="Ex : Soupe de poisson" name="nomRecette" <?= ($create ? "required" : "required") ?> value="<?= htmlspecialchars($nomRecette) ?>" id="nom_recette"/>
+            </div>
+
+            <div class="reponse2">
+                <div id="typeRecetteSelect">
+                    <select id="selectTypeRecette" class="liste_der" name="idTypeRecette" required>
+                        <option value="" disabled <?= ($create ? "selected" : "") ?>>Choisissez un type</option>
+                        <?php
+                        foreach($typeRecetteList as $type){
+                            echo '<option value="' . $type->getIdTypeRecette() . '" ' . ($type->getIdTypeRecette() == $idTypeRecette ? "selected" : "") . '>' .  $type->getNomTypeRecette() . '</option>';
+                        }
+                        ?>
+                        <script>$("#selectTypeRecette").chosen();</script>
+                    </select>
+                </div>
+                <input id="newTypeRecette" type="text" name="newTypeRecette" placeholder="Nouveau Type" style="display: none">
+            </div>
+
+            <div class="reponse3">
+                <div id="auteurSelect">
+                    <p><select id="selectAuteur" class="liste_der" name="idAuteur" required>
+                        <option value="" disabled <?= ($create ? "selected" : "") ?>>Choisissez un auteur</option>
+                        <?php
+                            foreach($auteurList as $auteur){
+                                echo '<option value="' . $auteur->getIdAuteur() . '" ' . ($auteur->getidAuteur() == $idAuteur ? "selected" : "") . '>' .  $auteur->getNomAuteur() . '</option>';
+                            }
+                        ?>
+                        <script>$("#selectAuteur").chosen();</script>
+                    </select>
+                </div>
+                <input id="newAuteurNom" type="text" name="newNom" placeholder="Nom" style="display: none">
+                <input id="newAuteurPrenom" type="text" name="newPrenom" placeholder="Prenom" style="display: none"></p>
+            </div>
+
+            <div class="reponse4">
+                <input class="entrer_text" type="text" name="nombrePortion" value="<?= htmlspecialchars($nombrePortion) ?>" id="nombre_Portion" required/>
+            </div>
+
+            <div class="reponse5">
+                <input class="entrer_text" type="text" name="prixMainOeuvre" value="<?= htmlspecialchars($prixMainOeuvre) ?>" id="prixMain_Oeuvre" required/>
+            </div>
+                
+            <div class="reponse6">
+                <input class="entrer_text" type="text" name="multiplicateur" value="<?= htmlspecialchars($multiplicateur) ?>" id="multiplicateur_id" required/>
+            </div>
+
+            <div class="reponse7">
+                <textarea class="entrer_text" id="descriptif_id" name="descriptif" rows="5" cols="33" required>
+                    <?= htmlspecialchars($descriptif) ?>
+                </textarea>
+            </div>
+
+            <div class="reponse8">
+                <textarea class="entrer_text" id="progression_id" name="progression" rows="5" cols="33" required>
+                    <?= htmlspecialchars($progression) ?>
+                </textarea>
+            </div>
+
+            <div class="bouton1">
+                <div class="bouton_js1" onClick="creerTypeRecette()">Creer un nouveau type recette</div>
+            </div>
+
+            <div class="bouton2">
+                <div class="bouton_js2" onClick="creerAuteur()">Creer un nouvel auteur</div>
+            </div>
+
+            <div class="bouton3">
+                <?=($create ? "" : '<input type="hidden" name="idRecette" value="' . rawurldecode($idRecette) . '"/>') ?>
+                <input class="bouton_final" type="submit" value="<?= $create ? "Ajouter" : "Mettre à jour" ?>" />            
+            </div>
+        </div>
+    </div>
+</form>
