@@ -36,7 +36,7 @@
 
                 <div id=entete_fiche>
                     <div id="descriptif">
-                        <p class="titre_partie_niv1">Desciptifs</p>
+                        <p class="titre_partie_niv1">Descriptifs</p>
                         <?php echo htmlspecialchars($r->getDescriptif()); ?>
                     </div>
                     <div id="nom">
