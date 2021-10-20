@@ -46,7 +46,7 @@
 </script>
 
 
-<form id="ajout_ingredient" method="post" action="index.php?action=<?= ($create ? "created" : "updated" )?>&controller=ingredient">
+<form id="formulaire" method="post" action="index.php?action=<?= ($create ? "created" : "updated" )?>&controller=ingredient">
     <fieldset class="bordure">
         <legend class="titre"><?= ($create ? "Ajout d'un nouvel ingrédient" : "Mise à jour d'un ingrédient") ?></legend>
         <div class="contenu_form">

@@ -83,7 +83,7 @@
 
 
 </script>
-<form id="ajout_ingredient" method="post" action="index.php?action=<?= ($create ? "created" : "updated" )?>&controller=recette">
+<form id="formulaire" method="post" action="index.php?action=<?= ($create ? "created" : "updated" )?>&controller=recette">
     <fieldset class="bordure">
         <legend class="titre"><?= ($create ? "Ajout d'une nouvelle recette" : "Mise à jour d'une recette") ?></legend>
         <div class="contenu_form">    
@@ -146,17 +146,21 @@
             </div>
 
             </ul>
-
-            <label class="sous_titre" for="descriptif_id">Description</label>
+            
+            <div>
+            <p><label class="sous_titre" for="descriptif_id">Description</label></p>
             <textarea class="entrer_text" id="descriptif_id" name="descriptif" rows="5" cols="33" required>
                 <?= htmlspecialchars($descriptif) ?>
             </textarea>
+            </div>
 
             
-            <label class="sous_titre" for="progression_id">Progression</label>
+            <div>
+            <p><label class="sous_titre" for="progression_id">Progression</label></p>
             <textarea class="entrer_text" id="progression_id" name="progression" rows="5" cols="33" required>
                 <?= htmlspecialchars($progression) ?>
             </textarea>
+            </div>
             
 
             <?=($create ? "" : '<input type="hidden" name="idRecette" value="' . rawurldecode($idRecette) . '"/>') ?>
