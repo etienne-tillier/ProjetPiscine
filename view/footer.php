@@ -1,15 +1,11 @@
 <link rel="stylesheet" href="style/style_footer.css">
-<div id="Bloc_footer">
+<footer id="Bloc_footer">
 	<div id="lien">
-		<p> <a href="https://www.lyceehoteliergeorgesfreche.fr" target="_blank">Site web de l'école</a> </p>
+
+		<p> <a href="https://www.lyceehoteliergeorgesfreche.fr" target="_blank">Site web de l'école</a></p>
 	</div>
+
 	<div id="nous">
-		<ul>
-			<li>Par :</li>
-			<li>Ayoub,</li>
-			<li>Etienne,</li>
-			<li>Eya,</li>
-			<li>Romain</li>
-		</ul>
+	&copy; Roche_Cooking | Created By Etienne & Ayoub & Romain & Eya
 	</div>
-</div>
+</footer>

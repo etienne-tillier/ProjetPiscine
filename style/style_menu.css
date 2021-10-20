@@ -13,14 +13,13 @@
 	padding: 7px;
 	height: 100px;
 	width: auto;
-
 }
 
 nav
 {
 	display: flex;
 	width: 100%;
-	text-align: center;
+	text-align: center;	
 }
 
 nav ul
@@ -35,15 +34,18 @@ nav li
 {
 	font-size: 30px;
 	margin-right: 30px;
-	border-style: solid;
+	border-style: groove;
+	border-radius: 10px;
 	padding: 23px;
 	border-color: rgb(196, 156, 108);
+	box-shadow: 0 4px 8px 0 rgb(196, 156, 108), 0 4px 10px 0 rgba(250, 203, 17, 0.19);
 }
 
 nav a 
 {
 	text-decoration: none;
 	color: white;
+	text-shadow: 3px 2px 4px rgb(196, 156, 108);
 }
 
 nav a:hover
