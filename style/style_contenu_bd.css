@@ -4,8 +4,8 @@
 {
 	margin: 10px;
 	margin-bottom: 0px;
-	border-style: solid;
-	border-color: black;
+	border: solid black 2px;
+	border-radius: 10px;
 	display: flex;
 	height: 40px;
 	align-items: center;
@@ -29,8 +29,8 @@
 
 #contenu
 {
-	border-style: solid;
-	border-color : black;
+	border: solid black 2px;
+	border-radius: 10px;
 	background-color: rgb(240, 240, 240);
 	padding-right: 30px;
 	padding-left: 30px;
@@ -54,6 +54,7 @@
 {
 	text-decoration: none;
 	color: black;
+	transition: 400ms;
 }
 
 #type_ingredient a:hover
@@ -75,6 +76,7 @@
 {
 	text-decoration: none;
 	color: black;
+	transition: 400ms;
 }
 
 #list_ingredient a:hover
@@ -109,14 +111,23 @@
 #barre_recherche
 {
 	font-size: 15px;
+	padding-left: 2px;
     border:solid 1px rgb(196, 156, 108);
+	border-radius: 5px;
 	width: 200px;
 }
 
 #bouton_recherche
 {
 	border:solid 1px rgb(196, 156, 108);
+	border-radius: 5px;
 	background-color: transparent;
 	font-size: 15px;
 	font-weight: bold;
+	transition: 400ms;
+}
+
+#bouton_recherche:hover
+{
+	color: rgb(196, 156, 108);
 }

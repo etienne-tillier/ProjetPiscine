@@ -54,15 +54,15 @@
 
     function ajouterIngredient(){
         $("#listeIngredient").append("<div id='" + i + "'></div>");
-        $("#listeIngredient div:last").append("<li><select class='choix' class='liste_der' name='ingredients[]' placeholder='Choisissez ingrédient' required></select></li>");
+        $("#listeIngredient div:last").append("<li><select class='choix' name='ingredients[]' placeholder='Choisissez ingrédient' required></select></li>");
         <?php foreach ($listeIngredient as $ingredient){?>
             $("#listeIngredient div:last select:last").append($('<option>', {
                 value: "<?php echo $ingredient->getIdIngredient()?>",
                 text: "<?php echo $ingredient->getNomIngredient()?>"
             }));
         <?php }; ?>
-        $("#listeIngredient div:last").append("<li><input type='text' name='quantitesIngredients[]' placeholder='Quantité ingredient' required></input></li>");
-        $("#listeIngredient div:last").append("<li><div onclick='$(this).parent().parent().remove()'>Supprimer</div></li>");
+        $("#listeIngredient div:last").append("<li><input class='entrer_text1' type='text' name='quantitesIngredients[]' placeholder='Quantité ingredient' required></input></li>");
+        $("#listeIngredient div:last").append("<li><div class='boutonIngredient' onclick='$(this).parent().parent().remove()'>Supprimer</div></li>");
         i++;
         $(".choix").chosen();
     }
@@ -75,8 +75,8 @@
             text: "<?php echo $recette->getNomRecette()?>"
         }));
         <?php }; ?>
-        $("#listeRecette div:last").append("<li><input class='entrer_text' type='text' name='quantitesRecettes[]' placeholder='Quantité recette' required></input></li>");
-        $("#listeRecette div:last").append("<li><div onclick='$(this).parent().parent().remove()'>Supprimer<br></div></li>");
+        $("#listeRecette div:last").append("<li><input class='entrer_text1' type='text' name='quantitesRecettes[]' placeholder='Quantité recette' required></input></li>");
+        $("#listeRecette div:last").append("<li><div class='boutonRecette' onclick='$(this).parent().parent().remove()'>Supprimer<br></div></li>");
         i++;
         $(".choix").chosen();
     }
@@ -216,7 +216,7 @@
 
             <div class="reponse2">
                 <div id="typeRecetteSelect">
-                    <select id="selectTypeRecette" name="idTypeRecette" required>
+                    <p><select id="selectTypeRecette" name="idTypeRecette" required>
                         <option class="liste_der" value="" disabled <?= ($create ? "selected" : "") ?>>Choisissez un type</option>
                         <?php
                         foreach($typeRecetteList as $type){
@@ -226,7 +226,7 @@
                         <script>$("#selectTypeRecette").chosen();</script>
                     </select>
                 </div>
-                <input id="newTypeRecette" type="text" name="newTypeRecette" placeholder="Nouveau Type" style="display: none">
+                <input id="newTypeRecette" type="text" name="newTypeRecette" placeholder="Nouveau Type" style="display: none"></p>
             </div>
 
             <div class="reponse3">
@@ -258,13 +258,13 @@
             </div>
 
             <div class="reponse7">
-                <textarea class="entrer_text" id="descriptif_id" name="descriptif" rows="5" cols="33" required>
+                <textarea class="entrer_text_area" id="descriptif_id" name="descriptif" rows="5" cols="33" required>
                     <?= htmlspecialchars($descriptif) ?>
                 </textarea>
             </div>
 
             <div class="reponse8">
-                <textarea class="entrer_text" id="progression_id" name="progression" rows="5" cols="33" required>
+                <textarea class="entrer_text_area" id="progression_id" name="progression" rows="5" cols="33" required>
                     <?= htmlspecialchars($progression) ?>
                 </textarea>
             </div>
