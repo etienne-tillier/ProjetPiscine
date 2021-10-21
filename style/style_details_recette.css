@@ -219,3 +219,7 @@ td, th
 {
 	margin-top: 20px;
 }
+
+.recette{
+	font-weight: bold;
+}

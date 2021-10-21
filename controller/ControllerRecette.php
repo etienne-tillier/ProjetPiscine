@@ -25,7 +25,7 @@ class ControllerRecette {
         $idRecette = $_GET["idRecette"];
         $r = ModelRecette::select($idRecette);
         $auteur = ModelAuteur::select($r->getIdAuteur());
-        $tabIngredients = getListIngredient($idRecette);
+        $tabIngredients = getListIngredient($r,1);
         $listeAllIng = json_encode(genererListeIngredient($tabIngredients));
         $pagetitle = $r->getNomRecette();
         if ($r == null) {
