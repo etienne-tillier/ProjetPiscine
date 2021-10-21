@@ -1,5 +1,17 @@
 <link rel="stylesheet" type="text/css" href="style/style_details_recette.css">
-<script>console.log(<?= $listeAllIng ?>)</script>
+<script>console.log(<?= $listeAllIng ?>)
+var listeIng = <?= $listeAllIng ?>
+    var tableau = $("#table")
+const afficherFicheTech = (list) => {
+    for (let ing of list){
+        if (ing.type == "ingredient"){
+            tableau.append("<th>" + ing.code + "</th>")
+            tableau.append("<th>" + ing.nature + "</th>")
+            tableau.append("<th>" + ing.code + "</th>")
+        }
+    }
+}
+</script>
 <div id="detail">
     <div id="precision_contenu">
         <div id=fiche_tech>
@@ -36,7 +48,7 @@
                                 <th>Unité</th>
                             </tr>
                             
-                            <tr>
+                            <tr id="table">
                                 <?php
                                 ?>
                                 <td><?php ?></td>
