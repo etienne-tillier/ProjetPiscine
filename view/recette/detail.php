@@ -14,10 +14,14 @@
                 </div>
             </div>
 
-            <div id="corps_fiche">
-                <div id="progression">
-                    <p class="titre_partie_niv1">Progression</p>
-                    <?php htmlspecialchars($r->getProgression()) ?>
+                <div id=entete_fiche>
+                    <div id="descriptif">
+                        <p class="titre_partie_niv1">Descriptifs</p>
+                        <?php echo htmlspecialchars($r->getDescriptif()); ?>
+                    </div>
+                    <div id="nom">
+                        <?php echo htmlspecialchars(ucfirst($r->getNomRecette())) ?>
+                    </div>
                 </div>
                 <div id="denomination">
 

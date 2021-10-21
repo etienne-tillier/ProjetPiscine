@@ -49,13 +49,16 @@
 }
 
 .reponse2{
+    width: 100%;
     grid-column: 2;
     grid-row: 2;
+    display: flex;
+    flex-direction: column;
 }
 
 .bouton1{
+    display: flex;
     text-align: center;
-    padding-top: 30px;
     padding-bottom: 30px;
     grid-column: 1 / span 2;
     grid-row: 3;
@@ -64,16 +67,20 @@
 .sous_titre3{
     grid-column: 1;
     grid-row: 4;
+    display: flex;
 }
 
 .reponse3{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     grid-column: 2;
     grid-row: 4;
 }
 
 .bouton2{
+    display: flex;
     text-align: center;
-    padding-top: 30px;
     padding-bottom: 30px;
     grid-column: 1 / span 2;
     grid-row: 5;
@@ -156,18 +163,20 @@
 }
 
 .ajout1{
+    display: flex;
     grid-column: 1 ;
     grid-row: 12;
 }
 
 .ajout2{
+    display: flex;
     grid-column: 2 ;
     grid-row: 12;
 }
 
 .bouton_final{
     color: white;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
     padding: 10px;
     width: 300px;
@@ -182,7 +191,7 @@
 }
 
 .bouton_js1, .bouton_js2{
-    margin-left: 170px;
+    margin: auto;
     font-size: 25px;
     font-weight: bold;
     padding: 10px;
@@ -192,7 +201,7 @@
     transition: 400ms;
 }
 
-.bouton_js1:hover, .bouton_js2:hover{
+.bouton_js1:hover, .bouton_js2:hover, .boutonIngredient:hover, .boutonRecette:hover, #ajouterRecette:hover, #ajouterIngredient:hover{
     color: rgb(196, 156, 108);
 }
 
@@ -207,10 +216,6 @@
     transition: 400ms;
 }
 
-#ajouterRecette:hover, #ajouterIngredient:hover{
-    color: rgb(196, 156, 108);
-}
-
 .entrer_text, #newAuteurNom, #newAuteurPrenom, #newTypeRecette{
     font-size: 20px;
     margin-top: 30px;
@@ -220,7 +225,49 @@
     border-radius: 5px;
 }
 
-.liste_der{
+.ajout1 ul, .ajout2 ul{
+    margin: auto;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.entrer_text1{
     font-size: 20px;
-    margin-right: 200px;
+    width: 100%;
+    text-align: left;
+    border: rgb(196, 156, 108) 1px;
+    border-radius: 5px;
+}
+
+.boutonIngredient, .boutonRecette{
+    margin: auto;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    width: 150px;
+	border:rgb(196, 156, 108) 2px solid;
+    border-radius: 15px;
+    transition: 400ms;
+}
+
+#selectTypeRecette, #selectAuteur{
+    width: 100%;
+}
+
+.choix{
+    width: 100%;
+}
+
+.entrer_text_area{
+    font-size: 20px;
+    margin-top: 30px;
+    width: 100%;
+    text-align: left;
+    border: rgb(196, 156, 108) 1px;
+    border-radius: 5px;
+    max-width: 350px;
 }

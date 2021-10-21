@@ -188,14 +188,15 @@
 	font-family: 'Arial','Verdana';
 	font-weight: bold;
 	padding-top: 20px;
-	border-style: solid;
-	border-color: rgb(196, 156, 108);
+	border: rgb(196, 156, 108) solid;
+	border-radius: 10px;
 }
 
 #precision_fonction a 
 {
 	text-decoration: none;
 	color: black;
+	transition: 400ms;
 }
 
 #precision_fonction a:hover
