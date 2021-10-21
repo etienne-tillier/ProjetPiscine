@@ -67,16 +67,16 @@
         $(".choix").chosen();
     }
     function ajouterRecette(){
-        $("#listeIngredient").append("<div id='" + i + "'></div>");
-        $("#listeIngredient div:last").append("<li><select class='choix' name='recettes[]' placeholder='Choisissez la recette' required></select></li>");
+        $("#listeRecette").append("<div id='" + i + "'></div>");
+        $("#listeRecette div:last").append("<li><select class='choix' name='recettes[]' placeholder='Choisissez la recette' required></select></li>");
         <?php foreach ($listeRecette as $recette){?>
-        $("#listeIngredient div:last select:last").append($('<option>', {
+        $("#listeRecette div:last select:last").append($('<option>', {
             value: "<?php echo $recette->getIdRecette()?>",
             text: "<?php echo $recette->getNomRecette()?>"
         }));
         <?php }; ?>
-        $("#listeIngredient div:last").append("<li><input class='entrer_text' type='text' name='quantitesRecettes[]' placeholder='Quantité recette' required></input></li>");
-        $("#listeIngredient div:last").append("<li><div onclick='$(this).parent().parent().remove()'>Supprimer<br></div></li>");
+        $("#listeRecette div:last").append("<li><input class='entrer_text' type='text' name='quantitesRecettes[]' placeholder='Quantité recette' required></input></li>");
+        $("#listeRecette div:last").append("<li><div onclick='$(this).parent().parent().remove()'>Supprimer<br></div></li>");
         i++;
         $(".choix").chosen();
     }
@@ -216,8 +216,8 @@
 
             <div class="reponse2">
                 <div id="typeRecetteSelect">
-                    <select id="selectTypeRecette" class="liste_der" name="idTypeRecette" required>
-                        <option value="" disabled <?= ($create ? "selected" : "") ?>>Choisissez un type</option>
+                    <select id="selectTypeRecette" name="idTypeRecette" required>
+                        <option class="liste_der" value="" disabled <?= ($create ? "selected" : "") ?>>Choisissez un type</option>
                         <?php
                         foreach($typeRecetteList as $type){
                             echo '<option value="' . $type->getIdTypeRecette() . '" ' . ($type->getIdTypeRecette() == $idTypeRecette ? "selected" : "") . '>' .  $type->getNomTypeRecette() . '</option>';
@@ -231,8 +231,8 @@
 
             <div class="reponse3">
                 <div id="auteurSelect">
-                    <p><select id="selectAuteur" class="liste_der" name="idAuteur" required>
-                        <option value="" disabled <?= ($create ? "selected" : "") ?>>Choisissez un auteur</option>
+                    <p><select id="selectAuteur" name="idAuteur" required>
+                        <option class="liste_der" value="" disabled <?= ($create ? "selected" : "") ?>>Choisissez un auteur</option>
                         <?php
                             foreach($auteurList as $auteur){
                                 echo '<option value="' . $auteur->getIdAuteur() . '" ' . ($auteur->getidAuteur() == $idAuteur ? "selected" : "") . '>' .  $auteur->getNomAuteur() . '</option>';
@@ -279,7 +279,23 @@
 
             <div class="bouton3">
                 <?=($create ? "" : '<input type="hidden" name="idRecette" value="' . rawurldecode($idRecette) . '"/>') ?>
-                <input class="bouton_final" type="submit" value="<?= $create ? "Ajouter" : "Mettre à jour" ?>" />            
+                <input class="bouton_final" type="submit" value="<?= $create ? "Ajouter" : "Mettre à jour" ?>" />         
+            </div>
+
+            <div class="bouton4">
+                <p id="ajouterIngredient" onclick="ajouterIngredient()"> Ajouter Ingrédient </p>
+            </div>
+
+            <div class="bouton5">
+                <p id="ajouterRecette" onclick="ajouterRecette()"> Ajouter Recette </p>
+            </div>
+
+            <div class="ajout1">
+                <ul id="listeIngredient"></ul>
+            </div>
+
+            <div class="ajout2">
+                <ul id="listeRecette"></ul>
             </div>
         </div>
     </div>

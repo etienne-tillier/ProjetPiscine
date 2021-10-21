@@ -28,7 +28,7 @@
     margin-bottom: 30px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(11 1fr);
+    grid-template-rows: repeat(13 1fr);
     
 }
 
@@ -109,12 +109,60 @@
     grid-row: 8 / 9;
 }
 
+.sous_titre7{
+    grid-column: 1;
+    grid-row: 9
+}
+
+.reponse7{
+    grid-column: 2;
+    grid-row: 9
+}
+
+.sous_titre8{
+    grid-column: 1;
+    grid-row: 10
+}
+
+.reponse8{
+    grid-column: 2;
+    grid-row: 10
+}
+
 .bouton3{
     text-align: center;
     padding-top: 30px;
     padding-bottom: 30px;
     grid-column: 1 / span 2;
-    grid-row: 10;
+    grid-row: 13;
+}
+
+.bouton4{
+    display: flex;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    grid-column: 1 ;
+    grid-row: 11;
+}
+
+.bouton5{
+    display: flex;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    grid-column: 2 ;
+    grid-row: 11;
+}
+
+.ajout1{
+    grid-column: 1 ;
+    grid-row: 12;
+}
+
+.ajout2{
+    grid-column: 2 ;
+    grid-row: 12;
 }
 
 .bouton_final{
@@ -133,7 +181,7 @@
     color: rgb(196, 156, 108);
 }
 
-.bouton_js1{
+.bouton_js1, .bouton_js2{
     margin-left: 170px;
     font-size: 25px;
     font-weight: bold;
@@ -144,12 +192,12 @@
     transition: 400ms;
 }
 
-.bouton_js1:hover{
+.bouton_js1:hover, .bouton_js2:hover{
     color: rgb(196, 156, 108);
 }
 
-.bouton_js2{
-    margin-left: 170px;
+#ajouterRecette, #ajouterIngredient{
+    margin: auto;
     font-size: 25px;
     font-weight: bold;
     padding: 10px;
@@ -159,9 +207,8 @@
     transition: 400ms;
 }
 
-.bouton_js2:hover{
+#ajouterRecette:hover, #ajouterIngredient:hover{
     color: rgb(196, 156, 108);
-    
 }
 
 .entrer_text, #newAuteurNom, #newAuteurPrenom, #newTypeRecette{
@@ -176,8 +223,4 @@
 .liste_der{
     font-size: 20px;
     margin-right: 200px;
-}
-
-.qcm_rond{
-    margin-top: 30px;
 }
