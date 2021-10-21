@@ -131,11 +131,11 @@
             </div>
 
             <div class="bouton1">
-                <div class="bouton_js1" onClick="creerTypeIngredient()">Creer un nouveau type ingrédient</div>
+                <div id="NewTypeIngredient" class="bouton_js1" onClick="creerTypeIngredient()">Creer un nouveau type ingrédient</div>
             </div>
 
             <div class="bouton2">
-                <div class="bouton_js2" onClick="creerTVA()">Creer une nouvelle TVA</div>
+                <div id="textTVA" class="bouton_js2" onClick="creerTVA()">Creer une nouvelle TVA</div>
             </div>
 
             <div class="bouton3">

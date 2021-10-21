@@ -16,6 +16,24 @@ const calculerPrixRecette = (recette) => {
     return somme
 }
 
+const genererListeAllergene = (recette) => {
+    let listeAllergene = []
+    for (let ing of recette){
+        if (ing.type == "ingredient" && ing.allergene == 1){
+            listeAllergene.push(ing)
+        }
+        if (ing.type == "recette"){
+            listeAllergene.concat(genererListeAllergene(ing.ingredients))
+        }
+    }
+    return listeAllergene
+}
+
+const afficherAllergene = (recette) => {
+    listeAllergene = genererListeAllergene(recette)
+    console.log(listeAllergene)
+}
+
 const afficherFicheTech = (list) => {
     for (let ing of list){
         if (ing.type == "ingredient"){
@@ -51,7 +69,8 @@ const afficherFicheTech = (list) => {
     }
 }
 window.onload = function () {
-    afficherFicheTech(listeIng);
+    afficherFicheTech(listeIng)
+    afficherAllergene(listeIng)
 }
 </script>
 <div id="detail">
