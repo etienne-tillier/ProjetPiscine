@@ -28,6 +28,7 @@
 	margin-bottom: 15px;
 	border-style: solid;
 	border-color: rgb(196, 156, 108);
+	border-radius: 10px;
 }
 
 #case_add_ingr
@@ -42,28 +43,11 @@
 {
 	text-decoration: none;
 	color: black;
+	transition: 400ms;
+
 }
 
 #case_add_ingr a:hover
-{
-	color: rgb(196, 156, 108);
-} 
-
-#case_add_type_ingr
-{
-	width: 180px;
-	height: 60px;
-	text-align: center;
-	padding-top: 25px;
-}
-
-#case_add_type_ingr a
-{
-	text-decoration: none;
-	color: black;
-}
-
-#case_add_type_ingr a:hover
 {
 	color: rgb(196, 156, 108);
 } 
@@ -83,6 +67,8 @@
 {
 	text-decoration: none;
 	color: black;
+	transition: 400ms;
+
 }
 
 #case_upt_rece a:hover
@@ -102,6 +88,8 @@
 {
 	text-decoration: none;
 	color: black;
+	transition: 400ms;
+
 }
 
 #case_del_rece a:hover
@@ -121,28 +109,10 @@
 {
 	text-decoration: none;
 	color: black;
+	transition: 400ms;
 }
 
 #case_add_rece a:hover
 {
 	color: rgb(196, 156, 108);
 }
-
-#case_add_type_rece
-{
-	width: 180px;
-	height: 60px;
-	text-align: center;
-	padding-top: 25px;
-}
-
-#case_add_type_rece a
-{
-	text-decoration: none;
-	color: black;
-}
-
-#case_add_type_rece a:hover
-{
-	color: rgb(196, 156, 108);
-} 
