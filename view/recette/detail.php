@@ -119,12 +119,19 @@ window.onload = function () {
             </div>
         </div>
     </div>
+    <style type="text/css">
+    @media print{
+        header,footer, #precision_fonction{
+            display : none;
+        }
+    }
+    </style>
 
     <div id="precision_fonction">
         <ul>
             <li><?php echo '<a href="index.php?action=delete&controller=recette&idRecette=' . rawurlencode($r->getIdRecette()) . '"> Supprimer la recette </a>'; ?></li>
             <li><?php echo '<a href="index.php?action=update&controller=recette&idRecette=' . rawurlencode($r->getIdRecette()) . '"> Modifier la recette </a>'; ?></li>
-            <li><a href="imprimer_recette.php">Imprimer</li>
+            <li><a href="#" onclick="window.print()">Imprimer</li>
 </div>
 <?php
 
