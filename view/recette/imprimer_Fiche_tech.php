@@ -3,19 +3,6 @@
 console.log(<?= $listeAllIng ?>)
 var listeIng =(<?= $listeAllIng ?>)
 
-const calculerPrixRecette = (recette) => {
-    let somme = 0
-    for (let ing of recette){
-        if (ing.type == "ingredient"){
-            somme += ing.prix * ing.quantite
-        }
-        if (ing.type == "recette"){
-            somme += calculerPrixRecette(ing.ingredients)
-        }
-    }
-    return somme
-}
-
 const genererListeAllergene = (recette) => {
     let listeAllergene = []
     for (let ing of recette){
@@ -81,23 +68,15 @@ const afficherAllergene = (recette) => {
 const afficherFicheTech = (list) => {
     for (let ing of list){
         if (ing.type == "ingredient"){
-            let PTHT = ing.prix * ing.quantite;
-            let augmentationTVA = ing.prix * ing.tva;
-            let PTTTC = PTHT + augmentationTVA;
             $("#table").append("<tr class='ingredient'></tr>")
-            $("#table tr:last").append("<td>" + ing.code + "</td>")
             $("#table tr:last").append("<td>" + ing.nature + "</td>")
             $("#table tr:last").append("<td>" + ing.unite + "</td>")
 
             $("#tablePrix").append("<tr class='ingredient'></tr>")
             $("#tablePrix tr:last").append("<td>" + ing.quantite + "</td>")
-            $("#tablePrix tr:last").append("<td>" + ing.prix + "</td>")
-            $("#tablePrix tr:last").append("<td>" + PTHT + "</td>")
-            $("#tablePrix tr:last").append("<td>" + PTTTC + "</td>")
         }
         if (ing.type == "recette"){
-            let prix = calculerPrixRecette(ing.ingredients)
-            let PTHT = prix * ing.quantite;
+           
             $("#table").append("<tr class='recette' style='font-weight: bold'></tr>")
             $("#table tr:last").append("<td>" + ing.code + "</td>")
             $("#table tr:last").append("<td>" + ing.nature + "</td>")
@@ -105,8 +84,6 @@ const afficherFicheTech = (list) => {
 
             $("#tablePrix").append("<tr class='recette' style='font-weight: bold'></tr>")
             $("#tablePrix tr:last").append("<td>" + ing.quantite + "</td>")
-            $("#tablePrix tr:last").append("<td>" + prix + "</td>")
-            $("#tablePrix tr:last").append("<td>" + PTHT + "</td>")
             $("#tablePrix tr:last").append("<td></td>")
             afficherFicheTech(ing.ingredients);
         }
@@ -128,7 +105,7 @@ window.onload = function () {
         <div class="sous_titre13">Dénomination</div>
 
         <div class="sous_titre14">Valorisation</div>
-
+        <!-- ON AURA PAS BESOIN DE CETTE PARTIE POUR FT SANS PRIX
         <div class="sous_titre15">Portion</div>
 
         <div class="sous_titre21">Coût production total</div>
@@ -144,6 +121,7 @@ window.onload = function () {
         <div class="sous_titre26">Coût personnel</div>
 
         <div class="sous_titre27">Multiplicateur</div>
+        -->
 
         <div class="contenu_fiche1"><?php echo htmlspecialchars($r->getDescriptif()); ?></div>
 
@@ -155,7 +133,6 @@ window.onload = function () {
             <div id="contenu_den">
                 <table id="table">
                     <tr>
-                        <th>Code</th>
                         <th>Nature</th>
                         <th>Unité</th>
                     </tr>
@@ -173,9 +150,6 @@ window.onload = function () {
                 <table id="tablePrix">
                     <tr>
                         <th>Total</th>
-                        <th>Prix U</th>
-                        <th>PTHT</th>
-                        <th>PTTTC</th>
                     </tr>
                     <tr>
                         <td><?php ?></td>
@@ -186,7 +160,7 @@ window.onload = function () {
             </div>
 
         </div>
-
+    <!-- <?php /* 
         <div class="contenu_fiche6">1<!-- Coût production total --></div>
         <div class="contenu_fiche7">1<!-- Coût production par portion --></div>
         <div class="contenu_fiche8">1<!-- Denrée (somme cout recette) --></div>
@@ -194,8 +168,12 @@ window.onload = function () {
         <div class="contenu_fiche10">1<!-- Cout Matiere=SOMME(Denrée, ASS 5%) --></div>
         <div class="contenu_fiche11">1<?php //echo htmlspecialchars($r->getMulti()); ?></div> <!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir le multiplicateur -->
         <div class="contenu_fiche12">1<?php //echo htmlspecialchars($r->getMain()); ?></div> <!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la main d'oeuvre -->
+        */ ?> -->
     </div>
 </div>
+</div>
+
+
     <style type="text/css">
          @media print{
             header,footer, #precision_fonction{
