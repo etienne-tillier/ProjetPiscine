@@ -175,7 +175,16 @@ class ControllerIngredient {
             );
             ModelTVA::save($dataTVA);
             $TVAliste = ModelTVA::selectAll();
-            $nomTVA = $TVAliste[count($TVAliste) - 1]->getNomTVA();
+            $nomTVA = $_POST["newTVA"];
+        }
+        if ($_POST["tauxUpdateTVA"] != ""){
+            echo "ouiuiiii";
+            $dataUpdateTVA= array(
+                "primary" => $_POST["nomTVA"],
+                "tauxTVA" => $_POST["tauxUpdateTVA"]
+            );
+            ModelTVA::update($dataUpdateTVA);
+            $nomTVA = $_POST["nomTVA"];
         }
         if ($_POST["newTypeIngredient"] == ""){
             $idTypeIngredient = $_POST["idTypeIngredient"];

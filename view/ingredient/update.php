@@ -20,8 +20,27 @@
         }
     }
 
+    function updateTVA(){
+
+        if (document.getElementById("tauxUpdateTVA").required == false){
+            $("#tauxUpdateTVA").toggle();
+            $("#textTVA").toggle();
+            $("#tauxUpdateTVA").prop("required",true)
+            $("#textUpdateTVA").text("Retour");
+        }
+        else {
+            $("#tauxUpdateTVA").toggle();
+            $("#textTVA").toggle();
+            $("#tauxUpdateTVA").prop("required",false)
+            $("#tauxUpdateTVA").prop("value","")
+            $("#textUpdateTVA").text("Mettre a jour la TVA");
+        }
+
+    }
+
     function creerTVA(){
         if (document.getElementById("newTVA").required == false){
+            $("#textUpdateTVA").toggle();
             $("#TVAlist").toggle();
             $("#TVAlist select").prop("required",false)
             $("#TVAlist select").trigger("chosen:updated");
@@ -32,6 +51,7 @@
             $("#tauxTVA").prop("required",true)
         }
         else {
+            $("#textUpdateTVA").toggle();
             $("#TVAlist").toggle();
             $("#TVAlist select").prop("required",true)
             $("#newTVA").toggle();
@@ -108,7 +128,8 @@
                         </select>
                     </div>
                     <input id="newTVA" type="text" name="newTVA" placeholder="Nouvelle TVA" style="display: none">
-                    <input id="tauxTVA" type="text" name="tauxTVA" placeholder="taux TVA" style="display: none"></p>
+                    <input id="tauxTVA" type="text" name="tauxTVA" placeholder="taux TVA" style="display: none">
+                    <input id="tauxUpdateTVA" type="text" name="tauxUpdateTVA" placeholder="nouveau taux TVA ex : (0.1)" style="display: none"></p>
                 </div>
 
                 <div class="reponse4">
@@ -138,10 +159,17 @@
                     <div id="textTVA" class="bouton_js2" onClick="creerTVA()">Creer une nouvelle TVA</div>
                 </div>
 
+
                 <div class="bouton3">
                     <?=($create ? "" : '<input type ="hidden" name="idIngredient" value="' . rawurldecode($idIngredient) . '"/>') ?>
                     <input class="bouton_final" type="submit" value="<?= $create ? "Ajouter" : "Mettre à jour" ?>" />
                 </div>
+
+                <div class="bouton4">
+                    <div id="textUpdateTVA" class="bouton_js3" onClick="updateTVA()">Mettre à jour la TVA</div>
+                </div>
+
+
 
             </div>
         </div>
