@@ -38,7 +38,6 @@ class ControllerRecette {
             require (File::build_path(array("view", "view.php")));
         }
     }
-
     /*---------------------------------------------------------------------*/
     /* research      la fonction récupére et traite les données retrouvée  */
     /*                 par la  fonction selectname                         */ 
