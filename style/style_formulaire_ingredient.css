@@ -7,6 +7,10 @@
     margin-bottom: 60px;
 }
 
+fieldset{
+    border: none;
+}
+
 .contenu_form{
     display: flex;
     justify-content: center;
