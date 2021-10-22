@@ -6,6 +6,14 @@ class ControllerAuteur {
 
     protected static $object = 'auteur';
 
+    /*---------------------------------------------------------------------*/
+    /* readAll()      la fonction récupére les données de tous             */ 
+    /*                les auteurs                                          */ 
+    /*                                                                     */
+    /* En sortie: la fonction redérige les données vers "view" afin        */
+    /*            d'effectuer l'affichage ou traitement                    */
+    /*---------------------------------------------------------------------*/  
+    
     public static function readAll() 
     {
         $tab_a = ModelAuteur::selectAll();     //appel au modèle pour gerer la BD
@@ -14,6 +22,14 @@ class ControllerAuteur {
         $pagetitle = 'Tous les auteurs';
         require (File::build_path(array("view", "view.php")));  //"redirige" vers la vue
     }
+
+    /*---------------------------------------------------------------------*/
+    /* read()     la fonction récupére les données d'un auteur             */
+    /*            sélectioné                                               */
+    /*                                                                     */
+    /* En sortie: la fonction redérige les données vers "view" afin        */
+    /*            d'effectuer l'affichage                                  */
+    /*---------------------------------------------------------------------*/  
 
     public static function read() 
     {
@@ -33,8 +49,13 @@ class ControllerAuteur {
         }
     }
 
+    /*---------------------------------------------------------------------*/
+    /* create()     la fonction initialise un nouvel auteur                */
+    /*                                                                     */
+    /* En sortie: la fonction redérige les données vers "view" afin        */
+    /*            d'effectuer l'affichage                                  */
+    /*---------------------------------------------------------------------*/  
 
-//à faire (pas fini) avec created
     public static function create() 
     {
         $idAuteur = "";
@@ -47,10 +68,16 @@ class ControllerAuteur {
         $controller = 'auteur';
         $view = 'update';
         require (File::build_path(array("view", "view.php")));
-     }
-
-
-//à faire (pas fini)
+    }
+    
+    /*---------------------------------------------------------------------*/
+    /* created()     la fonction crée un nouvel auteur                     */
+    /*                                                                     */
+    /* En sortie: la fonction redérige les données vers "view" afin        */
+    /*            d'effectuer l'affichage                                  */
+    /*---------------------------------------------------------------------*/  
+    
+    
     public static function created() 
     {
         $data = array(
@@ -68,7 +95,7 @@ class ControllerAuteur {
         require (File::build_path(array("view", "view.php")));
     }
 
-
+  /* on traite les erreurs et on les envoie vers erreur view */
     public static function error() 
     {
         $controller = ('auteur');
@@ -78,7 +105,13 @@ class ControllerAuteur {
     }
 
 
-    // à faire avec udptated
+    /*---------------------------------------------------------------------*/
+    /* update()     la fonction permets de modifier les données            */
+    /*              d' un auteur et les mettre à jour                      */
+    /*                                                                     */
+    /* En sortie: la fonction redérige les données vers "view" afin        */
+    /*            d'effectuer l'affichage                                  */
+    /*---------------------------------------------------------------------*/  
     public static function update() 
     {
         $act = "updated";
@@ -100,6 +133,12 @@ class ControllerAuteur {
         }
     }
 
+    /*---------------------------------------------------------------------*/
+    /* updated()     la fonction verifie de confirmer la mise à jour       */
+    /*                                                                     */
+    /* En sortie: la fonction redérige les données vers "view" afin        */
+    /*            de confirmer à l'utilisateur la MS                       */
+    /*---------------------------------------------------------------------*/  
 
     //TODO
     public static function updated() 
@@ -118,7 +157,13 @@ class ControllerAuteur {
         $view = 'updated';
         require (File::build_path(array("view", "view.php")));
     }
-
+    /*---------------------------------------------------------------------*/
+    /* delete()     la fonction permets d'effectuer la suppresion          */
+    /*              d'un auteur                                            */
+    /*                                                                     */
+    /* En sortie: la fonction redérige les données vers "view" afin        */
+    /*            d'effectuer l'affichage                                  */
+    /*---------------------------------------------------------------------*/  
     public static function delete() 
     {
         $tab_p = ModelAuteur::selectAll();     //appel au modèle pour gerer la BD
