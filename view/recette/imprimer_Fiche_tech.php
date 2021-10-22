@@ -117,72 +117,85 @@ window.onload = function () {
     afficherAllergene(listeIng)
 }
 </script>
-<div id="detail">
-    <div id="precision_contenu">
-        <div id=fiche_tech>
-                <div id=entete_fiche>
-                    <div id="descriptif">
-                        <p class="titre_partie_niv1">Descriptifs</p>
-                        <?php echo htmlspecialchars($r->getDescriptif()); ?>
-                    </div>
-                    <div id="nom">
-                        <?php echo htmlspecialchars(ucfirst($r->getNomRecette())) ?>
-                    </div>
-                </div>
-                <div id="denomination">
 
-                    <p class="titre_partie_niv1">Dénomination</br></p>
+<div class="maxiParent">
+    <div class="grid">
+        <div class="titre"><?php echo htmlspecialchars(ucfirst($r->getNomRecette()))?></div>
+        <div class="sous_titre11">Descriptif</div>
 
-                    <div id="contenu_den">
-                        <table id="table">
+        <div class="sous_titre12">Progression</div>
 
-                            <tr>
-                                <th>Code</th>
-                                <th>Nature</th>
-                                <th>Unité</th>
-                            </tr>
-                            
-                            <tr>
-                                <td><?php ?></td>
-                                <td><?php ?></td>
-                                <td><?php ?></td>
-                            </tr>
+        <div class="sous_titre13">Dénomination</div>
 
-                        </table>
-                    </div>
+        <div class="sous_titre14">Valorisation</div>
 
-                </div>
-                <div id="valorisation">
+        <div class="sous_titre15">Portion</div>
 
-                    <p class="titre_partie_niv1">Valorisation</p>
-                    
-                    <div id="contenu_val">
-                        <table id="tablePrix">
-                            <tr>
-                                <th>Total</th>
-                                <th>Prix U</th>
-                                <th>PTHT</th>
-                                <th>PTTTC</th>
+        <div class="sous_titre21">Coût production total</div>
 
-                            </tr>
+        <div class="sous_titre22">Coût production par portion</div>
 
-                            <tr>
-                                <?php
-                                ?>
-                                <td><?php ?></td>
-                                <td><?php ?></td>
-                                <td><?php ?></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div id="calcul_couts">
+        <div class="sous_titre23">Total denrée</div>
 
-            </div>
+        <div class="sous_titre24">ASS 5%</div>
+
+        <div class="sous_titre25">Coût matière</div>
+
+        <div class="sous_titre26">Coût personnel</div>
+
+        <div class="sous_titre27">Multiplicateur</div>
+
+        <div class="contenu_fiche1"><?php echo htmlspecialchars($r->getDescriptif()); ?></div>
+
+        <div class="contenu_fiche2"><?php //echo htmlspecialchars($r->getProgression()); ?></div> <!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la portion -->
+
+        <div class="contenu_fiche3"><?php //echo htmlspecialchars($r->getPortion()); ?></div> <!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la portion -->
+
+        <div class="contenu_fiche4">
+            <div id="contenu_den">
+                <table id="table">
+                    <tr>
+                        <th>Code</th>
+                        <th>Nature</th>
+                        <th>Unité</th>
+                    </tr>
+                    <tr>
+                        <td><?php ?></td>
+                        <td><?php ?></td>
+                        <td><?php ?></td>
+                    </tr>
+                </table>
+            </div>           
         </div>
+
+        <div class="contenu_fiche5">
+            <div id="contenu_val">
+                <table id="tablePrix">
+                    <tr>
+                        <th>Total</th>
+                        <th>Prix U</th>
+                        <th>PTHT</th>
+                        <th>PTTTC</th>
+                    </tr>
+                    <tr>
+                        <td><?php ?></td>
+                        <td><?php ?></td>
+                        <td><?php ?></td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="contenu_fiche6">1<!-- Coût production total --></div>
+        <div class="contenu_fiche7">1<!-- Coût production par portion --></div>
+        <div class="contenu_fiche8">1<!-- Denrée (somme cout recette) --></div>
+        <div class="contenu_fiche9">1<!-- ASS 5% (somme cout recette)*0.05 --></div>
+        <div class="contenu_fiche10">1<!-- Cout Matiere=SOMME(Denrée, ASS 5%) --></div>
+        <div class="contenu_fiche11">1<?php //echo htmlspecialchars($r->getMulti()); ?></div> <!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir le multiplicateur -->
+        <div class="contenu_fiche12">1<?php //echo htmlspecialchars($r->getMain()); ?></div> <!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la main d'oeuvre -->
     </div>
-    
+</div>
     <style type="text/css">
          @media print{
             header,footer, #precision_fonction{

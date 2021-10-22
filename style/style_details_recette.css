@@ -1,225 +1,147 @@
-/* -------------------------------------------------------------------------------- Details Recette -------------------------------------------------------------------------------- */
-
-#detail
-{
-	background-color: rgb(240, 240, 240);
-	margin-top: 20px;
-	font-family: 'Arial','Verdana';
-}
-
-#precision_titre
-{
-	padding-top: 30px;
-	margin-bottom: 15px;
-	height: 50px;
-	font-size: 35px;
-	text-align: center;
-	font-family: 'Arial','Verdana';
-	font-weight: bold;
-	border-bottom: solid;
-	border-color: black;
-}
-
-.sous_titre
-{
-	border-bottom: solid black;
-	font-weight: bold;
-}
-
-.titre_partie_niv1
-{
-	font-weight: bold;
-	font-size: 24px;
-}
-
-.titre_partie
-{
-	font-style: italic;
-}
-#precision_contenu
-{
-	display: flex;
-	flex-direction: column;
-	padding: 15px;
-	padding-left: 30px;
-	font-family: 'Arial','Verdana';
-	font-size: 20px;
-	list-style: none;
-}
-
-#contenu a
-{
-	text-decoration: none;
-	color: black;
-}
-
-#contenu a:hover
-{
-	color: rgb(196, 156, 108);
-}
-
-#entete_fiche
-{
+.maxiParent{
 	display: flex;
 }
 
-#corps_fiche
-{
-	display: flex;
-	width: 100%;
+.grid > div{
+    font-family: 'Arial','Verdana';
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    border: solid 2px black;
 }
 
-#descriptif
-{
-	border: solid black;
-	width: 30%;
-	max-height: 125px;
-	overflow: scroll;
+.grid{
+	margin: auto;
+    width: 1200px;
+    padding: 40px;
+    /*background-color: rgb(122, 17, 215);*/
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr;
+    grid-template-rows: repeat(9);
 }
 
-#nom
-{
-	border: solid black;
-	font-size: 40px;
-	font-weight: bold;
-	width: 70%;
-	max-height: 125px;
-	text-align: center;
-	padding-top: 30px;
+.titre{
+	grid-column: 2;
+	grid-row: 1/2;
 }
 
-#progression
-{
-	border: solid black;
-	width: 30%;
-	padding: 10px;
+.sous_titre11{
+	grid-column: 1;
+	grid-row: 1;
 }
 
-#denomination
-{
-	border: solid black;
-	width: 35%;
-	padding: 10px;
+.sous_titre12{
+	grid-column: 1;
+	grid-row: 3;
 }
 
-#contenu_den
-{
-	display: flex;
-	flex-direction: row;
+.sous_titre13{
+	grid-column: 2;
+	grid-row: 3;
 }
 
-#code
-{
-	border: solid black;
-	width: 33.3333333%;
-	text-align: center;
+.sous_titre14{
+	grid-column: 3/4;
+	grid-row: 3;
 }
 
-#nature
-{
-	border: solid black;
-	width: 33.3333333%;
-	text-align: center;
+.sous_titre15{
+	grid-column: 3/4;
+	grid-row: 1;
 }
 
-#unite
-{
-	border: solid black;
-	width: 33.3333333%;
-	text-align: center;
+.sous_titre21{
+	grid-column: 1;
+	grid-row: 6/7;
 }
 
-#valorisation
-{
-	border: solid black;
-	width: 35%;
-	padding: 10px;
+.sous_titre22{
+	grid-column: 1;
+	grid-row: 8/9;
 }
 
-#contenu_val
-{
-	display: flex;
-	flex-direction: row;
+.sous_titre23{
+	grid-column: 3;
+	grid-row: 5;
 }
 
-#total
-{
-	border: solid black;
-	width: 33.3333333%;
-	text-align: center;
+.sous_titre24{
+	grid-column: 3;
+	grid-row: 6;
 }
 
-#prix_u
-{
-	border: solid black;
-	width: 33.3333333%;
-	text-align: center;
+.sous_titre25{
+	grid-column: 3;
+	grid-row: 7;
 }
 
-#ptht
-{
-	border: solid black;
-	width: 33.3333333%;
-	text-align: center;
+.sous_titre26{
+	grid-column: 3;
+	grid-row: 8;
 }
 
-#precision_fonction
-{
-	display: flex;
-	font-size: 25px;
-	margin-top: 15px;
-	padding-bottom: 15px;
-	justify-content: center;
+.sous_titre27{
+	grid-column: 3;
+	grid-row: 9;
 }
 
-#precision_fonction ul 
-{
-	display: flex;
-	list-style: none;
+.contenu_fiche1{
+	grid-column: 1;
+	grid-row: 2;
 }
 
-#precision_fonction li 
-{
-	margin: 50px;
-	width: 300px;
-	height: 50px;
-	font-size: 25px;
-	text-align: center;
-	font-family: 'Arial','Verdana';
-	font-weight: bold;
-	padding-top: 20px;
-	border: rgb(196, 156, 108) solid;
-	border-radius: 10px;
+.contenu_fiche2{
+	grid-column: 1;
+	grid-row: 4;
 }
 
-#precision_fonction a 
-{
-	text-decoration: none;
-	color: black;
-	transition: 400ms;
+.contenu_fiche3{
+	grid-column: 3/4;
+	grid-row: 2;
 }
 
-#precision_fonction a:hover
-{
-	color: rgb(196, 156, 108);
-} 
-
-table
-{
-    border-collapse: collapse;
-	width: 100%;
+.contenu_fiche4{
+	grid-column: 2;
+	grid-row: 4;
 }
 
-td, th
-{
-    border: 1px solid black;
+.contenu_fiche5{
+	grid-column: 3/4;
+	grid-row: 4;
 }
 
-#fiche_tech
-{
-	margin-top: 20px;
+.contenu_fiche6{
+	grid-column: 2;
+	grid-row: 6/7;
 }
 
-.recette{
-	font-weight: bold;
+.contenu_fiche7{
+	grid-column: 2;
+	grid-row: 8/9;
+}
+
+.contenu_fiche8{
+	grid-column: 4;
+	grid-row: 5;
+}
+
+.contenu_fiche9{
+	grid-column: 4;
+	grid-row: 6;
+}
+
+.contenu_fiche10{
+	grid-column: 4;
+	grid-row: 7;
+}
+
+.contenu_fiche11{
+	grid-column: 4;
+	grid-row: 8;
+}
+
+.contenu_fiche12{
+	grid-column: 4;
+	grid-row: 9;
 }
