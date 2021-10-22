@@ -82,7 +82,7 @@ class ControllerIngredient {
             $idTypeIngredient = "";
             $nomTVA = "";
             if ($_POST["newTVA"] == "" && $_POST["tauxTVA"] == ""){
-                $idTypeIngredient = $_POST["nomTVA"];
+                $nomTVA = $_POST["nomTVA"];
             }
             else {
                 $dataTVA= array(
@@ -105,7 +105,6 @@ class ControllerIngredient {
                 $typeIngredientListe = ModelTypeIngredient::selectAll();
                 $idTypeIngredient = $typeIngredientListe[count($typeIngredientListe) - 1]->getIdTypeIngredient();
             }
-            var_dump($nomTVA);
             $data = array(
                 "idIngredient" => 0,
                 "idTypeIngredient" => $idTypeIngredient,
@@ -167,7 +166,7 @@ class ControllerIngredient {
         $idTypeIngredient = "";
         $nomTVA = "";
         if ($_POST["newTVA"] == "" && $_POST["tauxTVA"] == ""){
-            $idTypeIngredient = $_POST["nomTVA"];
+            $nomTVA = $_POST["nomTVA"];
         }
         else {
             $dataTVA= array(

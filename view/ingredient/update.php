@@ -49,8 +49,6 @@
 <div class="titre"><?= ($create ? "Ajout d'un nouvel ingrédient" : "Mise à jour d'un ingrédient") ?></div>
 <form  id="ajout_ingredient" method="post" action="index.php?action=<?= ($create ? "created" : "updated" )?>&controller=ingredient">
     <fieldset>
-        <input type ="hidden" name ="action" value=<?php echo "\"$act\"" ?>/>
-        <input type ="hidden" name ="controller" value="ingredient"/>    
         <div class="contenu_form">
             <div class="grid">
 
@@ -102,6 +100,7 @@
                             <option class="liste_der" value="" disabled <?= ($create ? "selected" : "") ?>>Choisissez une TVA</option>
                             <?php
                                 foreach($typeTVAList as $type){
+                                    echo '<p>' . $type->getNomTVA() . '</p>';
                                     echo '<option value="' . $type->getNomTVA() . '" ' . ($type->getNomTVA() == $nomTVA ? "selected" : "") . '>' .  $type->getNomTVA() . '</option>';
                                 }
                             ?>
@@ -140,7 +139,7 @@
                 </div>
 
                 <div class="bouton3">
-                    <?=($create ? "" : '<input type ="hidden" name ="idIngredient" value="' . rawurldecode($idIngredient) . '"/>') ?>
+                    <?=($create ? "" : '<input type ="hidden" name="idIngredient" value="' . rawurldecode($idIngredient) . '"/>') ?>
                     <input class="bouton_final" type="submit" value="<?= $create ? "Ajouter" : "Mettre à jour" ?>" />
                 </div>
 
