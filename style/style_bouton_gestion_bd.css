@@ -31,15 +31,15 @@
 	border-radius: 10px;
 }
 
-#case_add_ingr
+.case
 {
-	width: 180px;
+	width: 300px;
 	height: 60px;
 	text-align: center;
 	padding-top: 25px;
 }
 
-#case_add_ingr a
+.case a
 {
 	text-decoration: none;
 	color: black;
@@ -47,72 +47,7 @@
 
 }
 
-#case_add_ingr a:hover
+.case a:hover
 {
 	color: rgb(196, 156, 108);
 } 
-
-
-/* -------------------------------------------------------------------------------- Bouton Gestion Base de Donnée (Recettes) -------------------------------------------------------------------------------- */
-
-#case_upt_rece
-{
-	width: 150px;
-	height: 60px;
-	text-align: center;
-	padding-top: 25px;
-}
-
-#case_upt_rece a
-{
-	text-decoration: none;
-	color: black;
-	transition: 400ms;
-
-}
-
-#case_upt_rece a:hover
-{
-	color: rgb(196, 156, 108);
-} 
-
-#case_del_rece
-{
-	width: 150px;
-	height: 60px;
-	text-align: center;
-	padding-top: 25px;
-}
-
-#case_del_rece a
-{
-	text-decoration: none;
-	color: black;
-	transition: 400ms;
-
-}
-
-#case_del_rece a:hover
-{
-	color: rgb(196, 156, 108);
-} 
-
-#case_add_rece
-{
-	width: 180px;
-	height: 60px;
-	text-align: center;
-	padding-top: 25px;
-}
-
-#case_add_rece a
-{
-	text-decoration: none;
-	color: black;
-	transition: 400ms;
-}
-
-#case_add_rece a:hover
-{
-	color: rgb(196, 156, 108);
-}
