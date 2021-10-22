@@ -1,8 +1,8 @@
 <link rel="stylesheet" type="text/css" href="style/style_details_recette.css">
     <div id='detail'> 
-        <?php include("imprimer_Fiche_tech.php"); ?>
+        <?php include("choix_impression.php"); ?>
         <style> 
-            #impression_ft
+            #precision_fonction1
             {
                 display : none;
             }
