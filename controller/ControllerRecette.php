@@ -38,6 +38,61 @@ class ControllerRecette {
             require (File::build_path(array("view", "view.php")));
         }
     }
+
+    public static function choiximpression()
+    {
+        $idRecette = $_GET["idRecette"];
+        $r = ModelRecette::select($idRecette);
+        $auteur = ModelAuteur::select($r->getIdAuteur());
+        $tabIngredients = getListIngredient($r,1);
+        $listeAllIng = json_encode(genererListeIngredient($tabIngredients));
+        $pagetitle = $r->getNomRecette();
+        if ($r == null) {
+            $controller = ('Recette');
+            $view = 'error';
+            require (File::build_path(array("view", "view.php")));
+        } else {
+                $controller = 'Recette';
+                $view = 'choix_impression';
+            }
+            require (File::build_path(array("view", "view.php")));
+    }
+    public static function impressionetiquette()
+    {
+        $idRecette = $_GET["idRecette"];
+        $r = ModelRecette::select($idRecette);
+        $tabIngredients = getListIngredient($r,1);
+        $listeAllIng = json_encode(genererListeIngredient($tabIngredients));
+        $pagetitle = $r->getNomRecette();
+        if ($r == null) {
+            $controller = ('Recette');
+            $view = 'error';
+            require (File::build_path(array("view", "view.php")));
+        } else {
+                $controller = 'Recette';
+                $view = 'imprimer_etiquette';
+            }
+            require (File::build_path(array("view", "view.php")));
+    }
+    
+    public static function impressionfiche()
+    {
+        $idRecette = $_GET["idRecette"];
+        $r = ModelRecette::select($idRecette);
+        $tabIngredients = getListIngredient($r,1);
+        $listeAllIng = json_encode(genererListeIngredient($tabIngredients));
+        $pagetitle = $r->getNomRecette();
+        if ($r == null) {
+            $controller = ('Recette');
+            $view = 'error';
+            require (File::build_path(array("view", "view.php")));
+        } else {
+                $controller = 'Recette';
+                $view = 'imprimer_Fiche_tech';
+            }
+            require (File::build_path(array("view", "view.php")));
+    }
+    
     /*---------------------------------------------------------------------*/
     /* research      la fonction récupére et traite les données retrouvée  */
     /*                 par la  fonction selectname                         */ 

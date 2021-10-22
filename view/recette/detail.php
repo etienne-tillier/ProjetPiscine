@@ -1,15 +1,20 @@
 <link rel="stylesheet" type="text/css" href="style/style_details_recette.css">
     <div id='detail'> 
         <?php include("imprimer_Fiche_tech.php"); ?>
-        <?php include("imprimer_etiquette.php"); ?>
-        
+        <style> 
+            #impression_ft
+            {
+                display : none;
+            }
+        </style>
     </div> 
     <div id="precision_fonction">
         <ul>
             <!--onclick pour la confirmation; Return Confirm("test");Fonction Confirm qui va afficher la popup de confirmation -->
             <li><?php echo '<a href="index.php?action=delete&controller=recette&idRecette=' . rawurlencode($r->getIdRecette()) . '" onclick="return confirm(\'Voulez vous supprimer cette recette?\')"> Supprimer la recette </a>';?></li>
             <li><?php echo '<a href="index.php?action=update&controller=recette&idRecette=' . rawurlencode($r->getIdRecette()) . '"> Modifier la recette </a>'; ?></li>
-</div>
+            <li><?php echo '<a href="index.php?action=choiximpression&controller=recette&idRecette=' . rawurlencode($r->getIdRecette()) . '"> Imprimez</a>'; ?></li>
+    </div>
 <?php
 
 //echo '<div class = "precision"><h2>' . htmlspecialchars(ucfirst($r->getNomRecette())) . '</h2>' .
