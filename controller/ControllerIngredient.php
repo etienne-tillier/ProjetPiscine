@@ -82,7 +82,7 @@ class ControllerIngredient {
             $idTypeIngredient = "";
             $nomTVA = "";
             if ($_POST["newTVA"] == "" && $_POST["tauxTVA"] == ""){
-                $idTypeIngredient = $_POST["nomTVA"];
+                $nomTVA = $_POST["nomTVA"];
             }
             else {
                 $dataTVA= array(
@@ -166,7 +166,7 @@ class ControllerIngredient {
         $idTypeIngredient = "";
         $nomTVA = "";
         if ($_POST["newTVA"] == "" && $_POST["tauxTVA"] == ""){
-            $idTypeIngredient = $_POST["nomTVA"];
+            $nomTVA = $_POST["nomTVA"];
         }
         else {
             $dataTVA= array(

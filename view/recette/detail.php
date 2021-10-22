@@ -1,88 +1,14 @@
 <link rel="stylesheet" type="text/css" href="style/style_details_recette.css">
-<script>console.log(<?= $listeAllIng ?>)</script>
-<div id="detail">
-    <div id="precision_contenu">
-        <div id=fiche_tech>
-
-            <div id=entete_fiche>
-                <div id="descriptif">
-                    <p class="titre_partie_niv1">Desciptifs</p>
-                    <?php echo htmlspecialchars($r->getDescriptif()); ?>
-                </div>
-                <div id="nom">
-                    <?php echo htmlspecialchars(ucfirst($r->getNomRecette())) ?>
-                </div>
-            </div>
-
-                <div id=entete_fiche>
-                    <div id="descriptif">
-                        <p class="titre_partie_niv1">Descriptifs</p>
-                        <?php echo htmlspecialchars($r->getDescriptif()); ?>
-                    </div>
-                    <div id="nom">
-                        <?php echo htmlspecialchars(ucfirst($r->getNomRecette())) ?>
-                    </div>
-                </div>
-                <div id="denomination">
-
-                    <p class="titre_partie_niv1">Dénomination</br></p>
-
-                    <div id="contenu_den">
-                        <table>
-
-                            <tr>
-                                <th>Code</th>
-                                <th>Nature</th>
-                                <th>Unité</th>
-                            </tr>
-                            
-                            <tr>
-                                <?php
-                                ?>
-                                <td><?php ?></td>
-                                <td><?php ?></td>
-                                <td><?php ?></td>
-                            </tr>
-
-                        </table>
-                    </div>
-
-                </div>
-                <div id="valorisation">
-
-                    <p class="titre_partie_niv1">Valorisation</p>
-                    
-                    <div id="contenu_val">
-                        <table>
-                            <tr>
-                                <th>Total</th>
-                                <th>Prix U</th>
-                                <th>PTHT</th>
-                            </tr>
-
-                            <tr>
-                                <?php
-                                ?>
-                                <td><?php ?></td>
-                                <td><?php ?></td>
-                                <td><?php ?></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div id="calcul_couts">
-
-            </div>
-        </div>
-    </div>
-
+    <div id='detail'> 
+        <?php include("imprimer_Fiche_tech.php"); ?>
+        <?php include("imprimer_etiquette.php"); ?>
+        
+    </div> 
     <div id="precision_fonction">
         <ul>
             <!--onclick pour la confirmation; Return Confirm("test");Fonction Confirm qui va afficher la popup de confirmation -->
             <li><?php echo '<a href="index.php?action=delete&controller=recette&idRecette=' . rawurlencode($r->getIdRecette()) . '" onclick="return confirm(\'Voulez vous supprimer cette recette?\')"> Supprimer la recette </a>';?></li>
             <li><?php echo '<a href="index.php?action=update&controller=recette&idRecette=' . rawurlencode($r->getIdRecette()) . '"> Modifier la recette </a>'; ?></li>
-            <li><a href="imprimer_recette.php">Imprimer</li>
 </div>
 <?php
 

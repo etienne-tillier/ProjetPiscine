@@ -101,6 +101,7 @@
 {
 	text-decoration: none;
 	color: black;
+	transition: 400ms;
 }
 
 #list_recette a:hover
@@ -130,4 +131,9 @@
 #bouton_recherche:hover
 {
 	color: rgb(196, 156, 108);
+}
+
+.detail_ingr{
+	list-style: none;
+	padding-bottom: 10px;
 }
