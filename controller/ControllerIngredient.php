@@ -171,7 +171,7 @@ class ControllerIngredient {
         else {
             $dataTVA= array(
                 "nomTVA" => $_POST["newTVA"],
-                "tauxTVA" => $_POST["tauxTVA"]
+                "tauxTVA" => $_POST["tauxTVA"]/100
             );
             ModelTVA::save($dataTVA);
             $TVAliste = ModelTVA::selectAll();
@@ -181,7 +181,7 @@ class ControllerIngredient {
             echo "ouiuiiii";
             $dataUpdateTVA= array(
                 "primary" => $_POST["nomTVA"],
-                "tauxTVA" => $_POST["tauxUpdateTVA"]
+                "tauxTVA" => $_POST["tauxUpdateTVA"]/100
             );
             ModelTVA::update($dataUpdateTVA);
             $nomTVA = $_POST["nomTVA"];
