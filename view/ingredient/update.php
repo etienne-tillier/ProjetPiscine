@@ -48,101 +48,103 @@
 
 <div class="titre"><?= ($create ? "Ajout d'un nouvel ingrédient" : "Mise à jour d'un ingrédient") ?></div>
 <form  id="ajout_ingredient" method="post" action="index.php?action=<?= ($create ? "created" : "updated" )?>&controller=ingredient">
-    <input type ="hidden" name ="action" value=<?php echo "\"$act\"" ?>/>
-    <input type ="hidden" name ="controller" value="ingredient"/>    
-    <div class="contenu_form">
-        <div class="grid">
+    <fieldset>
+        <input type ="hidden" name ="action" value=<?php echo "\"$act\"" ?>/>
+        <input type ="hidden" name ="controller" value="ingredient"/>    
+        <div class="contenu_form">
+            <div class="grid">
 
-            <div class="sous_titre1">
-                <p>NOM</p>
-            </div>
+                <div class="sous_titre1">
+                    <p>NOM</p>
+                </div>
 
-            <div class="sous_titre2">
-                <p>TYPE INGREDIENT</p>
-            </div>
+                <div class="sous_titre2">
+                    <p>TYPE INGREDIENT</p>
+                </div>
 
-            <div class="sous_titre3">
-                <p>TYPE TVA</p>
-            </div>
+                <div class="sous_titre3">
+                    <p>TYPE TVA</p>
+                </div>
 
-            <div class="sous_titre4">
-                <p>UNITE</p>
-            </div>
-            <div class="sous_titre5">
-                <p>PRIX UNITAIRE</p>
-            </div>
+                <div class="sous_titre4">
+                    <p>UNITE</p>
+                </div>
+                <div class="sous_titre5">
+                    <p>PRIX UNITAIRE</p>
+                </div>
 
-            <div class="sous_titre6">
-                <p>ALLERGENE</p>
-            </div>
+                <div class="sous_titre6">
+                    <p>ALLERGENE</p>
+                </div>
 
-            <div class="reponse1">
-                <input class="entrer_text" type="text" placeholder="Ex : Courgette" name="nomIngredient" <?= ($create ? "required" : "required") ?> value="<?= htmlspecialchars($nomIngredient) ?>" id="nom_ingredient"/>
-            </div>
+                <div class="reponse1">
+                    <input class="entrer_text" type="text" placeholder="Ex : Courgette" name="nomIngredient" <?= ($create ? "required" : "required") ?> value="<?= htmlspecialchars($nomIngredient) ?>" id="nom_ingredient"/>
+                </div>
 
-            <div class="reponse2">
-                <div id="typeIngredientSelect">
-                    <p><select id="typeIngredientList" name="idTypeIngredient" required>
-                            <option class="liste_der" value="" disabled <?= ($create ? "selected" : "") ?>>Choisissez un Type</option>
+                <div class="reponse2">
+                    <div id="typeIngredientSelect">
+                        <p><select id="typeIngredientList" name="idTypeIngredient" required>
+                                <option class="liste_der" value="" disabled <?= ($create ? "selected" : "") ?>>Choisissez un Type</option>
+                                <?php
+                                    foreach($typeIngredientList as $type){
+                                        echo '<option value="' . $type->getIdTypeIngredient() . '" ' . ($type->getIdTypeIngredient() == $idTypeIngredient ? "selected" : "") . '>' .  $type->getNomTypeIngredient() . '</option>';
+                                    }
+                                ?>
+                                <script>$("#typeIngredientList").chosen();</script>
+                            </select>
+                    </div>
+                    <input id="newTypeIngredient" type="text" name="newTypeIngredient" placeholder="Nouveau Type" style="display: none"></p>
+                </div>
+
+                <div class="reponse3">
+                    <div id="TVAlist">
+                        <p><select id="TVASelect" name="nomTVA" required>
+                            <option class="liste_der" value="" disabled <?= ($create ? "selected" : "") ?>>Choisissez une TVA</option>
                             <?php
-                                foreach($typeIngredientList as $type){
-                                    echo '<option value="' . $type->getIdTypeIngredient() . '" ' . ($type->getIdTypeIngredient() == $idTypeIngredient ? "selected" : "") . '>' .  $type->getNomTypeIngredient() . '</option>';
+                                foreach($typeTVAList as $type){
+                                    echo '<option value="' . $type->getNomTVA() . '" ' . ($type->getNomTVA() == $nomTVA ? "selected" : "") . '>' .  $type->getNomTVA() . '</option>';
                                 }
                             ?>
-                            <script>$("#typeIngredientList").chosen();</script>
+                            <script>$("#TVASelect").chosen();</script>
                         </select>
+                    </div>
+                    <input id="newTVA" type="text" name="newTVA" placeholder="Nouvelle TVA" style="display: none">
+                    <input id="tauxTVA" type="text" name="tauxTVA" placeholder="taux TVA" style="display: none"></p>
                 </div>
-                <input id="newTypeIngredient" type="text" name="newTypeIngredient" placeholder="Nouveau Type" style="display: none"></p>
-            </div>
 
-            <div class="reponse3">
-                <div id="TVAlist">
-                    <p><select id="TVASelect" name="nomTVA" required>
-                        <option class="liste_der" value="" disabled <?= ($create ? "selected" : "") ?>>Choisissez une TVA</option>
-                        <?php
-                            foreach($typeTVAList as $type){
-                                echo '<option value="' . $type->getNomTVA() . '" ' . ($type->getNomTVA() == $nomTVA ? "selected" : "") . '>' .  $type->getNomTVA() . '</option>';
-                            }
-                        ?>
-                        <script>$("#TVASelect").chosen();</script>
-                    </select>
+                <div class="reponse4">
+                    <input class="entrer_text" type="text" placeholder="Ex : kg" name="unite" value="<?= htmlspecialchars($unite) ?>" id="unite_ingredient" required/>
                 </div>
-                <input id="newTVA" type="text" name="newTVA" placeholder="Nouvelle TVA" style="display: none">
-                <input id="tauxTVA" type="text" name="tauxTVA" placeholder="taux TVA" style="display: none"></p>
-            </div>
 
-            <div class="reponse4">
-                <input class="entrer_text" type="text" placeholder="Ex : kg" name="unite" value="<?= htmlspecialchars($unite) ?>" id="unite_ingredient" required/>
-            </div>
-
-            <div class="reponse5">
-                <input class="entrer_text" type="text" placeholder="Ex : 1.5" value="<?= htmlspecialchars($prixUnitaire) ?>"  name="prixUnitaire" id="prix_ingredient" required/>
-            </div>
-                
-            <div class="reponse6">
-                <div>
-                    <input class="qcm_rond" type="radio" id="allergeneO" name="allergene" value="1">
-                    <label class="qcm_rond" for="allergeneO">Oui</label>
+                <div class="reponse5">
+                    <input class="entrer_text" type="text" placeholder="Ex : 1.5" value="<?= htmlspecialchars($prixUnitaire) ?>"  name="prixUnitaire" id="prix_ingredient" required/>
                 </div>
-                <div>
-                    <input class="qcm_rond" type="radio" id="allergeneN" name="allergene" value="0" checked>
-                    <label class="qcm_rond" for="allergeneN">Non</label>
+                    
+                <div class="reponse6">
+                    <div>
+                        <input class="qcm_rond" type="radio" id="allergeneO" name="allergene" value="1">
+                        <label class="qcm_rond" for="allergeneO">Oui</label>
+                    </div>
+                    <div>
+                        <input class="qcm_rond" type="radio" id="allergeneN" name="allergene" value="0" checked>
+                        <label class="qcm_rond" for="allergeneN">Non</label>
+                    </div>
                 </div>
-            </div>
 
-            <div class="bouton1">
-                <div id="NewTypeIngredient" class="bouton_js1" onClick="creerTypeIngredient()">Creer un nouveau type ingrédient</div>
-            </div>
+                <div class="bouton1">
+                    <div id="NewTypeIngredient" class="bouton_js1" onClick="creerTypeIngredient()">Creer un nouveau type ingrédient</div>
+                </div>
 
-            <div class="bouton2">
-                <div id="textTVA" class="bouton_js2" onClick="creerTVA()">Creer une nouvelle TVA</div>
-            </div>
+                <div class="bouton2">
+                    <div id="textTVA" class="bouton_js2" onClick="creerTVA()">Creer une nouvelle TVA</div>
+                </div>
 
-            <div class="bouton3">
-                <?=($create ? "" : '<input type ="hidden" name ="idIngredient" value="' . rawurldecode($idIngredient) . '"/>') ?>
-                <input class="bouton_final" type="submit" value="<?= $create ? "Ajouter" : "Mettre à jour" ?>" />
-            </div>
+                <div class="bouton3">
+                    <?=($create ? "" : '<input type ="hidden" name ="idIngredient" value="' . rawurldecode($idIngredient) . '"/>') ?>
+                    <input class="bouton_final" type="submit" value="<?= $create ? "Ajouter" : "Mettre à jour" ?>" />
+                </div>
 
+            </div>
         </div>
-    </div>
+    </fieldset>
 </form>
