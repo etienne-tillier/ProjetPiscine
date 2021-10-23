@@ -75,23 +75,19 @@ function hide(element)
 {
     element.style.display = 'none';
 }
-/*
+
 $(function(){
   var button = document.querySelector('.btn-copy');
- 
   $(".btn-copy").on('click', function(){
-    var ele = $(this).closest('.maxiParent').clone(true);
-    $(this).closest('.maxiParent').after(ele);
+    $(".grid").clone().appendTo(".maxiParent");
+
     hide(button);
   })
 })
 
 
-$('.btn-copy').click (function())
-{
-    $('.maxiParent').appende('.grid').html());
-}
-});
+
+
 </script>
 
 <div class="maxiParent">
@@ -112,8 +108,10 @@ $('.btn-copy').click (function())
             <p class="date">Date de péremption :  </p>
         </div>
     </div>
-    <button class="btn-copy" >Dupliquer</button>
 </div>
+
+
+
 
 
 <style type="text/css">
@@ -127,5 +125,6 @@ $('.btn-copy').click (function())
 <div id="boutons">
     <ul>
         <li class="case"><a href="#" onclick="window.print()">Imprimer l'étiquette</a></li>
+        <li class="btn-copy"><a href="#">Dupliquer</a></li> 
     </ul>
 </div>

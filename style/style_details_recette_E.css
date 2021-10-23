@@ -1,5 +1,6 @@
 .maxiParent{
-	display: flex;
+	display: grid;
+    width: 100%;
 }
 
 .grid > div{
@@ -14,7 +15,7 @@
     width: 700px;
     padding: 40px;
     /*background-color: rgb(122, 17, 215);*/
-   
+    margin-bottom: 50px;
 	margin-top: 30px;
     display: grid;
     grid-template-columns: repeat(2 1fr);
@@ -72,7 +73,7 @@
 #boutons
 {
 	display: flex;
-	height: 150pxpx;
+	height: 150px;
 	width: 100%;
 	font-size: 25px;
 	font-weight: bold;
@@ -94,10 +95,12 @@
 	margin: auto;
     margin-top: 30px;
     margin-bottom: 30px;
-	border-style: solid;
+    border-style: groove;
 	border-color: rgb(196, 156, 108);
 	border-radius: 10px;
+
 }
+
 
 .case
 {
@@ -106,6 +109,7 @@
 	text-align: center;
 	padding-top: 25px;
 }
+
 
 .case a
 {
@@ -118,25 +122,22 @@
 .case a:hover
 {
 	color: rgb(196, 156, 108);
+}
+
+.btn-copy{
+    width: 300px;
+	height: 60px;
+	text-align: center;
+	padding-top: 25px;
+}
+
+.btn-copy a{
+    text-decoration: none;
+	color: black;
+	transition: 400ms;
+}
+
+.btn-copy a:hover
+{
+	color: rgb(196, 156, 108);
 } 
-
-.btn-copy 
-{
-    font-family: cursive;   
-    background-color: wheat;
-    transition: all 0.75s;
-    border : 2px solid rgba(25, 25, 1);
-    margin: auto;
-    padding: 30px;
-    border-radius: 70%;
-
-}
-
-.btn-copy:hover
-{
-    border : 2px dashed rgba(0, 0, 0);
-   
-    padding: 45px;
-    transition: all 0.75s;
-
-}
