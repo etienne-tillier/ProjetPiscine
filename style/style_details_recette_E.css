@@ -95,41 +95,43 @@
 	margin: auto;
     margin-top: 30px;
     margin-bottom: 30px;
-    border-style: groove;
+    border-style: solid;
 	border-color: rgb(196, 156, 108);
 	border-radius: 10px;
 
 }
 
-
-.case
+.case, .btn_copy
 {
 	width: 300px;
 	height: 60px;
 	text-align: center;
 	padding-top: 25px;
+    transition: 400ms;
 }
 
 
-.case a
+.case a, .btn_copy a
 {
 	text-decoration: none;
 	color: black;
-	transition: 400ms;
-
+    transition: 400ms;
 }
 
-.case a:hover
+.case a:hover, .btn_copy a:hover
 {
 	color: rgb(196, 156, 108);
 }
 
-.btn-copy{
-    width: 300px;
-	height: 60px;
-	text-align: center;
-	padding-top: 25px;
-}
+/*.btn-copy 
+{
+    font-family: cursive;   
+    background-color: wheat;
+    transition: all 0.75s;
+    border : 2px solid rgba(25, 25, 1);
+    margin: auto;
+    padding: 30px;
+    border-radius: 70%;
 
 .btn-copy a{
     text-decoration: none;
@@ -139,5 +141,10 @@
 
 .btn-copy a:hover
 {
-	color: rgb(196, 156, 108);
-} 
+    border : 2px dashed rgba(0, 0, 0);
+   
+    padding: 45px;
+    transition: all 0.75s;
+
+}
+*/

@@ -57,7 +57,7 @@ const afficherAllergene = (recette) => {
     let listeIngredient = genererListeAllIngredient(recette)
     let chaine = ""
     for (let ingredient of listeIngredient) {
-        chaine += (ingredient.allergene == 1 ? '<b class="allergene">' + ingredient.nature + ', </b>' : ingredient.nature + ', ')
+        chaine += (ingredient.allergene == 1 ? '<b class="allergene">' + ingredient.nature + ', ' : ingredient.nature + ', ')
     }
     chaine = chaine.substring(0, chaine.length - 2);
     console.log(chaine)
@@ -77,8 +77,8 @@ function hide(element)
 }
 
 $(function(){
-  var button = document.querySelector('.btn-copy');
-  $(".btn-copy").on('click', function(){
+  var button = document.querySelector('.btn_copy');
+  $(".btn_copy").on('click', function(){
     $(".grid").clone().appendTo(".maxiParent");
 
     hide(button);
@@ -116,7 +116,7 @@ $(function(){
 
 <style type="text/css">
     @media print{
-        header,footer, #boutons, .btn-copy{
+        header,footer, #boutons, .btn_copy{
             display : none;
         }
     }
@@ -125,6 +125,6 @@ $(function(){
 <div id="boutons">
     <ul>
         <li class="case"><a href="#" onclick="window.print()">Imprimer l'étiquette</a></li>
-        <li class="btn-copy"><a href="#">Dupliquer</a></li> 
+        <li class="btn_copy"><a href="#">Dupliquer</a></li> 
     </ul>
 </div>
