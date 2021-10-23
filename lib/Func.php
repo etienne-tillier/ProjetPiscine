@@ -25,7 +25,6 @@ function genererListeIngredient($tabIngredient){
                 "quantite" => $ingredient[1],
                 "ingredients" => array()
             );
-            //var_dump($listeSousRecette);
             $ingredientsSousRecette = getListIngredient($ingredient[0],$ingredient[1]);
 
             $listeSousRecette["ingredients"] = genererListeIngredient($ingredientsSousRecette);
