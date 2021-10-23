@@ -100,9 +100,9 @@ class ControllerRecette {
     /* En sortie: la fonction redérige les données vers "view" afin        */
     /*            d'effectuer l'affichage                                  */
     /*---------------------------------------------------------------------*/   
-    public static function research()
+    public static function researchrecette()
     {
-        $recetteRechercher = $_GET["Recherche"];
+        $recetteRechercher = $_GET["RechercheRecette"];
         $ListeRecette = ModelRecette::selectname($recetteRechercher);
         $typerecetteListe = ModelTypeRecette::selectAll();
         $pagetitle = "Resultat de recherche recette";

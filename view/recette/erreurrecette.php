@@ -10,9 +10,10 @@
                     <ul>
                         <li>Résultat de la recherche</li>
                         <li>
-                            <form method="GET" action="index.php" controller="ingredient">
-                                <input type ="hidden" name ="action" value="research">
-                                <input id="barre_recherche" type="search" name="Recherche" placeholder="Recherche de recettes"> 
+                            <form method="GET" action="index.php" controller="recette">
+                                <input type ="hidden" name ="action" value="researchrecette">
+                                <input type ="hidden" name ="controller" value="recette">
+                                <input id="barre_recherche" type="search" name="RechercheRecette" placeholder="Recherche de recettes"> 
                                 <input id="bouton_recherche" type="submit" value="Trouver">
                             </form>    
                         </li>

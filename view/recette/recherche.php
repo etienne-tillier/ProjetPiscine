@@ -3,6 +3,7 @@
     <link rel="stylesheet" type="text/css" href="style/style_contenu_bd.css">
     <link rel="stylesheet" type="text/css" href="style/style_bouton_gestion_bd.css">
 </head>
+
 <body>
     <div id="corps">
             <div id="fenetre">
@@ -11,10 +12,9 @@
                         <li>Résultat de la recherche</li>
                         <li> 
                             <form method="GET" action="index.php" controller="recette">
-                                <input type ="hidden" name ="controller" value="recette">
-                                <input type ="hidden" name ="action" value="research">
-
-                                <input id="barre_recherche" type="search" name="Recherche" placeholder="Recherche de recettes"> 
+                                 <input type ="hidden" name ="controller" value="recette">
+                                <input type ="hidden" name ="action" value="researchrecette">
+                                <input id="barre_recherche" type="search" name="RechercheRecette" placeholder="Recherche de recettes"> 
                                 <input id="bouton_recherche" type="submit" value="Trouver">
                             </form>    
                         </li>
