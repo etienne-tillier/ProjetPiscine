@@ -59,7 +59,6 @@ const afficherAllergene = (recette) => {
         chaine += (ingredient.allergene == 1 ? '<b class="allergene">' + ingredient.nature + ', </b>' : ingredient.nature + ', ')
     }
     chaine = chaine.substring(0, chaine.length - 2);
-    console.log(chaine)
     let date = new Date();
     $("#allergene #liste").append(chaine)
     $("#allergene h3").append(" le " + date.getDate()+ "/" + date.getMonth() + " à " + date.getHours() + "h" + date.getMinutes())
@@ -115,15 +114,15 @@ window.onload = function () {
         </div>
 
         <div class="contenu_fiche1">
-            <p class="contenu_fiche"><?php echo htmlspecialchars($r->getDescriptif()); ?></p>
+            <p class="contenu_fiche"><?= htmlspecialchars($r->getDescriptif()); ?></p>
         </div>
 
         <div class="contenu_fiche2">
-            <p class="contenu_fiche"><?php //echo htmlspecialchars($r->getProgression()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la portion -->
+            <p class="contenu_fiche"><?= htmlspecialchars($r->getProgression()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la portion -->
         </div> 
 
         <div class="contenu_fiche3">
-            <p class="contenu_fiche"><?php //echo htmlspecialchars($r->getPortion()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la portion -->
+            <p class="contenu_fiche"><?= htmlspecialchars($r->getPortion()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la portion -->
         </div> 
 
         <div class="contenu_fiche4">

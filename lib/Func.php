@@ -18,6 +18,10 @@ function genererListeIngredient($tabIngredient){
                 "type" => "recette",
                 "code" => $ingredient[0]->getIdRecette(),
                 "nature" => $ingredient[0]->getNomRecette(),
+                "multiplicateur" => $ingredient[0]->getMultiplicateur(),
+                "coutPersonnel" => $ingredient[0]->getPrixMainOeuvre(),
+                "nombrePortion" => $ingredient[0]->getNombrePortion(),
+                "progression" => $ingredient[0]->getProgression(),
                 "quantite" => $ingredient[1],
                 "ingredients" => array()
             );

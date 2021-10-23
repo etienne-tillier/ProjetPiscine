@@ -2,6 +2,7 @@
 <script defer>
 console.log(<?= $listeAllIng ?>)
 var listeIng =(<?= $listeAllIng ?>)
+var infoRecette = <?= json_encode($infoRecette) ?>
 
 const calculerPrixRecette = (recette) => {
     let somme = 0
@@ -11,6 +12,22 @@ const calculerPrixRecette = (recette) => {
         }
         if (ing.type == "recette"){
             somme += calculerPrixRecette(ing.ingredients)
+        }
+    }
+    return somme
+}
+//probleme passe plusieurs fois on dirait voir console
+const calculerPrixRecetteTVA = (recette) => {
+    let somme = 0
+    for (let ing of recette){
+        if (ing.type == "ingredient"){
+            let PTHT = ing.prix * ing.quantite;
+            let augmentationTVA = (ing.prix * ing.tva) * ing.quantite;
+            let PTTTC = PTHT + augmentationTVA;
+            somme += PTTTC
+        }
+        if (ing.type == "recette"){
+            somme += calculerPrixRecetteTVA(ing.ingredients)
         }
     }
     return somme
@@ -72,7 +89,6 @@ const afficherAllergene = (recette) => {
         chaine += (ingredient.allergene == 1 ? '<b class="allergene">' + ingredient.nature + ', </b>' : ingredient.nature + ', ')
     }
     chaine = chaine.substring(0, chaine.length - 2);
-    console.log(chaine)
     let date = new Date();
     $("#allergene #liste").append(chaine)
     $("#allergene h3").append(" le " + date.getDate()+ "/" + date.getMonth() + " à " + date.getHours() + "h" + date.getMinutes())
@@ -82,7 +98,7 @@ const afficherFicheTech = (list) => {
     for (let ing of list){
         if (ing.type == "ingredient"){
             let PTHT = ing.prix * ing.quantite;
-            let augmentationTVA = ing.prix * ing.tva;
+            let augmentationTVA = (ing.prix * ing.tva) * ing.quantite;
             let PTTTC = PTHT + augmentationTVA;
             $("#table").append("<tr class='ingredient'></tr>")
             $("#table tr:last").append("<td>" + ing.code + "</td>")
@@ -98,6 +114,7 @@ const afficherFicheTech = (list) => {
         if (ing.type == "recette"){
             let prix = calculerPrixRecette(ing.ingredients)
             let PTHT = prix * ing.quantite;
+            let PTTTC = calculerPrixRecetteTVA(ing.ingredients)
             $("#table").append("<tr class='recette' style='font-weight: bold'></tr>")
             $("#table tr:last").append("<td>" + ing.code + "</td>")
             $("#table tr:last").append("<td>" + ing.nature + "</td>")
@@ -107,14 +124,32 @@ const afficherFicheTech = (list) => {
             $("#tablePrix tr:last").append("<td>" + ing.quantite + "</td>")
             $("#tablePrix tr:last").append("<td>" + prix + "</td>")
             $("#tablePrix tr:last").append("<td>" + PTHT + "</td>")
-            $("#tablePrix tr:last").append("<td></td>")
+            $("#tablePrix tr:last").append("<td>" + PTTTC + "</td>")
             afficherFicheTech(ing.ingredients);
         }
     }
 }
+
+
+const afficherChargesEtPrixTotaux = (recette) => {
+    let prixRecetteAvecTVA = calculerPrixRecetteTVA(recette)
+    let ASS = (prixRecetteAvecTVA * 0.05).toFixed(2)
+    let prixAvecASS = parseFloat(prixRecetteAvecTVA) + parseFloat(ASS)
+    let coutPersonnel = infoRecette.prixMainOeuvre
+    let multiplicateur = infoRecette.multiplicateur
+    let prixTotal = (prixAvecASS + parseFloat(coutPersonnel)) * multiplicateur
+    let nombrePortion = infoRecette.nombrePortion
+    let prixPortion = (prixTotal / nombrePortion).toFixed(2)
+    $(".contenu_fiche8 .contenu_fiche").append(prixRecetteAvecTVA)
+    $(".contenu_fiche9 .contenu_fiche").append(ASS)
+    $(".contenu_fiche10 .contenu_fiche").append(prixAvecASS)
+    $(".contenu_fiche6 .contenu_fiche").append(prixTotal)
+    $(".contenu_fiche7 .contenu_fiche").append(prixPortion)
+}
 window.onload = function () {
     afficherFicheTech(listeIng)
     afficherAllergene(listeIng)
+    afficherChargesEtPrixTotaux(listeIng)
 }
 </script>
 
@@ -173,16 +208,16 @@ window.onload = function () {
         </div>
 
         <div class="contenu_fiche1">
-            <p class="contenu_fiche"><?php echo htmlspecialchars($r->getDescriptif()); ?></p>
+            <p class="contenu_fiche"><?= htmlspecialchars($r->getDescriptif()); ?></p>
         </div>
 
         <div class="contenu_fiche2">
-            <p class="contenu_fiche"><?php //echo htmlspecialchars($r->getProgression()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la portion -->
+            <p class="contenu_fiche"><?= htmlspecialchars($r->getProgression()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la portion -->
         </div> 
 
         <div class="contenu_fiche3">
-            <p class="contenu_fiche"><?php //echo htmlspecialchars($r->getPortion()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la portion -->
-        </div> 
+            <p class="contenu_fiche"><?= htmlspecialchars($r->getNombrePortion()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la portion -->
+        </div>
 
         <div class="contenu_fiche4">
             <div id="contenu_den">
@@ -231,12 +266,12 @@ window.onload = function () {
         </div>
 
         <div class="contenu_fiche11">
-            <p class="contenu_fiche"><?php //echo htmlspecialchars($r->getMulti()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir le multiplicateur -->
+            <p class="contenu_fiche"><?= htmlspecialchars($r->getPrixMainOeuvre()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir le multiplicateur -->
         </div> 
         
         <div class="contenu_fiche12">
-            <p class="contenu_fiche"><?php //echo htmlspecialchars($r->getMain()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la main d'oeuvre -->
-        </div> 
+            <p class="contenu_fiche"><?= htmlspecialchars($r->getMultiplicateur()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la main d'oeuvre -->
+        </div>
     </div>
 </div>
 

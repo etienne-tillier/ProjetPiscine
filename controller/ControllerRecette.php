@@ -27,6 +27,11 @@ class ControllerRecette {
         $auteur = ModelAuteur::select($r->getIdAuteur());
         $tabIngredients = getListIngredient($r,1);
         $listeAllIng = json_encode(genererListeIngredient($tabIngredients));
+        $infoRecette = array(
+            "prixMainOeuvre" => $r->getPrixMainOeuvre(),
+            "multiplicateur" => $r->getMultiplicateur(),
+            "nombrePortion" => $r->getNombrePortion()
+        );
         $pagetitle = $r->getNomRecette();
         if ($r == null) {
             $controller = ('Recette');
