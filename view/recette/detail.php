@@ -1,8 +1,8 @@
-<link rel="stylesheet" type="text/css" href="style/style_details_recette.css">
+<link rel="stylesheet" type="text/css" href="style/style_details_recette_AP.css">
     <div id='detail'> 
         <?php include("choix_impression.php"); ?>
         <style> 
-            #precision_fonction1
+            #boutons1
             {
                 display : none;
             }

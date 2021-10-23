@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="style/style_details_recette.css">
+<link rel="stylesheet" type="text/css" href="style/style_details_recette_SP.css">
 <script defer>
 console.log(<?= $listeAllIng ?>)
 var listeIng =(<?= $listeAllIng ?>)
@@ -69,22 +69,19 @@ const afficherFicheTech = (list) => {
     for (let ing of list){
         if (ing.type == "ingredient"){
             $("#table").append("<tr class='ingredient'></tr>")
+            $("#table tr:last").append("<td>" + ing.code + "</td>")
             $("#table tr:last").append("<td>" + ing.nature + "</td>")
             $("#table tr:last").append("<td>" + ing.unite + "</td>")
-
-            $("#tablePrix").append("<tr class='ingredient'></tr>")
-            $("#tablePrix tr:last").append("<td>" + ing.quantite + "</td>")
+            $("#table tr:last").append("<td>" + ing.quantite + "</td>")            
         }
         if (ing.type == "recette"){
            
             $("#table").append("<tr class='recette' style='font-weight: bold'></tr>")
             $("#table tr:last").append("<td>" + ing.code + "</td>")
             $("#table tr:last").append("<td>" + ing.nature + "</td>")
+            $("#table tr:last").append("<td>" + ing.quantite + "</td>")
             $("#table tr:last").append("<td></td>")
 
-            $("#tablePrix").append("<tr class='recette' style='font-weight: bold'></tr>")
-            $("#tablePrix tr:last").append("<td>" + ing.quantite + "</td>")
-            $("#tablePrix tr:last").append("<td></td>")
             afficherFicheTech(ing.ingredients);
         }
     }
@@ -113,40 +110,8 @@ window.onload = function () {
             <p class="sous_titre">Dénomination</p>
         </div>
 
-        <div class="sous_titre14">
-            <p class="sous_titre">Valorisation</p>
-        </div>
-
         <div class="sous_titre15">
             <p class="sous_titre">Portion</p>
-        </div>
-
-        <div class="sous_titre21">
-            <p class="sous_titre_niv2">Coût production total</p>
-        </div>
-
-        <div class="sous_titre22">
-            <p class="sous_titre_niv2">Coût production par portion</p>
-        </div>
-
-        <div class="sous_titre23">
-            <p class="sous_titre_niv2">Total denrée</p>
-        </div>
-
-        <div class="sous_titre24">
-            <p class="sous_titre_niv2">ASS 5%</p>
-        </div>
-
-        <div class="sous_titre25">
-            <p class="sous_titre_niv2">Coût matière</p>
-        </div>
-
-        <div class="sous_titre26">
-            <p class="sous_titre_niv2">Coût personnel</p>
-        </div>
-
-        <div class="sous_titre27">
-            <p class="sous_titre_niv2">Multiplicateur</p>
         </div>
 
         <div class="contenu_fiche1">
@@ -165,53 +130,13 @@ window.onload = function () {
             <div id="contenu_den">
                 <table id="table">
                     <tr>
+                        <th>Code</th>
                         <th>Nature</th>
                         <th>Unité</th>
+                        <th>Total</th>
                     </tr>
                 </table>
             </div>           
-        </div>
-
-        <div class="contenu_fiche5">
-            <div id="contenu_val">
-                <table id="tablePrix">
-                    <tr>
-                        <th>Total</th>
-                        <th>Prix U</th>
-                        <th>PTHT</th>
-                        <th>PTTTC</th>
-                    </tr>
-                </table>
-            </div>
-
-        </div>
-
-        <div class="contenu_fiche6">
-            <p class="contenu_fiche"><!-- Coût production total --></p>
-        </div>
-
-        <div class="contenu_fiche7">
-            <p class="contenu_fiche"><!-- Coût production par portion --></p>
-        </div>
-
-        <div class="contenu_fiche8">
-            <p class="contenu_fiche"><!-- Denrée (somme cout recette) --></p>
-        </div>
-
-        <div class="contenu_fiche9">
-            <p class="contenu_fiche"><!-- ASS 5% (somme cout recette)*0.05 --></p>
-        </div>
-
-        <div class="contenu_fiche10">
-            <p class="contenu_fiche"><!-- Cout Matiere=SOMME(Denrée, ASS 5%) --></p>
-        </div>
-
-        <div class="contenu_fiche11">
-            <p class="contenu_fiche"><?php //echo htmlspecialchars($r->getMulti()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir le multiplicateur -->
-        </div> 
-        
-        <div class="contenu_fiche12">
-            <p class="contenu_fiche"><?php //echo htmlspecialchars($r->getMain()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la main d'oeuvre -->
         </div> 
     </div>
 </div>
@@ -220,11 +145,13 @@ window.onload = function () {
 
     <style type="text/css">
          @media print{
-            header,footer, #precision_fonction{
+            header,footer, #boutons{
                 display : none;
             }
         }
     </style>
-<div id="impression_ft">
-    <p><a href="#" onclick="window.print()">Imprimer la fiche technique</p>
+<div id="boutons">
+    <ul>
+        <li class="case"><a href="#" onclick="window.print()">Imprimer la FT</p></li>
+    </ul>
 </div>
