@@ -70,6 +70,28 @@ const afficherAllergene = (recette) => {
 window.onload = function () {
     afficherAllergene(listeIng)
 }
+
+function hide(element)
+{
+    element.style.display = 'none';
+}
+/*
+$(function(){
+  var button = document.querySelector('.btn-copy');
+ 
+  $(".btn-copy").on('click', function(){
+    var ele = $(this).closest('.maxiParent').clone(true);
+    $(this).closest('.maxiParent').after(ele);
+    hide(button);
+  })
+})
+
+
+$('.btn-copy').click (function())
+{
+    $('.maxiParent').appende('.grid').html());
+}
+});
 </script>
 
 <div class="maxiParent">
@@ -90,11 +112,13 @@ window.onload = function () {
             <p class="date">Date de péremption :  </p>
         </div>
     </div>
+    <button class="btn-copy" >Dupliquer</button>
 </div>
+
 
 <style type="text/css">
     @media print{
-        header,footer, #boutons{
+        header,footer, #boutons, .btn-copy{
             display : none;
         }
     }
