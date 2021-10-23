@@ -177,6 +177,9 @@ window.onload = function () {
                 <table id="tablePrix">
                     <tr>
                         <th>Total</th>
+                        <th>Prix U</th>
+                        <th>PTHT</th>
+                        <th>PTTTC</th>
                     </tr>
                 </table>
             </div>
