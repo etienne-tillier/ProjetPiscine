@@ -78,8 +78,8 @@ const afficherFicheTech = (list) => {
             $("#table").append("<tr class='recette' style='font-weight: bold'></tr>")
             $("#table tr:last").append("<td>" + ing.code + "</td>")
             $("#table tr:last").append("<td>" + ing.nature + "</td>")
-            $("#table tr:last").append("<td>" + ing.quantite + "</td>")
             $("#table tr:last").append("<td></td>")
+            $("#table tr:last").append("<td>" + ing.quantite + "</td>")
 
             afficherFicheTech(ing.ingredients);
         }
@@ -122,7 +122,7 @@ window.onload = function () {
         </div> 
 
         <div class="contenu_fiche3">
-            <p class="contenu_fiche"><?= htmlspecialchars($r->getPortion()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la portion -->
+            <p class="contenu_fiche"><?= htmlspecialchars($r->getNombrePortion()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la portion -->
         </div> 
 
         <div class="contenu_fiche4">
