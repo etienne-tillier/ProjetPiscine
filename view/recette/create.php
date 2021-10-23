@@ -56,7 +56,7 @@
         $("#listeIngredient").append("<div id='" + i + "'></div>");
         $("#listeIngredient div:last").append("<li><select class='choix' name='ingredients[]' placeholder='Choisissez ingrédient' required></select></li>");
         <?php foreach ($listeIngredient as $ingredient){?>
-            $("#listeIngredient div:last select:last").append($('<option>', {
+            $("#listeIngredient div:last select:last").append($("<option>", {
                 value: "<?php echo $ingredient->getIdIngredient()?>",
                 text: "<?php echo $ingredient->getNomIngredient()?>"
             }));
@@ -76,7 +76,7 @@
         }));
         <?php }; ?>
         $("#listeRecette div:last").append("<li><input class='entrer_text1' type='text' name='quantitesRecettes[]' placeholder='Quantité recette' required></input></li>");
-        $("#listeRecette div:last").append("<li><div class='boutonRecette' onclick='$(this).parent().parent().remove()'>Supprimer<br></div></li>");
+        $("#listeRecette div:last").append("<li><div class='boutonRecette' onclick='$(this).parent().parent().remove()'>Supprimer</div></li>");
         i++;
         $(".choix").chosen();
     }
@@ -85,7 +85,6 @@
 </script>
 
 
-<link rel="stylesheet" type="text/css" href="style/style_formulaire_recette.css">
 <div class="titre_form"><?= ($create ? "Ajout d'une nouvelle recette" : "Mise à jour d'une recette") ?></div>
 <form id="formulaire" method="post" action="index.php?action=<?= ($create ? "created" : "updated" )?>&controller=recette">
     <fieldset>
@@ -94,7 +93,7 @@
         <div class="maxiParent">
             <div class="grid">
                 <div class="titre1">
-                    <p class="titre"><input class="entrer_text" type="text" placeholder="Ex : Soupe de poisson" name="nomRecette" <?= ($create ? "required" : "required") ?> value="<?= htmlspecialchars($nomRecette) ?>" id="nom_recette"/></p>
+                    <p class="titre"><input class="entrer_text_titre" type="text" placeholder="Ex : Soupe de poisson" name="nomRecette" <?= ($create ? "required" : "required") ?> value="<?= htmlspecialchars($nomRecette) ?>" id="nom_recette"/></p>
                 </div>
 
                 <div class="sous_titre11">
@@ -146,20 +145,20 @@
                 </div> 
 
                 <div class="contenu_fiche3">
-                    <input class="entrer_text" type="text" name="nombrePortion" value="<?= htmlspecialchars($nombrePortion) ?>" id="nombre_Portion" required/>
+                    <p class="num"><input class="entrer_text_num" type="text" name="nombrePortion" value="<?= htmlspecialchars($nombrePortion) ?>" id="nombre_Portion" required/></p>
                 </div> 
 
                 <div class="contenu_fiche4">
-                    <ul id="listeIngredient"></ul>         
+                    <div class="sous_div"><ul id="listeIngredient"></ul> </div>        
                 </div>
 
                 <div class="contenu_fiche5">
-                    <ul id="listeRecette"></ul>
+                    <div class="sous_div"><ul id="listeRecette"></ul></div>
                 </div>
 
                 <div class="contenu_fiche6">
                     <div id="typeRecetteSelect">
-                        <p><select id="selectTypeRecette" name="idTypeRecette" required>
+                        <p class="liste_der"><select id="selectTypeRecette" name="idTypeRecette" required>
                             <option class="liste_der" value="" disabled <?= ($create ? "selected" : "") ?>>Choisissez un type</option>
                             <?php
                             foreach($typeRecetteList as $type){
@@ -169,13 +168,15 @@
                             <script>$("#selectTypeRecette").chosen();</script>
                         </select>
                     </div>
-                    <input id="newTypeRecette" type="text" name="newTypeRecette" placeholder="Nouveau Type" style="display: none"></p>
+                        <ul>
+                            <li><input id="newTypeRecette" type="text" name="newTypeRecette" placeholder="Nouveau Type" style="display: none"></li></p>
+                        </ul>
 
                 </div>
 
                 <div class="contenu_fiche7">
                     <div id="auteurSelect">
-                        <p><select id="selectAuteur" name="idAuteur" required>
+                        <p class="liste_der"><select id="selectAuteur" name="idAuteur" required>
                             <option class="liste_der" value="" disabled <?= ($create ? "selected" : "") ?>>Choisissez un auteur</option>
                             <?php
                                 foreach($auteurList as $auteur){
@@ -185,16 +186,19 @@
                             <script>$("#selectAuteur").chosen();</script>
                         </select>
                     </div>
-                    <input id="newAuteurNom" type="text" name="newNom" placeholder="Nom" style="display: none">
-                    <input id="newAuteurPrenom" type="text" name="newPrenom" placeholder="Prenom" style="display: none"></p>
+                        <ul>
+                            <li><input id="newAuteurNom" type="text" name="newNom" placeholder="Nom" style="display: none"></li>
+                            <li><input id="newAuteurPrenom" type="text" name="newPrenom" placeholder="Prenom" style="display: none"></li>
+                        </ul>
+                    </p>
                 </div>
 
                 <div class="contenu_fiche11">
-                    <input class="entrer_text" type="text" name="prixMainOeuvre" value="<?= htmlspecialchars($prixMainOeuvre) ?>" id="prixMain_Oeuvre" required/>
+                    <p class="num"><input class="entrer_text_num" type="text" name="prixMainOeuvre" value="<?= htmlspecialchars($prixMainOeuvre) ?>" id="prixMain_Oeuvre" required/></p>
                 </div> 
                 
                 <div class="contenu_fiche12">
-                    <input class="entrer_text" type="text" name="multiplicateur" value="<?= htmlspecialchars($multiplicateur) ?>" id="multiplicateur_id" required/>
+                    <p class="num"><input class="entrer_text_num" type="text" name="multiplicateur" value="<?= htmlspecialchars($multiplicateur) ?>" id="multiplicateur_id" required/></p>
                 </div> 
 
                 <div class="bouton1">
@@ -205,11 +209,11 @@
                     <div class="bouton" onClick="creerAuteur()">Nouvel auteur</div>
                 </div>
 
-                <div class="bouton3">
-                    <?=($create ? "" : '<input type="hidden" name="idRecette" value="' . rawurldecode($idRecette) . '"/>') ?>
-                    <input class="bouton_final" type="submit" value="<?= $create ? "Ajouter" : "Mettre à jour" ?>" />         
-                </div>
             </div>
+        </div>
+        <div class="bouton3">
+            <?=($create ? "" : '<input type="hidden" name="idRecette" value="' . rawurldecode($idRecette) . '"/>') ?>
+            <input class="bouton_final" type="submit" value="<?= $create ? "Ajouter" : "Mettre à jour" ?>" />         
         </div>
     </fieldset>
 </form>

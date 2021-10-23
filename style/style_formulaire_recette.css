@@ -4,7 +4,7 @@
     font-weight: bold;
     font-size: 60px;
     margin-top: 60px;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 
 fieldset{
@@ -31,7 +31,7 @@ fieldset{
 	margin-top: 30px;
     display: grid;
     grid-template-columns: 3fr 3fr 2fr 2fr;
-    grid-template-rows: 60px minmax(60px, 1fr) 90px 1fr 40px 90px 40px 90px 40px 40px;
+    grid-template-rows: 60px 100px 90px 1fr 40px 90px 40px 90px 40px;
 	background-color: rgb(240,240,240);
 	border-radius: 25px;
 }
@@ -164,24 +164,73 @@ fieldset{
     display: flex;
 }
 
-.bouton3{
-    grid-column: 1/5;
-    grid-row: 9;
-    display: flex;
-}
-
 /* Style des éléments */
 
-.titre{
-	font-size: 35px;
-	font-weight: bold;
+.titre, .num{
 	margin: auto;
+}
+
+.entrer_text_titre{
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.entrer_text_num{
+    width: 100px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.entrer_text_area{
+    font-size: 15px;
+    margin: auto;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    max-width: 270px;
+    width: 100%;
+}
+
+#auteurSelect, #typeRecetteSelect, .sous_div{
+    margin: auto;
+}
+
+#selectTypeRecette, #selectAuteur{
+    width: 200px;
+}
+
+.choix{
+    width: 210px;
+}
+
+.liste_der{
+    margin-left: 20%;
+}
+
+#newAuteurNom, #newAuteurPrenom, #newTypeRecette, .entrer_text1{
+    font-size: 20px;
+    max-width: 80%;
+}
+
+#newTypeRecette{
+    margin-top: 40px;
+}
+
+.contenu_fiche7 ul, .contenu_fiche6 ul{
+    margin: auto;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
 }
 
 .sous_titre{
 	margin: auto;
 	font-size: 25px;
 	font-weight: bold;
+}
+
+#listeIngredient, #listeRecette{
+    list-style: none;
 }
 
 /* Style des boutons */
@@ -199,6 +248,38 @@ fieldset{
     transition: 400ms;
 }
 
-.bouton:hover, #ajouterIngredient:hover, #ajouterRecette:hover{
+.bouton:hover, #ajouterIngredient:hover, #ajouterRecette:hover, .bouton_final:hover{
+    color: rgb(196, 156, 108);
+}
+
+.bouton3{
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.bouton_final{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    width: 300px;
+	border:rgb(196, 156, 108) 2px solid;
+    border-radius: 15px;
+    background-color: transparent;
+    transition: 400ms;
+}
+
+.boutonRecette, .boutonIngredient{
+    margin-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 205px;
+    text-align: center;
+    border: solid rgb(196, 156, 108) 2px;
+    border-radius: 5px;
+    transition: 400ms;
+}
+
+.boutonRecette:hover, .boutonIngredient:hover{
     color: rgb(196, 156, 108);
 }
