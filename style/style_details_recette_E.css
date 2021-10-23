@@ -14,7 +14,7 @@
     width: 700px;
     padding: 40px;
     /*background-color: rgb(122, 17, 215);*/
-    margin-bottom: 30px;
+   
 	margin-top: 30px;
     display: grid;
     grid-template-columns: repeat(2 1fr);
@@ -119,3 +119,24 @@
 {
 	color: rgb(196, 156, 108);
 } 
+
+.btn-copy 
+{
+    font-family: cursive;   
+    background-color: wheat;
+    transition: all 0.75s;
+    border : 2px solid rgba(25, 25, 1);
+    margin: auto;
+    padding: 30px;
+    border-radius: 70%;
+
+}
+
+.btn-copy:hover
+{
+    border : 2px dashed rgba(0, 0, 0);
+   
+    padding: 45px;
+    transition: all 0.75s;
+
+}

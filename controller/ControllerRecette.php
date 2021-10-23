@@ -88,7 +88,7 @@ class ControllerRecette {
             require (File::build_path(array("view", "view.php")));
         } else {
                 $controller = 'Recette';
-                $view = 'imprimer_Fiche_tech';
+                $view = 'imprimer_Fiche_tech_sansPrix';
             }
             require (File::build_path(array("view", "view.php")));
     }
