@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="style/style_details_recette.css">
+<link rel="stylesheet" type="text/css" href="style/style_details_recette_E.css">
 
 <script defer>
 console.log(<?= $listeAllIng ?>)
@@ -62,8 +62,9 @@ const afficherAllergene = (recette) => {
     chaine = chaine.substring(0, chaine.length - 2);
     console.log(chaine)
     let date = new Date();
-    $("#allergene #liste").append(chaine)
-    $("#allergene h3").append(" le " + date.getDate()+ "/" + date.getMonth() + " à " + date.getHours() + "h" + date.getMinutes())
+    $(".grid .ingr").append(chaine)
+    $(".grid .date_crea").append(date.getDate()+ "/" + date.getMonth() + " à " + date.getHours() + "h" + date.getMinutes())
+    $(".grid .date_per").append((date.getDate()+3)+ "/" + date.getMonth() + " à " + date.getHours() + "h" + date.getMinutes())
 }
 
 window.onload = function () {
@@ -71,33 +72,36 @@ window.onload = function () {
 }
 </script>
 
+<div class="maxiParent">
+    <div class="grid">
+        <div class="nom">
+            <p class="nom_text"><?php echo htmlspecialchars(ucfirst($r->getNomRecette()))?></p>
+        </div>
 
+        <div class="ingr">
+            <p class="ingr_text">Ingrédients  </p>
+        </div>
 
+        <div class="date_crea">
+            <p class="date">Date de création :  </p>
+        </div>
 
-<div id="etiquette">
-    <div id="allergene" >
-        <br>
-        <p style=" border-style: outset; color: gold;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; 
-            width: 20%;
-            text-align :center;
-            margin-left : 40%;
-            "> ETIQUETTE <p>
-        <h3><?=$r->getNomRecette()?></h3>
-        <div id="liste"><h4>listes des ingrédient : <h4></div>
-        <br>
+        <div class="date_per">
+            <p class="date">Date de péremption :  </p>
+        </div>
     </div>
 </div>
-<style type="text/css">
-         @media print{
-            header,footer, #precision_fonction, #fiche_tech{
-                display : none;
-            }
-        }
-    </style>
 
-<div id="precision_fonction">
-    <button href="#" onclick="window.print()">Imprimer l'etiquette</button>
+<style type="text/css">
+    @media print{
+        header,footer, #boutons{
+            display : none;
+        }
+    }
+</style>
+
+<div id="boutons">
+    <ul>
+        <li class="case"><a href="#" onclick="window.print()">Imprimer l'étiquette</a></li>
+    </ul>
 </div>

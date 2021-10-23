@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="style/style_details_recette.css">
+<link rel="stylesheet" type="text/css" href="style/style_details_recette_AP.css">
 <script defer>
 console.log(<?= $listeAllIng ?>)
 var listeIng =(<?= $listeAllIng ?>)
@@ -120,36 +120,69 @@ window.onload = function () {
 
 <div class="maxiParent">
     <div class="grid">
-        <div class="titre"><?php echo htmlspecialchars(ucfirst($r->getNomRecette()))?></div>
-        <div class="sous_titre11">Descriptif</div>
+        <div class="titre1">
+            <p class="titre"><?php echo htmlspecialchars(ucfirst($r->getNomRecette()))?></p>
+        </div>
 
-        <div class="sous_titre12">Progression</div>
+        <div class="sous_titre11">
+            <p class="sous_titre">Descriptif</p>
+        </div>
 
-        <div class="sous_titre13">Dénomination</div>
+        <div class="sous_titre12">
+            <p class="sous_titre">Progression</p>
+        </div>
 
-        <div class="sous_titre14">Valorisation</div>
+        <div class="sous_titre13">
+            <p class="sous_titre">Dénomination</p>
+        </div>
 
-        <div class="sous_titre15">Portion</div>
+        <div class="sous_titre14">
+            <p class="sous_titre">Valorisation</p>
+        </div>
 
-        <div class="sous_titre21">Coût production total</div>
+        <div class="sous_titre15">
+            <p class="sous_titre">Portion</p>
+        </div>
 
-        <div class="sous_titre22">Coût production par portion</div>
+        <div class="sous_titre21">
+            <p class="sous_titre_niv2">Coût production total</p>
+        </div>
 
-        <div class="sous_titre23">Total denrée</div>
+        <div class="sous_titre22">
+            <p class="sous_titre_niv2">Coût production par portion</p>
+        </div>
 
-        <div class="sous_titre24">ASS 5%</div>
+        <div class="sous_titre23">
+            <p class="sous_titre_niv2">Total denrée</p>
+        </div>
 
-        <div class="sous_titre25">Coût matière</div>
+        <div class="sous_titre24">
+            <p class="sous_titre_niv2">ASS 5%</p>
+        </div>
 
-        <div class="sous_titre26">Coût personnel</div>
+        <div class="sous_titre25">
+            <p class="sous_titre_niv2">Coût matière</p>
+        </div>
 
-        <div class="sous_titre27">Multiplicateur</div>
+        <div class="sous_titre26">
+            <p class="sous_titre_niv2">Coût personnel</p>
+        </div>
 
-        <div class="contenu_fiche1"><?php echo htmlspecialchars($r->getDescriptif()); ?></div>
+        <div class="sous_titre27">
+            <p class="sous_titre_niv2">Multiplicateur</p>
+        </div>
 
-        <div class="contenu_fiche2"><?php //echo htmlspecialchars($r->getProgression()); ?></div> <!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la portion -->
+        <div class="contenu_fiche1">
+            <p class="contenu_fiche"><?php echo htmlspecialchars($r->getDescriptif()); ?></p>
+        </div>
 
-        <div class="contenu_fiche3"><?php //echo htmlspecialchars($r->getPortion()); ?></div> <!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la portion -->
+        <div class="contenu_fiche2">
+            <p class="contenu_fiche"><?php //echo htmlspecialchars($r->getProgression()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la portion -->
+        </div> 
+
+        <div class="contenu_fiche3">
+            <p class="contenu_fiche"><?php //echo htmlspecialchars($r->getPortion()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la portion -->
+        </div> 
 
         <div class="contenu_fiche4">
             <div id="contenu_den">
@@ -158,11 +191,6 @@ window.onload = function () {
                         <th>Code</th>
                         <th>Nature</th>
                         <th>Unité</th>
-                    </tr>
-                    <tr>
-                        <td><?php ?></td>
-                        <td><?php ?></td>
-                        <td><?php ?></td>
                     </tr>
                 </table>
             </div>           
@@ -177,39 +205,55 @@ window.onload = function () {
                         <th>PTHT</th>
                         <th>PTTTC</th>
                     </tr>
-                    <tr>
-                        <td><?php ?></td>
-                        <td><?php ?></td>
-                        <td><?php ?></td>
-                    </tr>
                 </table>
             </div>
 
         </div>
 
-        <div class="contenu_fiche6">1<!-- Coût production total --></div>
-        <div class="contenu_fiche7">1<!-- Coût production par portion --></div>
-        <div class="contenu_fiche8">1<!-- Denrée (somme cout recette) --></div>
-        <div class="contenu_fiche9">1<!-- ASS 5% (somme cout recette)*0.05 --></div>
-        <div class="contenu_fiche10">1<!-- Cout Matiere=SOMME(Denrée, ASS 5%) --></div>
-        <div class="contenu_fiche11">1<?php //echo htmlspecialchars($r->getMulti()); ?></div> <!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir le multiplicateur -->
-        <div class="contenu_fiche12">1<?php //echo htmlspecialchars($r->getMain()); ?></div> <!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la main d'oeuvre -->
+        <div class="contenu_fiche6">
+            <p class="contenu_fiche"><!-- Coût production total --></p>
+        </div>
+
+        <div class="contenu_fiche7">
+            <p class="contenu_fiche"><!-- Coût production par portion --></p>
+        </div>
+
+        <div class="contenu_fiche8">
+            <p class="contenu_fiche"><!-- Denrée (somme cout recette) --></p>
+        </div>
+
+        <div class="contenu_fiche9">
+            <p class="contenu_fiche"><!-- ASS 5% (somme cout recette)*0.05 --></p>
+        </div>
+
+        <div class="contenu_fiche10">
+            <p class="contenu_fiche"><!-- Cout Matiere=SOMME(Denrée, ASS 5%) --></p>
+        </div>
+
+        <div class="contenu_fiche11">
+            <p class="contenu_fiche"><?php //echo htmlspecialchars($r->getMulti()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir le multiplicateur -->
+        </div> 
+        
+        <div class="contenu_fiche12">
+            <p class="contenu_fiche"><?php //echo htmlspecialchars($r->getMain()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la main d'oeuvre -->
+        </div> 
     </div>
 </div>
 
+
 <style type="text/css">
          @media print{
-            header,footer, #precision_fonction1{
+            header,footer, #boutons1{
                 display : none;
             }
         }
 </style>
 
-<div id="precision_fonction1">
+<div id="boutons1">
     <ul>
-    <li><?php echo '<a href="index.php?action=impressionetiquette&controller=recette&idRecette=' . rawurlencode($r->getIdRecette()) . '"> ETIQUETTE</a>'; ?></li>
-    <li><a href="#" onclick="window.print()">FT AVEC PRIX</li>
-    <li><?php echo '<a href="index.php?action=impressionfiche&controller=recette&idRecette=' . rawurlencode($r->getIdRecette()) . '"> FT SANS Prix</a>'; ?></li>
+    <li class="case"><?php echo '<a href="index.php?action=impressionetiquette&controller=recette&idRecette=' . rawurlencode($r->getIdRecette()) . '"> Etiquette</a>'; ?></li>
+    <li class="case"><a href="#" onclick="window.print()">FT avec prix</li>
+    <li class="case"><?php echo '<a href="index.php?action=impressionfiche&controller=recette&idRecette=' . rawurlencode($r->getIdRecette()) . '"> FT sans prix</a>'; ?></li>
     </ul>
 
 </div>
