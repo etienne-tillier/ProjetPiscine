@@ -166,7 +166,7 @@
                 </div>
 
                 <div class="bouton4">
-                    <div id="textUpdateTVA" class="bouton_js3" onClick="updateTVA()">Mettre à jour la TVA</div>
+                    <div id="textUpdateTVA" onClick="updateTVA()">Mettre à jour la TVA</div>
                 </div>
 
 
