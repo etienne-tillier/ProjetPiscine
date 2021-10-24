@@ -188,6 +188,7 @@ class ControllerIngredient {
         $i = ModelIngredient::select($idIngredient);
         $nomIngredient = $i->getNomIngredient();
         $allergene = $i->getAllergene();
+        echo $allergene;
         $unite = $i->getunite();
         $prixUnitaire = $i->getPrixUnitaire();
         $idTypeIngredient = $i->getIdTypeIngredient();

@@ -142,11 +142,11 @@
                     
                 <div class="reponse6">
                     <div>
-                        <input class="qcm_rond" type="radio" id="allergeneO" name="allergene" value="1">
+                        <input class="qcm_rond" type="radio" id="allergeneO" name="allergene" value="1" <?= ($allergene == "1" ? "checked" : "") ?>>
                         <label class="qcm_rond" for="allergeneO">Oui</label>
                     </div>
                     <div>
-                        <input class="qcm_rond" type="radio" id="allergeneN" name="allergene" value="0" checked>
+                        <input class="qcm_rond" type="radio" id="allergeneN" name="allergene" value="0" <?= ($allergene == "1" ? "" : "checked") ?>>
                         <label class="qcm_rond" for="allergeneN">Non</label>
                     </div>
                 </div>
