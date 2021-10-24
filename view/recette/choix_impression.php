@@ -137,7 +137,7 @@ const afficherChargesEtPrixTotaux = (recette) => {
     let prixAvecASS = parseFloat(prixRecetteAvecTVA) + parseFloat(ASS)
     let coutPersonnel = infoRecette.prixMainOeuvre
     let multiplicateur = infoRecette.multiplicateur
-    let prixTotal = (prixAvecASS + parseFloat(coutPersonnel)) * multiplicateur
+    let prixTotal = ((prixAvecASS + parseFloat(coutPersonnel)) * multiplicateur).toFixed(2)
     let nombrePortion = infoRecette.nombrePortion
     let prixPortion = (prixTotal / nombrePortion).toFixed(2)
     $(".contenu_fiche8 .contenu_fiche").append(prixRecetteAvecTVA)
