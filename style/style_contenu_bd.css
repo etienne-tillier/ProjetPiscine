@@ -113,19 +113,28 @@
 {
 	font-size: 15px;
 	padding-left: 2px;
-    border:solid 1px rgb(196, 156, 108);
-	border-radius: 5px;
+    border:solid 2.2px rgb(196, 156, 108);
 	width: 200px;
+	padding : 5px;
+	border-radius: 0.2vw;
+	transition: all 1s;
+}
+#barre_recherche:hover
+{
+	border-radius: 2.5vw;
+	border:dashed 2.2px rgb(196, 156, 108);
+	transition: all 1s;
 }
 
 #bouton_recherche
 {
-	border:solid 1px rgb(196, 156, 108);
-	border-radius: 5px;
+	border:solid 2.2px rgb(196, 156, 108);
+	border-radius: 0.2vw;
 	background-color: transparent;
 	font-size: 15px;
 	font-weight: bold;
 	transition: 400ms;
+	padding : 5px;
 }
 
 #bouton_recherche:hover
