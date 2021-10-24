@@ -97,9 +97,9 @@ const afficherAllergene = (recette) => {
 const afficherFicheTech = (list) => {
     for (let ing of list){
         if (ing.type == "ingredient"){
-            let PTHT = ing.prix * ing.quantite;
-            let augmentationTVA = (ing.prix * (ing.tva/100)) * ing.quantite;
-            let PTTTC = PTHT + augmentationTVA;
+            let PTHT = (ing.prix * ing.quantite).toFixed(2);
+            let augmentationTVA = (parseFloat(ing.prix) * parseFloat(ing.tva/100)) * parseFloat(ing.quantite);
+            let PTTTC = (parseFloat(PTHT) + parseFloat(augmentationTVA)).toFixed(2);
             $("#table").append("<tr class='ingredient'></tr>")
             $("#table tr:last").append("<td>" + ing.code + "</td>")
             $("#table tr:last").append("<td>" + ing.nature + "</td>")
@@ -113,8 +113,8 @@ const afficherFicheTech = (list) => {
         }
         if (ing.type == "recette"){
             let prix = calculerPrixRecette(ing.ingredients)
-            let PTHT = prix * ing.quantite;
-            let PTTTC = calculerPrixRecetteTVA(ing.ingredients)
+            let PTHT = (ing.prix * ing.quantite).toFixed(2);
+            let PTTTC = (calculerPrixRecetteTVA(ing.ingredients)).toFixed(2)
             $("#table").append("<tr class='recette' style='font-weight: bold'></tr>")
             $("#table tr:last").append("<td>" + ing.code + "</td>")
             $("#table tr:last").append("<td>" + ing.nature + "</td>")
@@ -132,7 +132,7 @@ const afficherFicheTech = (list) => {
 
 
 const afficherChargesEtPrixTotaux = (recette) => {
-    let prixRecetteAvecTVA = calculerPrixRecetteTVA(recette)
+    let prixRecetteAvecTVA = (calculerPrixRecetteTVA(recette)).toFixed(2)
     let ASS = (prixRecetteAvecTVA * 0.05).toFixed(2)
     let prixAvecASS = parseFloat(prixRecetteAvecTVA) + parseFloat(ASS)
     let coutPersonnel = infoRecette.prixMainOeuvre
