@@ -95,8 +95,8 @@ class Model {
             WHERE (nomIngredient LIKE "%' . $name_recherche .'%"  
             OR ( prixUnitaire LIKE "' . $name_recherche .'%") 
             OR ( nomTypeIngredient LIKE "%' . $name_recherche .'%")
-            OR ( unite LIKE "' . $name_recherche .'")
-            )');
+            OR ( unite LIKE "' . $name_recherche .'"))
+            Order By nomIngredient');
         } else {
             $rep = (Model::$pdo)->query('Select * From  ' . ucfirst($table_name) . ' 
             NATURAL JOIN Auteur NATURAL JOIN Typerecette
