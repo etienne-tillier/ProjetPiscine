@@ -133,16 +133,12 @@
                 </div>
 
                 <div class="contenu_fiche1">
-                    <textarea class="entrer_text_area" id="descriptif_id" name="descriptif" rows="5" cols="33" required>
-                        <?= htmlspecialchars($descriptif) ?>
-                    </textarea>
+                    <textarea class="entrer_text_area" id="descriptif_id" name="descriptif" rows="5" cols="33" required value="<?=( $descriptif ? htmlspecialchars($descriptif) : "")?>"></textarea>
                 </div>
 
                 <div class="contenu_fiche2">
-                    <textarea class="entrer_text_area" id="progression_id" name="progression" rows="5" cols="33" required>
-                        <?= htmlspecialchars($progression) ?>
-                    </textarea>
-                </div> 
+                    <textarea class="entrer_text_area" id="progression_id" name="progression" rows="5" cols="33" placeholder="1/ Foie gras sauté. * Parer les foies de canard, dénerver partiellement. * Escaloper le foie gras, le faire sauter rapidement à sec. Assaisonner, réserver." required value="<?=( $progression ? htmlspecialchars($progression) : "")?>"></textarea>
+                </div>
 
                 <div class="contenu_fiche3">
                     <p class="num"><input class="entrer_text_num" type="text" name="nombrePortion" value="<?= htmlspecialchars($nombrePortion) ?>" id="nombre_Portion" required/></p>
