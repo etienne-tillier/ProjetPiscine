@@ -5,6 +5,11 @@ var listeIng =(<?= $listeAllIng ?>)
 var infoRecette = <?= json_encode($infoRecette) ?>
 
 
+//Fonction qui permet de passer la première lettre d'une chaine de caractère en majuscule
+function ucfirst_js(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 //Fonction qui permet de calculer le prix totalHT d'une recette passée en paramètre
 const calculerPrixRecette = (recette) => {
     let somme = 0
@@ -109,7 +114,7 @@ const afficherFicheTech = (list) => {
             let PTTTC = (parseFloat(PTHT) + parseFloat(augmentationTVA)).toFixed(2);
             $("#table").append("<tr class='ingredient'></tr>")
             $("#table tr:last").append("<td>" + ing.code + "</td>")
-            $("#table tr:last").append("<td>" + ing.nature + "</td>")
+            $("#table tr:last").append("<td>" + ucfirst_js(ing.nature) + "</td>")
             $("#table tr:last").append("<td>" + ing.unite + "</td>")
 
             $("#tablePrix").append("<tr class='ingredient'></tr>")
@@ -124,7 +129,7 @@ const afficherFicheTech = (list) => {
             let PTTTC = (calculerPrixRecetteTVA(ing.ingredients)).toFixed(2)
             $("#table").append("<tr class='recette' style='font-weight: bold'></tr>")
             $("#table tr:last").append("<td>" + ing.code + "</td>")
-            $("#table tr:last").append("<td>" + ing.nature + "</td>")
+            $("#table tr:last").append("<td>" + ucfirst_js(ing.nature) + "</td>")
             $("#table tr:last").append("<td></td>")
 
             $("#tablePrix").append("<tr class='recette' style='font-weight: bold'></tr>")

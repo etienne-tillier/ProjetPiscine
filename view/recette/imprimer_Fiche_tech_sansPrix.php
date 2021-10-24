@@ -3,6 +3,11 @@
 console.log(<?= $listeAllIng ?>)
 var listeIng =(<?= $listeAllIng ?>)
 
+//Fonction qui permet de passer la première lettre d'une chaine de caractère en majuscule
+function ucfirst_js(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 //Fonction qui renvoie la liste des ingrédient allergène d'une recette passée en paramètre
 const genererListeAllergene = (recette) => {
     let listeAllergene = []
@@ -73,7 +78,7 @@ const afficherFicheTech = (list) => {
         if (ing.type == "ingredient"){
             $("#table").append("<tr class='ingredient'></tr>")
             $("#table tr:last").append("<td>" + ing.code + "</td>")
-            $("#table tr:last").append("<td>" + ing.nature + "</td>")
+            $("#table tr:last").append("<td>" + ucfirst_js(ing.nature) + "</td>")
             $("#table tr:last").append("<td>" + ing.unite + "</td>")
             $("#table tr:last").append("<td>" + ing.quantite + "</td>")            
         }
@@ -81,7 +86,7 @@ const afficherFicheTech = (list) => {
            
             $("#table").append("<tr class='recette' style='font-weight: bold'></tr>")
             $("#table tr:last").append("<td>" + ing.code + "</td>")
-            $("#table tr:last").append("<td>" + ing.nature + "</td>")
+            $("#table tr:last").append("<td>" + ucfirst_js(ing.nature) + "</td>")
             $("#table tr:last").append("<td></td>")
             $("#table tr:last").append("<td>" + ing.quantite + "</td>")
 

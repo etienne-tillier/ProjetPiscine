@@ -4,6 +4,11 @@
 console.log(<?= $listeAllIng ?>)
 var listeIng =(<?= $listeAllIng ?>)
 
+//Fonction qui permet de passer la première lettre d'une chaine de caractère en majuscule
+function ucfirst_js(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 //Fonction qui renvoie la liste des ingrédient allergène d'une recette passée en paramètre
 const genererListeAllergene = (recette) => {
     let listeAllergene = []
@@ -62,7 +67,7 @@ const afficherAllergene = (recette) => {
     let listeIngredient = genererListeAllIngredient(recette)
     let chaine = ""
     for (let ingredient of listeIngredient) {
-        chaine += (ingredient.allergene == 1 ? '<b class="allergene">' + ingredient.nature + '</b>, ' : ingredient.nature + ', ')
+        chaine += (ingredient.allergene == 1 ? '<b class="allergene">' + ucfirst_js(ingredient.nature) + '</b>, ' : ingredient.nature + ', ')
     }
     chaine = chaine.substring(0, chaine.length - 2);
     console.log(chaine)

@@ -109,7 +109,7 @@
                                 <option class="liste_der" value="" disabled <?= ($create ? "selected" : "") ?>>Choisissez un Type</option>
                                 <?php
                                     foreach($typeIngredientList as $type){
-                                        echo '<option value="' . $type->getIdTypeIngredient() . '" ' . ($type->getIdTypeIngredient() == $idTypeIngredient ? "selected" : "") . '>' .  $type->getNomTypeIngredient() . '</option>';
+                                        echo '<option value="' . $type->getIdTypeIngredient() . '" ' . ($type->getIdTypeIngredient() == $idTypeIngredient ? "selected" : "") . '>' .  htmlspecialchars(ucfirst($type->getNomTypeIngredient())) . '</option>';
                                     }
                                 ?>
                                 <script>$("#typeIngredientList").chosen();</script>
@@ -125,7 +125,7 @@
                             <?php
                                 foreach($typeTVAList as $type){
                                     echo '<p>' . $type->getNomTVA() . '</p>';
-                                    echo '<option value="' . $type->getNomTVA() . '" ' . ($type->getNomTVA() == $nomTVA ? "selected" : "") . '>' .  $type->getNomTVA() . '</option>';
+                                    echo '<option value="' . $type->getNomTVA() . '" ' . ($type->getNomTVA() == $nomTVA ? "selected" : "") . '>' .  htmlspecialchars(ucfirst($type->getNomTVA())) . '</option>';
                                 }
                             ?>
                             <script>$("#TVASelect").chosen();</script>

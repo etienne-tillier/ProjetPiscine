@@ -47,7 +47,7 @@
             $("#newAuteurPrenom").toggle();
             $("#newAuteurPrenom").prop("required",false)
             $("#newAuteurPrenom").prop("value","")
-            $("#textAuteur").text("Creer un nouvel auteur");
+            $("#textAuteur").text("Créer un nouvel auteur");
         }
     }
     var i = 0;
@@ -60,7 +60,7 @@
             <?php foreach ($listeIngredient as $ingredient){?>
                     $("#listeIngredient div:last select:last").append($('<option>', {
                         value: "<?php echo $ingredient->getIdIngredient()?>",
-                        text: "<?php echo $ingredient->getNomIngredient()?>"
+                        text: "<?php echo htmlspecialchars(ucfirst($ingredient->getNomIngredient()))?>"
                         <?= ($ingredientDansRecette->getIdIngredient() == $ingredient->getIdIngredient() ? ',selected : true' : '') ?>
                     }));
                 <?php };?>
@@ -80,7 +80,7 @@
         <?php foreach ($listeIngredient as $ingredient){?>
             $("#listeIngredient div:last select:last").append($('<option>', {
                 value: "<?php echo $ingredient->getIdIngredient()?>",
-                text: "<?php echo $ingredient->getNomIngredient()?>"
+                text: "<?php echo htmlspecialchars(ucfirst($ingredient->getNomIngredient()))?>"
             }));
         <?php }; ?>
         $("#listeIngredient div:last").append("<li><input class='entrer_text1' type='text' name='quantitesIngredients[]' placeholder='Quantité ingredient' required></input></li>");
@@ -98,7 +98,7 @@
         <?php foreach ($listeRecette as $recette){?>
         $("#listeRecette div:last select:last").append($('<option>', {
             value: "<?php echo $recette->getIdRecette()?>",
-            text: "<?php echo $recette->getNomRecette()?>"
+            text: "<?php echo htmlspecialchars(ucfirst($recette->getNomRecette()))?>"
         }));
         <?php }; ?>
         $("#listeRecette div:last").append("<li><input class='entrer_text1' type='text' name='quantitesRecettes[]' placeholder='Quantité recette' required></input></li>");
@@ -185,7 +185,7 @@
                             <option class="liste_der" value="" disabled <?= ($create ? "selected" : "") ?>>Choisissez un type</option>
                             <?php
                             foreach($typeRecetteList as $type){
-                                echo '<option value="' . $type->getIdTypeRecette() . '" ' . ($type->getIdTypeRecette() == $idTypeRecette ? "selected" : "") . '>' .  $type->getNomTypeRecette() . '</option>';
+                                echo '<option value="' . $type->getIdTypeRecette() . '" ' . ($type->getIdTypeRecette() == $idTypeRecette ? "selected" : "") . '>' .  htmlspecialchars(ucfirst($type->getNomTypeRecette())) . '</option>';
                             }
                             ?>
                             <script>$("#selectTypeRecette").chosen();</script>
@@ -203,7 +203,7 @@
                             <option class="liste_der" value="" disabled <?= ($create ? "selected" : "") ?>>Choisissez un auteur</option>
                             <?php
                                 foreach($auteurList as $auteur){
-                                    echo '<option value="' . $auteur->getIdAuteur() . '" ' . ($auteur->getidAuteur() == $idAuteur ? "selected" : "") . '>' .  $auteur->getNomAuteur() . '</option>';
+                                    echo '<option value="' . $auteur->getIdAuteur() . '" ' . ($auteur->getidAuteur() == $idAuteur ? "selected" : "") . '>' .  htmlspecialchars(ucfirst($auteur->getNomAuteur())) . '</option>';
                                 }
                             ?>
                             <script>$("#selectAuteur").chosen();</script>
