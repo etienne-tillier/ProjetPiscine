@@ -218,10 +218,11 @@ td,th{
 .contenu_fiche{
 	margin: auto;
 }
-
-.contenu_fiche1{
+.contenu_fiche21{
 	margin: auto;
+	padding: 5px;
 	font-size: 15px;
+	text-align: justify;
 }
 
 /* Style des boutons */

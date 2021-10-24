@@ -118,7 +118,7 @@ window.onload = function () {
         </div>
 
         <div class="contenu_fiche2">
-            <p class="contenu_fiche"><?= htmlspecialchars($r->getProgression()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la portion -->
+            <p class="contenu_fiche21"><?= htmlspecialchars($r->getProgression()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la portion -->
         </div> 
 
         <div class="contenu_fiche3">
