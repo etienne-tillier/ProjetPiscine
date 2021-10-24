@@ -1,13 +1,19 @@
 <?php
 error_reporting(0);
 
+/*---------------------------------------------------------------------*/
+/*   Dans la logique du modèle MVC, le contrôleur est appelé par       */
+/*     le routeur. Son rôle est de lier le modèle et la vue            */
+/*---------------------------------------------------------------------*/  
+
+
 require_once File::build_path(array('controller','ControllerIngredient.php'));
 require_once File::build_path(array('controller','ControllerTypeIngredient.php'));
 require_once File::build_path(array('controller','ControllerTypeRecette.php'));
 require_once File::build_path(array('controller','ControllerRecette.php'));
 require_once File::build_path(array('controller','ControllerAuteur.php'));
 require_once File::build_path(array('controller','ControllerTVA.php'));
-require_once File::build_path(array('controller','ControllerCharge.php'));
+
 // On recupère l'action passée dans l'URL
 
 if (isset($_GET['action'])){
@@ -31,11 +37,11 @@ if(class_exists($controller_class)){
     $controller_class::$action(); 
     }
     else {
-        ControllerPierre::error();
+        ControllerIngredient::error();
     }
 }
 else {
-    ControllerPierre::error();
+    ControllerIngredient::error();
 }
 
 ?>

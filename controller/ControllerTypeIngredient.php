@@ -3,10 +3,18 @@
 require_once (File::build_path(array("model", "ModelTypeIngredient.php")));
 require_once (File::build_path(array("model", "ModelIngredient.php")));
 
-class ControllerTypeIngredient {
+class ControllerTypeIngredient 
+{
     
     protected static $object = 'typeingredient';
 
+    /*---------------------------------------------------------------------*/
+    /* readAll()      la fonction récupére les données de tous             */ 
+    /*                les typeingredients                                  */ 
+    /*                                                                     */
+    /* En sortie: la fonction redérige les données vers "view" afin        */
+    /*            d'effectuer l'affichage ou traitement                    */
+    /*---------------------------------------------------------------------*/ 
     public static function readAll() 
     {
         $tab_i = ModelTypeIngredient::selectAll(); //on appele le model pour gerer la BD
@@ -16,6 +24,14 @@ class ControllerTypeIngredient {
         $pagetitle = 'Tous les types ingredients';
         require (File::build_path(array("view", "view.php"))); //"redirige" vers la vue
     }
+
+    /*---------------------------------------------------------------------*/
+    /* read()     la fonction récupére les données d'un typeingredient     */
+    /*            sélectioné                                               */
+    /*                                                                     */
+    /* En sortie: la fonction redérige les données vers "view" afin        */
+    /*            d'effectuer l'affichage                                  */
+    /*---------------------------------------------------------------------*/  
 
     public static function read()
     {
@@ -47,6 +63,14 @@ class ControllerTypeIngredient {
         $view = 'update';
         require (File::build_path(array("view", "view.php")));
     }
+
+     
+    /*---------------------------------------------------------------------*/
+    /* created()     la fonction initialise un nouvel typeingredient       */
+    /*                                                                     */
+    /* En sortie: la fonction redérige les données vers "view" afin        */
+    /*            d'effectuer l'affichage                                  */
+    /*---------------------------------------------------------------------*/  
     
     public static function created()
     {
@@ -66,12 +90,22 @@ class ControllerTypeIngredient {
         require (File::build_path(array("view", "view.php")));
     }
     
+    /* on traite les erreurs et on les envoie vers erreur view */
+
     public static function error() {
         $controller = ('typeingredient');
         $view = 'errortype';
         $pagetitle = 'Erreur';
         require (File::build_path(array("view", "view.php")));
     }
+
+    /*---------------------------------------------------------------------*/
+    /* update()     la fonction permets de modifier les données            */
+    /*              d' un typeingredient et les mettre à jour              */
+    /*                                                                     */
+    /* En sortie: la fonction redérige les données vers "view" afin        */
+    /*            d'effectuer l'affichage                                  */
+    /*---------------------------------------------------------------------*/ 
 
     public static function update() {
         $act = "updated";
@@ -94,6 +128,14 @@ class ControllerTypeIngredient {
         }
     }
 
+    /*---------------------------------------------------------------------*/
+    /* updated()     la fonction verifie de confirmer la mise à jour       */
+    /*                                                                     */
+    /* En sortie: la fonction redérige les données vers "view" afin        */
+    /*            de confirmer à l'utilisateur la MS                       */
+    /*---------------------------------------------------------------------*/  
+
+
     public static function updated() 
     {
         $tab_i = ModelTypeIngredient::selectAll();
@@ -111,6 +153,14 @@ class ControllerTypeIngredient {
         $view = 'updated';
         require (File::build_path(array("view", "view.php")));
     }
+
+    /*---------------------------------------------------------------------*/
+    /* delete()     la fonction permets d'effectuer la suppresion          */
+    /*              d'un typeingredient                                    */
+    /*                                                                     */
+    /* En sortie: la fonction redérige les données vers "view" afin        */
+    /*            d'effectuer l'affichage                                  */
+    /*---------------------------------------------------------------------*/
     
     public static function delete() 
     {
@@ -134,6 +184,5 @@ class ControllerTypeIngredient {
         }
     }
 }
-
 
 ?>   
