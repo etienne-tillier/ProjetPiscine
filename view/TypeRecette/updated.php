@@ -13,7 +13,7 @@ $create = false;
 
         /* 
             j'ai enlever ça car on a pas besoin d'afficher la liste des types d'ingredient. 
-            Si vous souhaitez voir que la liste des types d'ingredients enlelever les // sur la ligne 20
+            Si vous souhaitez voir que la liste des types d'ingredients enlelever les // sur la ligne 12
         */
     ?>
 </div>
