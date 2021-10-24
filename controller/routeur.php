@@ -1,6 +1,5 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+error_reporting(0);
 
 require_once File::build_path(array('controller','ControllerIngredient.php'));
 require_once File::build_path(array('controller','ControllerTypeIngredient.php'));
