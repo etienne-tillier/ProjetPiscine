@@ -30,6 +30,16 @@
 	border-color: rgb(196, 156, 108);
 	border-radius: 10px;
 	cursor: pointer;
+	transition: all 0.5s;
+}
+#boutons li:hover
+{
+	border-radius: 3.5vw;
+	border:solid 2.2px rgb(196, 156, 108);
+	transition: all 0.5s;
+	transform-origin: 50% 50%;
+	transform: rotate(-360deg);
+
 }
 
 .case
@@ -45,10 +55,17 @@
 	text-decoration: none;
 	color: black;
 	transition: 400ms;
-
 }
 
 .case a:hover
 {
 	color: rgb(196, 156, 108);
 } 
+
+/*.case a i:hover
+{
+	transition: all 1s;
+	transform-origin: 50% 50%;
+	transform: rotate(-360deg);
+}*/
+
