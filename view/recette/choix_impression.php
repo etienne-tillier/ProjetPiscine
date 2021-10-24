@@ -212,7 +212,7 @@ window.onload = function () {
         </div>
 
         <div class="contenu_fiche2">
-            <p class="contenu_fiche"><?= htmlspecialchars($r->getProgression()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la portion -->
+            <p class="contenu_fiche21"><?= htmlspecialchars($r->getProgression()); ?></p><!-- A VERIFIER SELON TA FONCTION ETIENNE || Obtenir la portion -->
         </div> 
 
         <div class="contenu_fiche3">
@@ -223,9 +223,9 @@ window.onload = function () {
             <div id="contenu_den">
                 <table id="table">
                     <tr>
-                        <th>Code</th>
-                        <th>Nature</th>
-                        <th>Unité</th>
+                        <th class="tab1">Code</th>
+                        <th class="tab2">Nature</th>
+                        <th class="tab1">Unité</th>
                     </tr>
                 </table>
             </div>           
@@ -235,10 +235,10 @@ window.onload = function () {
             <div id="contenu_val">
                 <table id="tablePrix">
                     <tr>
-                        <th>Total</th>
-                        <th>Prix U</th>
-                        <th>PTHT</th>
-                        <th>PTTTC</th>
+                        <th class="tab1">Total</th>
+                        <th class="tab1">Prix U</th>
+                        <th class="tab1">PTHT</th>
+                        <th class="tab1">PTTTC</th>
                     </tr>
                 </table>
             </div>
