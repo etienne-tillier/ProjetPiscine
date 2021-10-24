@@ -29,7 +29,7 @@
 
                             foreach($typeIngredientListe as $type){
 
-                            echo "<div id='type_ingredient'><p>" .  '<a href= "index.php?action=read&controller=typeingredient&idTypeIngredient=' . $type->getIdTypeIngredient() . '">' . $type->getNomTypeIngredient() . '</p></div>';
+                            echo "<div id='type_ingredient'><p>" .  '<a href= "index.php?action=read&controller=typeingredient&idTypeIngredient=' . $type->getIdTypeIngredient() . '">' . htmlspecialchars(ucfirst($type->getNomTypeIngredient())) . '</p></div>';
 
                             $idType = $type->getIdTypeIngredient();
                             foreach ($tab_i as $ingredient) {

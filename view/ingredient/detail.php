@@ -22,7 +22,7 @@
                 </div>
                 <div id="contenu">
                     <ul>
-                        <li class="detail_ingr"><?php echo "Prix : " . htmlspecialchars($i->getPrixUnitaire()) . "€ / " . htmlspecialchars($i->getUnite());?></li>
+                        <li class="detail_ingr"><?php echo "Prix : " . htmlspecialchars($i->getPrixUnitaire()) . "€ / " . htmlspecialchars(ucfirst($i->getUnite()));?></li>
                         <li class="detail_ingr"><?php echo "Allergene : " . (($i->getAllergene() == 1 ? "Oui" : "Non") . "</li>");?></li>
                     </ul>
                 </div>

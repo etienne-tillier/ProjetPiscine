@@ -26,14 +26,14 @@
                         
                         foreach($tabTypeRecette as $type){
 
-                            echo "<div id='type_ingredient'><p>" . '<a href= "index.php?action=read&controller=typerecette&idTypeRecette=' . $type->getIdTypeRecette() . '">' . $type->getNomTypeRecette() . '</p></div>';
+                            echo "<div id='type_ingredient'><p>" . '<a href= "index.php?action=read&controller=typerecette&idTypeRecette=' . $type->getIdTypeRecette() . '">' . htmlspecialchars(ucfirst($type->getNomTypeRecette())) . '</p></div>';
                             $idType = $type->getIdTypeRecette();
                             foreach ($tab_r as $recette) {
                                 if ($idType == $recette->getIdTypeRecette()){
                                     $nombrePortion = $recette->getNombrePortion();
                                     $nom = $recette->getNomRecette();
                                     $id = rawurlencode($recette->getIdRecette()); 
-                                    echo '<div id="list_recette"><a href= "index.php?action=read&controller=recette&idRecette=' . $id . '">' . $nom . " : " . $nombrePortion . " personnes </a>" . '</div>';
+                                    echo '<div id="list_recette"><a href= "index.php?action=read&controller=recette&idRecette=' . $id . '">' . htmlspecialchars(ucfirst($nom)) . " : " . $nombrePortion . " personnes </a>" . '</div>';
                                 }
                             }
                         }
