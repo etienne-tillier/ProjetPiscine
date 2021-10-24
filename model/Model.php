@@ -1,12 +1,21 @@
 <?php
 //classe mère et elle contient ttes les requetes sql vers la base de données
+
+/*------------------------------------------------------------------------------------------*/
+/*      Le modèle contient les données manipulées par le programme. Il assure la gestion de */ 
+/*  ces données et garantit leur intégrité. Dans le cas typique d'une base de données,      */
+/*  c'est le modèle qui la contient.Le modèle offre des méthodes pour mettre à jour ces     */
+/*    données (insertion suppression, changement de valeur)                                 */
+/*------------------------------------------------------------------------------------------*/
 require_once File::build_path(array("config", "Conf.php"));
 
 class Model {
 
     public static $pdo;
 
-    public static function Init() {//pour se connecter à la base de données
+    public static function Init() 
+    {
+        //pour se connecter à la base de données
         $hostname = Conf::getHostname();//j'utilise le getHostname() de la classe conf (::)
         $database_name = Conf::getDatabase();
         $login = Conf::getLogin();
@@ -16,7 +25,7 @@ class Model {
                     array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));//PDO objet ds php qui me permet de 
                     //me connecter à la BD et new PDO càd je crée une instance de connexion à la BD
 
-// On active le mode d'affichage des erreurs, et le lancement d'exception en cas d'erreur
+        // On active le mode d'affichage des erreurs, et le lancement d'exception en cas d'erreur
             self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             if (Conf::getDebug()) {
@@ -27,6 +36,7 @@ class Model {
             die();
         }
     }
+
 
     public static function selectAll() {//ça me renvoie un tableau de pls lignes et chaque ligne est un objet
         $table_name = static::$object;
@@ -115,6 +125,8 @@ class Model {
     
     }
 
+    /* la fonction permet un element d'une certaine table */
+
     public static function delete($primary) {
         $table_name = static::$object;
 
@@ -132,44 +144,50 @@ class Model {
         }
     }
 
-    public static function update($data){
-         $table_name = ucfirst(static::$object);
-         $primary_key = static::$primary;
-         $sql = "UPDATE " . $table_name ." SET";
-         foreach ($data as $cle => $valeur){
-             if ($cle != "primary"){
-             $sql = $sql." $cle =:$cle,";
-             }
+    /* la fonction permet de mettre à jour un element d'une certaine table dans notre base de données */
+
+    public static function update($data)
+    {
+        $table_name = ucfirst(static::$object);
+        $primary_key = static::$primary;
+        $sql = "UPDATE " . $table_name ." SET";
+        foreach ($data as $cle => $valeur){
+            if ($cle != "primary")
+            {
+                $sql = $sql." $cle =:$cle,";
+            }
         }
         try{
             $sql = rtrim($sql, ",");
             $sql = $sql
-                    . " WHERE $primary_key=:primary";
+            . " WHERE $primary_key=:primary";
             $req_prep = Model::$pdo->prepare($sql);
             $req_prep->execute($data);
-            
+
         } catch (Exception $ex) {
-            echo $ex->getMessage();
+        echo $ex->getMessage();
         }
     }
 
-        public static function save($data) {
-            $table_name = ucfirst(static::$object);
-            $sql = "INSERT INTO " . $table_name . " VALUES(";
-            foreach($data as $cle => $valeur){
-                $sql = $sql.":$cle,";
-            }
-            try{
-            $sql = rtrim($sql,",").");";
-            $req_prep = Model::$pdo->prepare($sql);
-            $req_prep->execute($data);
-            }
-            catch (Exception $ex){
-                echo $ex->getMessage();
-            }
-            
-            
+    /* la fonction de sauvegarder un element dans la base de données */
+    public static function save($data) 
+    {
+        $table_name = ucfirst(static::$object);
+        $sql = "INSERT INTO " . $table_name . " VALUES(";
+        foreach($data as $cle => $valeur){
+            $sql = $sql.":$cle,";
         }
+        try{
+        $sql = rtrim($sql,",").");";
+        $req_prep = Model::$pdo->prepare($sql);
+        $req_prep->execute($data);
+        }
+        catch (Exception $ex){
+            echo $ex->getMessage();
+        }
+        
+        
+    }
 
 
 }

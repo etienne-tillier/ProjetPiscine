@@ -1,4 +1,7 @@
 <?php
+
+/* la configuration permet de relier notre code avec la base de donnée */
+
 class Conf {
    
   static private $databases = array(
