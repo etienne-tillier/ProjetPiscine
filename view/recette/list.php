@@ -26,8 +26,7 @@
                         
                         foreach($tabTypeRecette as $type){
 
-                            echo '<div id="type_recette"><p>' . $type->getNomTypeRecette() . '</p></div>';
-
+                            echo "<div id='type_ingredient'><p>" . '<a href= "index.php?action=read&controller=typerecette&idTypeRecette=' . $type->getIdTypeRecette() . '">' . $type->getNomTypeRecette() . '</p></div>';
                             $idType = $type->getIdTypeRecette();
                             foreach ($tab_r as $recette) {
                                 if ($idType == $recette->getIdTypeRecette()){
