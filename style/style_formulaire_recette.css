@@ -260,6 +260,7 @@ fieldset{
     padding-top: 30px;
     padding-bottom: 30px;
     cursor: pointer;
+    transition: all 0,75s;
 }
 
 .bouton_final{
@@ -268,10 +269,15 @@ fieldset{
     padding: 10px;
     width: 300px;
 	border:rgb(196, 156, 108) 2px solid;
-    border-radius: 15px;
+    border-radius: 10px;
     background-color: transparent;
-    transition: 400ms;
+    transition: all 0.75s;
     cursor: pointer;
+}
+.bouton_final:hover
+{
+    transition: all 1s;
+    border-radius: 3.7vw;
 }
 
 .boutonRecette, .boutonIngredient{

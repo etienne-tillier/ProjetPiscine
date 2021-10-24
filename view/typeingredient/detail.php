@@ -44,8 +44,8 @@
             </div>
             <div id="boutons">
                 <ul>
-                    <li class="case"><?php echo '<a href="index.php?action=update&controller=typeingredient&idTypeIngredient=' . rawurlencode($type->getIdTypeIngredient()) . '"> Modifier le type</a>'; ?></li>
-                    <li class="case"><?php echo '<a href="index.php?action=delete&controller=typeingredient&idTypeIngredient=' . rawurlencode($type->getIdTypeIngredient()) . '"onclick="return confirm(\'Voulez vous supprimer cette recette?\')"> Supprimer le type</a></br>';?></li>
+                    <li class="case"><?php echo '<a href="index.php?action=update&controller=typeingredient&idTypeIngredient=' . rawurlencode($type->getIdTypeIngredient()) . '"><i class="fas fa-sliders-h"></i>   Modifier le type</a>'; ?></li>
+                    <li class="case"><?php echo '<a href="index.php?action=delete&controller=typeingredient&idTypeIngredient=' . rawurlencode($type->getIdTypeIngredient()) . '"onclick="return confirm(\'Voulez vous supprimer ce type?\')"><i class="fas fa-trash-alt"></i> Supprimer le type</a></br>';?></li>
                 </ul>
             </div>
     </div>
