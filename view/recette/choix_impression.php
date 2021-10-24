@@ -106,14 +106,14 @@ const afficherFicheTech = (list) => {
             $("#table tr:last").append("<td>" + ing.unite + "</td>")
 
             $("#tablePrix").append("<tr class='ingredient'></tr>")
-            $("#tablePrix tr:last").append("<td>" + ing.quantite + "</td>")
+            $("#tablePrix tr:last").append("<td>" + ing.quantite.toFixed(2) + "</td>")
             $("#tablePrix tr:last").append("<td>" + ing.prix + "</td>")
             $("#tablePrix tr:last").append("<td>" + PTHT + "</td>")
             $("#tablePrix tr:last").append("<td>" + PTTTC + "</td>")
         }
         if (ing.type == "recette"){
-            let prix = calculerPrixRecette(ing.ingredients)
-            let PTHT = (ing.prix * ing.quantite).toFixed(2);
+            let prix = (calculerPrixRecette(ing.ingredients)).toFixed(2)
+            let PTHT = (prix * ing.quantite).toFixed(2);
             let PTTTC = (calculerPrixRecetteTVA(ing.ingredients)).toFixed(2)
             $("#table").append("<tr class='recette' style='font-weight: bold'></tr>")
             $("#table tr:last").append("<td>" + ing.code + "</td>")
@@ -121,7 +121,7 @@ const afficherFicheTech = (list) => {
             $("#table tr:last").append("<td></td>")
 
             $("#tablePrix").append("<tr class='recette' style='font-weight: bold'></tr>")
-            $("#tablePrix tr:last").append("<td>" + ing.quantite + "</td>")
+            $("#tablePrix tr:last").append("<td>" + ing.quantite.toFixed(2) + "</td>")
             $("#tablePrix tr:last").append("<td>" + prix + "</td>")
             $("#tablePrix tr:last").append("<td>" + PTHT + "</td>")
             $("#tablePrix tr:last").append("<td>" + PTTTC + "</td>")
