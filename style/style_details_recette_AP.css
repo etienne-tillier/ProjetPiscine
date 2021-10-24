@@ -17,7 +17,7 @@
     margin-bottom: 30px;
 	margin-top: 30px;
     display: grid;
-    grid-template-columns: 3fr 3fr 2fr 2fr;
+    grid-template-columns: 3fr 3fr 1fr 1fr;
     grid-template-rows: 60px 1fr 60px 1fr repeat(5 40px);
 	background-color: rgb(240,240,240);
 	border-radius: 25px;
@@ -191,6 +191,7 @@
 }
 
 .sous_titre_niv2{
+	font-size: 15px;
 	margin: auto;
 	font-style: italic;
 }
@@ -203,12 +204,24 @@ table{
 }
 
 td,th{
-	width: 200px;
 	border: 1px solid black
+}
+
+.tab1{
+	width: 70px;
+}
+
+.tab2{
+	width: 230px;
 }
 
 .contenu_fiche{
 	margin: auto;
+}
+
+.contenu_fiche1{
+	margin: auto;
+	font-size: 15px;
 }
 
 /* Style des boutons */
