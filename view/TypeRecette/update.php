@@ -8,7 +8,7 @@
             <input type ="hidden" name ="controller" value="TypeRecette"/>
 
             <label class="sous_titre" for="nom_TypeRecette">Nom</label> :
-            <input class="entrer_text" type="text" placeholder="Ex : dessert" name="nomTypeRecette" <?= ($create ? "required" : "readonly") ?> value="<?= htmlspecialchars($nomTypeRecette) ?>" id="nom_TypeRecette"/>
+            <input class="entrer_text" type="text" placeholder="Ex : dessert" name="nomTypeRecette" <?= ($create ? "required" : "required") ?> value="<?= htmlspecialchars($nomTypeRecette) ?>" id="nom_TypeRecette"/>
         </p> 
         
         <?=($create ? "" : '<input type ="hidden" name ="idTypeRecette" value="' . rawurldecode($idTypeRecette) . '"/>') ?>

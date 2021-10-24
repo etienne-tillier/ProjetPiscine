@@ -18,6 +18,7 @@ class ControllerTypeRecette {
         $pagetitle = 'Détails';
         $idTypeRecette = $_GET["idTypeRecette"];
         $p = ModelTypeRecette::select($idTypeRecette);
+        $RecetteListe = ModelRecette::selectAll();
         if ($p == null) {
             $controller = ('TypeRecette');
             $view = 'error';
@@ -73,10 +74,10 @@ class ControllerTypeRecette {
             $act = "updated";
             $form = "readonly";
             $pagetitle = 'Mise à jour informations Type recette';
-            $idRecette = $_GET["idTypeRecette"];
-
+            $idTypeRecette = $_GET["idTypeRecette"];
             $p = ModelTypeRecette::select($idTypeRecette);
             $nomTypeRecette = $p->getNomTypeRecette();
+            $create = false;
             if ($p == null) {
                 $controller = ('TypeRecette');
                 $view = 'error';
