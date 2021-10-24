@@ -1,6 +1,7 @@
 <link rel="stylesheet" type="text/css" href="style/style_formulaire_recette.css">
 <script type="text/javascript" defer>
 
+    //Fonction qui permet de gérer l'affichage afin de pouvoir créer un nouveau type Recette
     function creerTypeRecette(){
         if (document.getElementById("newTypeRecette").required == false){
             $("#typeRecetteSelect").toggle();
@@ -20,6 +21,7 @@
         }
     }
 
+    //Fonction qui permet de gérer l'affichage afin de pouvoir créer un nouvel auteur
     function creerAuteur(){
         if (document.getElementById("newAuteurNom").required == false){
             $("#auteurSelect").toggle();
@@ -45,6 +47,8 @@
     }
     var i = 0;
 
+
+    //Fonction qui permet de générer lors de la modification d'une recette les select des ingrédient ou recette déjà enregistrés dans la recette
     function genererSelectUpdate() {
             <?php foreach ($tabIngredientDansRecette as $ingredientDansRecette){?>
             $("#listeIngredient").append("<div id='" + i + "'></div>");
@@ -77,6 +81,9 @@
             $(".choix").chosen();
     }
 
+    //Fonction qui permet d'ajouter un ingrédient à une recette. Elle génère un select où tous les ingrédients sont présent et où il est possible de rechercher
+    // un ingrédient en particulier
+    //Cette fonction génère également un bouton pour supprimer le select et un input quantité pour renseigner la quantité de l'ingrédient que l'on souhaite ajouter.
     function ajouterIngredient(){
         $("#listeIngredient").append("<div id='" + i + "'></div>");
         $("#listeIngredient div:last").append("<li><select class='choix' name='ingredients[]' placeholder='Choisissez ingrédient' required></select></li>");
@@ -91,6 +98,10 @@
         i++;
         $(".choix").chosen();
     }
+
+    //Fonction qui permet d'ajouter une recette à une recette. Elle génère un select où toutes les recettes sont présentes et où il est possible de rechercher
+    // une recette en particulier
+    //Cette fonction génère également un bouton pour supprimer le select et un input quantité pour renseigner la quantité de la recette que l'on souhaite ajouter.
     function ajouterRecette(){
         $("#listeRecette").append("<div id='" + i + "'></div>");
         $("#listeRecette div:last").append("<li><select class='choix' name='recettes[]' placeholder='Choisissez la recette' required></select></li>");

@@ -30,27 +30,7 @@ class ModelRecette extends Model{
             
         }
     }
-    
-    // public static function estAchete($idRecette){
-    //     try {
-    //         $sql = "SELECT estAchete FROM Ingredient WHERE idIngredient=:idIngredient";
-    //         $req_prep = Model::$pdo->prepare($sql);
-    //         $value = array (
-    //             'idIngredient' => $idRecette,
-    //         );
-    //         $req_prep->execute($value);
-    //         $estAchete = $req_prep->fetchAll();
-    //     } catch (Exception $ex) {
-    //         echo $ex->getMessage();
-    //     }
-    //         if ($estAchete[0][0]){
-    //             return true;
-    //         }
-    //         else {
-    //             return false;
-    //         }
-            
-    // }
+
     
     function getIdRecette() {
         return $this->idRecette;

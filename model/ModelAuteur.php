@@ -20,27 +20,6 @@ class ModelAuteur extends Model{
         }
     }
     
-    // public static function estAchete($idAuteur){
-    //     try {
-    //         $sql = "SELECT estAchete FROM Ingredient WHERE idIngredient=:idIngredient";
-    //         $req_prep = Model::$pdo->prepare($sql);
-    //         $value = array (
-    //             'idIngredient' => $idAuteur,
-    //         );
-    //         $req_prep->execute($value);
-    //         $estAchete = $req_prep->fetchAll();
-    //     } catch (Exception $ex) {
-    //         echo $ex->getMessage();
-    //     }
-    //         if ($estAchete[0][0]){
-    //             return true;
-    //         }
-    //         else {
-    //             return false;
-    //         }
-            
-    // }
-    
 
     function getIdAuteur() {
         return $this->idAuteur;

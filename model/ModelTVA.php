@@ -15,28 +15,7 @@ class ModelTVA extends Model{
             $this->tauxTVA = $tauxTVA;
         }
     }
-    
-    // public static function estAchete($nomTVA){
-    //     try {
-    //         $sql = "SELECT estAchete FROM Ingredient WHERE nomTVA=:nomTVA";
-    //         $req_prep = Model::$pdo->prepare($sql);
-    //         $value = array (
-    //             'nomTVA' => $nomTVA,
-    //         );
-    //         $req_prep->execute($value);
-    //         $estAchete = $req_prep->fetchAll();
-    //     } catch (Exception $ex) {
-    //         echo $ex->getMessage();
-    //     }
-    //         if ($estAchete[0][0]){
-    //             return true;
-    //         }
-    //         else {
-    //             return false;
-    //         }
-            
-    // }
-    
+
     function getNomTVA() {
         return $this->nomTVA;
     }

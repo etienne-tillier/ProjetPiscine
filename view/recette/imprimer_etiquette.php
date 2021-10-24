@@ -4,6 +4,7 @@
 console.log(<?= $listeAllIng ?>)
 var listeIng =(<?= $listeAllIng ?>)
 
+//Fonction qui renvoie la liste des ingrédient allergène d'une recette passée en paramètre
 const genererListeAllergene = (recette) => {
     let listeAllergene = []
     for (let ing of recette){
@@ -17,6 +18,8 @@ const genererListeAllergene = (recette) => {
     return listeAllergene
 }
 
+
+//Fonction qui permet de trier une liste passée en paramètre afin de n'avoir qu'une seule occurence maximale de chaque valeur dans la liste (peut être mieux codée)
 const triListIngredient = (list) => {
     let listeTrie = list
     for (let i of listeTrie){
@@ -38,6 +41,8 @@ const triListIngredient = (list) => {
 }
 
 
+//Fonction qui récupère et renvoie tous les ingrédients (pas les recettes) présents dans la recette passée en paramètres
+//Si doublons, alors ne renvoie qu'une seule occurence
 const genererListeAllIngredient = (recette) => {
     let listeIngredient = []
     for (let ing of recette){
@@ -52,7 +57,7 @@ const genererListeAllIngredient = (recette) => {
     return listeIngredient;
 }
 
-
+//Fonction qui permet de générer l'étiquette d'une recette passée en paramètre avec la liste des ingrédients où les allergènes sont en gras
 const afficherAllergene = (recette) => {
     let listeIngredient = genererListeAllIngredient(recette)
     let chaine = ""

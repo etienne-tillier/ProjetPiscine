@@ -1,6 +1,8 @@
 
 <link rel="stylesheet" type="text/css" href="style/style_formulaire_ingredient.css">
 <script defer>
+
+    //Fonction qui permet de gérer l'affichage afin de créer un nouveau type ingrédient
     function creerTypeIngredient(){
         if (document.getElementById("newTypeIngredient").required == false){
             $("#typeIngredientSelect").toggle();
@@ -20,6 +22,7 @@
         }
     }
 
+    //Fonction qui permet de gérer l'affichage afin de pouvoir modifier une TVA existante
     function updateTVA(){
 
         if (document.getElementById("tauxUpdateTVA").required == false){
@@ -38,6 +41,7 @@
 
     }
 
+//Fonction qui permet de gérer l'affichage afin de pouvoir créer une nouvelle TVA
     function creerTVA(){
         if (document.getElementById("newTVA").required == false){
             $("#textUpdateTVA").toggle();

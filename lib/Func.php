@@ -7,12 +7,11 @@ require_once(File::build_path(array("model","ModelIngredientDansRecette.php")));
 require_once(File::build_path(array("model","ModelRecetteDansRecette.php")));
 require_once(File::build_path(array("model","ModelAuteur.php")));
 
-
+//Fonction qui permet de générer une liste de données pour la liste d'ingrédients insérée en paramètre (liste d'une recette)
+//Cette liste permet un transfert de donnée facile vers le javaScript
 function genererListeIngredient($tabIngredient){
     $liste = array();
-    //var_dump($tabIngredient);
     foreach ($tabIngredient as $ingredient){
-        //var_dump($ingredient);
         if (is_a($ingredient[0],"ModelRecette")){
             $listeSousRecette = array(
                 "type" => "recette",
@@ -46,6 +45,8 @@ function genererListeIngredient($tabIngredient){
     return $liste;
 }
 
+//Fonction qui récupère la liste des ingrédients et sous-recette présent dans la recette renseignée en paramètre avec leur quantité
+// en fonction de la quantité de la recette renseignée.
 function getListIngredient($ingredient,$quantite){
     $idRecette = $ingredient->getIdRecette();
     $tabIngredientDansRecette = ModelIngredientDansRecette::selectIngredientDansRecette($idRecette,"recette");

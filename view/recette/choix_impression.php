@@ -4,6 +4,8 @@ console.log(<?= $listeAllIng ?>)
 var listeIng =(<?= $listeAllIng ?>)
 var infoRecette = <?= json_encode($infoRecette) ?>
 
+
+//Fonction qui permet de calculer le prix totalHT d'une recette passée en paramètre
 const calculerPrixRecette = (recette) => {
     let somme = 0
     for (let ing of recette){
@@ -16,7 +18,8 @@ const calculerPrixRecette = (recette) => {
     }
     return somme
 }
-//probleme passe plusieurs fois on dirait voir console
+
+//Fonction qui permet de calculer le prix total avec la TVA comprise d'une recette passée en paramètre
 const calculerPrixRecetteTVA = (recette) => {
     let somme = 0
     for (let ing of recette){
@@ -33,6 +36,7 @@ const calculerPrixRecetteTVA = (recette) => {
     return somme
 }
 
+//Fonction qui renvoie la liste des ingrédient allergène d'une recette passée en paramètre
 const genererListeAllergene = (recette) => {
     let listeAllergene = []
     for (let ing of recette){
@@ -46,6 +50,7 @@ const genererListeAllergene = (recette) => {
     return listeAllergene
 }
 
+//Fonction qui permet de trier une liste passée en paramètre afin de n'avoir qu'une seule occurence maximale de chaque valeur dans la liste (peut être mieux codée)
 const triListIngredient = (list) => {
     let listeTrie = list
     for (let i of listeTrie){
@@ -66,7 +71,8 @@ const triListIngredient = (list) => {
     return listeTrie
 }
 
-
+//Fonction qui récupère et renvoie tous les ingrédients (pas les recettes) présents dans la recette passée en paramètres
+//Si doublons, alors ne renvoie qu'une seule occurence
 const genererListeAllIngredient = (recette) => {
     let listeIngredient = []
     for (let ing of recette){
@@ -81,7 +87,7 @@ const genererListeAllIngredient = (recette) => {
     return listeIngredient;
 }
 
-
+//Fonction qui permet de générer l'étiquette d'une recette passée en paramètre avec la liste des ingrédients où les allergènes sont en gras
 const afficherAllergene = (recette) => {
     let listeIngredient = genererListeAllIngredient(recette)
     let chaine = ""
@@ -94,6 +100,7 @@ const afficherAllergene = (recette) => {
     $("#allergene h3").append(" le " + date.getDate()+ "/" + date.getMonth() + " à " + date.getHours() + "h" + date.getMinutes())
 }
 
+//Fonction qui permet de générer la fiche technique à partir d'une recette passée en paramètre
 const afficherFicheTech = (list) => {
     for (let ing of list){
         if (ing.type == "ingredient"){
@@ -130,7 +137,7 @@ const afficherFicheTech = (list) => {
     }
 }
 
-
+//Fonction qui permet de générer à partir d'une recette passée en paramètre les prix totaux et charges finales appliquées
 const afficherChargesEtPrixTotaux = (recette) => {
     let prixRecetteAvecTVA = (calculerPrixRecetteTVA(recette)).toFixed(2)
     let ASS = (prixRecetteAvecTVA * 0.05).toFixed(2)

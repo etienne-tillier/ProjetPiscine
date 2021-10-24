@@ -15,27 +15,7 @@ class ModelCharge extends Model{
             $this->montantCharge = $montantCharge;
         }
     }
-    
-    // public static function estAchete($nomCharge){
-    //     try {
-    //         $sql = "SELECT estAchete FROM Ingredient WHERE nomCharge=:nomCharge";
-    //         $req_prep = Model::$pdo->prepare($sql);
-    //         $value = array (
-    //             'nomCharge' => $nomCharge,
-    //         );
-    //         $req_prep->execute($value);
-    //         $estAchete = $req_prep->fetchAll();
-    //     } catch (Exception $ex) {
-    //         echo $ex->getMessage();
-    //     }
-    //         if ($estAchete[0][0]){
-    //             return true;
-    //         }
-    //         else {
-    //             return false;
-    //         }
-            
-    // }
+
     
     function getnomCharge() {
         return $this->nomCharge;
