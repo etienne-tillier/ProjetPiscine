@@ -2,6 +2,13 @@
 
 require_once File::build_path(array("model", "Model.php"));
 
+/*------------------------------------------------------------------------------------------*/
+/*      On se dispose dans ce fichier des fonctions (getters, setters, etc.) qui ont but de */
+/*    représente les données qui vont être utilisées dans l’application web.  tout ce qui   */
+/*    permet de la modifier (getters, setters, etc.),que ça soit en local ou                */ 
+/*    en distant (base de données).                                                         */
+/*------------------------------------------------------------------------------------------*/
+
 class ModelIngredientDansRecette extends Model{
     private $idRecette;
     private $idIngredient;
