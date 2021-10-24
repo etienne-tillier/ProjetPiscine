@@ -134,7 +134,7 @@ const afficherFicheTech = (list) => {
 const afficherChargesEtPrixTotaux = (recette) => {
     let prixRecetteAvecTVA = (calculerPrixRecetteTVA(recette)).toFixed(2)
     let ASS = (prixRecetteAvecTVA * 0.05).toFixed(2)
-    let prixAvecASS = parseFloat(prixRecetteAvecTVA) + parseFloat(ASS)
+    let prixAvecASS = (parseFloat(prixRecetteAvecTVA) + parseFloat(ASS)).toFixed(2)
     let coutPersonnel = infoRecette.prixMainOeuvre
     let multiplicateur = infoRecette.multiplicateur
     let prixTotal = ((prixAvecASS + parseFloat(coutPersonnel)) * multiplicateur).toFixed(2)
