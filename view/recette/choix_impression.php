@@ -22,7 +22,7 @@ const calculerPrixRecetteTVA = (recette) => {
     for (let ing of recette){
         if (ing.type == "ingredient"){
             let PTHT = ing.prix * ing.quantite;
-            let augmentationTVA = (ing.prix * ing.tva) * ing.quantite;
+            let augmentationTVA = (ing.prix * (ing.tva/100)) * ing.quantite;
             let PTTTC = PTHT + augmentationTVA;
             somme += PTTTC
         }
@@ -98,7 +98,7 @@ const afficherFicheTech = (list) => {
     for (let ing of list){
         if (ing.type == "ingredient"){
             let PTHT = ing.prix * ing.quantite;
-            let augmentationTVA = (ing.prix * ing.tva) * ing.quantite;
+            let augmentationTVA = (ing.prix * (ing.tva/100)) * ing.quantite;
             let PTTTC = PTHT + augmentationTVA;
             $("#table").append("<tr class='ingredient'></tr>")
             $("#table tr:last").append("<td>" + ing.code + "</td>")
