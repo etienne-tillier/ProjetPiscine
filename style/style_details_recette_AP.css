@@ -237,6 +237,7 @@ td,th{
 	font-weight: bold;
 	font-family: 'Arial','Verdana';
 	cursor: pointer;
+	transition: all 0.5s;
 }
 
 #boutons ul, #boutons1 ul
@@ -249,6 +250,8 @@ td,th{
 	margin-right: 10px;
 	padding-right: 15px;
 	cursor: pointer;
+	transition: all 0.5s;
+
 }
 
 #boutons li, #boutons1 li
@@ -258,6 +261,7 @@ td,th{
 	border-color: rgb(196, 156, 108);
 	border-radius: 10px;
 	cursor: pointer;
+	transition: all 0.5s;
 }
 
 .case
@@ -266,13 +270,14 @@ td,th{
 	height: 60px;
 	text-align: center;
 	padding-top: 25px;
+	transition: all 0.5s;
 }
 
 .case a
 {
 	text-decoration: none;
 	color: black;
-	transition: 400ms;
+	transition: all 400ms;
 
 }
 
@@ -280,3 +285,8 @@ td,th{
 {
 	color: rgb(196, 156, 108);
 } 
+
+#boutons li:hover, #boutons1 li:hover{
+	border-radius: 3.5vw;
+	border:solid 2.2px rgb(196, 156, 108);
+}

@@ -148,12 +148,14 @@ fieldset{
 	border:rgb(196, 156, 108) 2px solid;
     border-radius: 15px;
     background-color: transparent;
-    transition: 400ms;
+    transition: all 0.75s;
     cursor: pointer;
 }
 
 .bouton_final:hover{
     color: rgb(196, 156, 108);
+    border:solid 2.2px rgb(196, 156, 108);
+    border-radius: 3.5vw;
 }
 
 .bouton_js1{

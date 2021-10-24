@@ -43,8 +43,8 @@ nav li
 
 nav li:hover
 {
-	transition: all 0.5s;
 	border-radius: 3.5vw;
+	border:solid 2.2px rgb(196, 156, 108);
 }
 
 nav a 
