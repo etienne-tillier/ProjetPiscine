@@ -109,6 +109,7 @@
 	color: rgb(196, 156, 108);
 }
 
+
 #barre_recherche
 {
 	font-size: 15px;
@@ -119,10 +120,13 @@
 	border-radius: 0.2vw;
 	transition: all 1s;
 }
+
+
+
 #barre_recherche:hover
 {
 	border-radius: 2.5vw;
-	border:dashed 2.2px rgb(196, 156, 108);
+	border:solid 2.2px rgb(196, 156, 108);
 	transition: all 1s;
 }
 
@@ -146,3 +150,5 @@
 	list-style: none;
 	padding-bottom: 10px;
 }
+
+
