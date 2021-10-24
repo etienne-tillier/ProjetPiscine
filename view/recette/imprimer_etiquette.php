@@ -124,7 +124,7 @@ $(function(){
 
 <div id="boutons">
     <ul>
-        <li class="case"><a href="#" onclick="window.print()">Imprimer l'étiquette</a></li>
-        <li class="btn_copy"><a href="#">Dupliquer</a></li> 
+        <li class="case"><a href="#" onclick="window.print()"><i class="fas fa-print"></i> Imprimer l'étiquette</a></li>
+        <li class="btn_copy"><a href="#"><i class="fas fa-clone"></i> Dupliquer</a></li> 
     </ul>
 </div>

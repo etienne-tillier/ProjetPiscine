@@ -41,7 +41,7 @@
             </div>
             <div id="boutons">
                 <ul>
-                    <li class="case"><a href="index.php?controller=recette&action=create">Ajouter</li>
+                    <li class="case"><a href="index.php?controller=recette&action=create"><i class="fas fa-plus"></i> Ajouter</li>
                 </ul>
             </div>
     </div>

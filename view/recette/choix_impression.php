@@ -286,9 +286,9 @@ window.onload = function () {
 
 <div id="boutons1">
     <ul>
-    <li class="case"><?php echo '<a href="index.php?action=impressionetiquette&controller=recette&idRecette=' . rawurlencode($r->getIdRecette()) . '"> Etiquette</a>'; ?></li>
-    <li class="case"><a href="#" onclick="window.print()">FT avec prix</li>
-    <li class="case"><?php echo '<a href="index.php?action=impressionfiche&controller=recette&idRecette=' . rawurlencode($r->getIdRecette()) . '"> FT sans prix</a>'; ?></li>
+    <li class="case"><?php echo '<a href="index.php?action=impressionetiquette&controller=recette&idRecette=' . rawurlencode($r->getIdRecette()) . '"><i class="fas fa-ticket-alt"></i> Etiquette</a>'; ?></li>
+    <li class="case"><a href="#" onclick="window.print()"><i class="fas fa-file-invoice-dollar"></i> FT avec prix</li>
+    <li class="case"><?php echo '<a href="index.php?action=impressionfiche&controller=recette&idRecette=' . rawurlencode($r->getIdRecette()) . '"><i class="fas fa-receipt"></i> FT sans prix</a>'; ?></li>
     </ul>
 
 </div>

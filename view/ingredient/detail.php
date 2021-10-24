@@ -29,8 +29,8 @@
             </div>
             <div id="boutons">
                 <ul>
-                    <li class="case"><?php echo '<a href="index.php?action=update&controller=ingredient&idIngredient=' . rawurlencode($i->getIdIngredient()) . '"> Modifier l\'ingrédient </a>';?></li>
-                    <li class="case"><?php echo '<a href="index.php?action=delete&controller=ingredient&idIngredient=' . rawurlencode($i->getIdIngredient()) . '" onclick="return confirm(\'Voulez vous supprimer cet ingrédient?\')"> Supprimer l\'ingrédient </a>';?></li>
+                    <li class="case"><?php echo '<a href="index.php?action=update&controller=ingredient&idIngredient=' . rawurlencode($i->getIdIngredient()) . '"><i class="fas fa-sliders-h"></i> Modifier l\'ingrédient </a>';?></li>
+                    <li class="case"><?php echo '<a href="index.php?action=delete&controller=ingredient&idIngredient=' . rawurlencode($i->getIdIngredient()) . '" onclick="return confirm(\'Voulez vous supprimer cet ingrédient?\')"><i class="fas fa-trash-alt"></i> Supprimer l\'ingrédient </a>';?></li>
                 </ul>
             </div>
     </div>
