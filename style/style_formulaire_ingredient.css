@@ -63,6 +63,7 @@ fieldset{
     padding-bottom: 30px;
     grid-column: 1 / span 2;
     grid-row: 3;
+    cursor: pointer;
 }
 
 .sous_titre3{
@@ -81,6 +82,7 @@ fieldset{
     padding-bottom: 30px;
     grid-column: 1 / span 2;
     grid-row: 5;
+    cursor: pointer;
 }
 
 .sous_titre4{
@@ -121,6 +123,10 @@ fieldset{
     grid-row: 10;
 }
 
+.bouton1 .bouton2 .bouton3 .bouton4 :hover{
+    cursor: pointer;
+}
+
 .bouton_final{
     color: white;
     font-size: 20px;
@@ -131,6 +137,7 @@ fieldset{
     border-radius: 15px;
     background-color: transparent;
     transition: 400ms;
+    cursor: pointer;
 }
 
 .bouton_final:hover{
@@ -146,6 +153,7 @@ fieldset{
 	border:rgb(196, 156, 108) 2px solid;
     border-radius: 15px;
     transition: 400ms;
+    cursor: pointer;
 }
 
 .bouton_js1:hover{
@@ -161,6 +169,7 @@ fieldset{
 	border:rgb(196, 156, 108) 2px solid;
     border-radius: 15px;
     transition: 400ms;
+    cursor: pointer;
 }
 
 .bouton_js2:hover{

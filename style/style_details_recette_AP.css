@@ -222,6 +222,7 @@ td,th{
 	font-size: 25px;
 	font-weight: bold;
 	font-family: 'Arial','Verdana';
+	cursor: pointer;
 }
 
 #boutons ul, #boutons1 ul
@@ -233,6 +234,7 @@ td,th{
 	width: 100%;
 	margin-right: 10px;
 	padding-right: 15px;
+	cursor: pointer;
 }
 
 #boutons li, #boutons1 li
@@ -241,6 +243,7 @@ td,th{
 	border-style: solid;
 	border-color: rgb(196, 156, 108);
 	border-radius: 10px;
+	cursor: pointer;
 }
 
 .case

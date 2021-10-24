@@ -78,6 +78,7 @@
 	font-size: 25px;
 	font-weight: bold;
 	font-family: 'Arial','Verdana';
+    cursor: pointer;
 }
 
 #boutons ul
@@ -88,6 +89,7 @@
 	list-style: none;
 	width: 100%;
 	margin: auto;
+    cursor: pointer;
 }
 
 #boutons li 
@@ -98,6 +100,7 @@
     border-style: solid;
 	border-color: rgb(196, 156, 108);
 	border-radius: 10px;
+    cursor: pointer;
 
 }
 

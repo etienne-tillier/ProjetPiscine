@@ -156,12 +156,14 @@ fieldset{
     grid-column: 1;
     grid-row: 6;
     display: flex;
+    cursor: pointer;
 }
 
 .bouton2{
     grid-column: 1;
     grid-row: 8;
     display: flex;
+    cursor: pointer;
 }
 
 /* Style des éléments */
@@ -246,6 +248,7 @@ fieldset{
     border: rgb(196, 156, 108) solid 2px;
     border-radius: 5px;
     transition: 400ms;
+    cursor: pointer;
 }
 
 .bouton:hover, #ajouterIngredient:hover, #ajouterRecette:hover, .bouton_final:hover{
@@ -256,6 +259,7 @@ fieldset{
     text-align: center;
     padding-top: 30px;
     padding-bottom: 30px;
+    cursor: pointer;
 }
 
 .bouton_final{
@@ -267,6 +271,7 @@ fieldset{
     border-radius: 15px;
     background-color: transparent;
     transition: 400ms;
+    cursor: pointer;
 }
 
 .boutonRecette, .boutonIngredient{
@@ -278,6 +283,7 @@ fieldset{
     border: solid rgb(196, 156, 108) 2px;
     border-radius: 5px;
     transition: 400ms;
+    cursor: pointer;
 }
 
 .boutonRecette:hover, .boutonIngredient:hover{
