@@ -57,7 +57,7 @@ const afficherAllergene = (recette) => {
     let listeIngredient = genererListeAllIngredient(recette)
     let chaine = ""
     for (let ingredient of listeIngredient) {
-        chaine += (ingredient.allergene == 1 ? '<b class="allergene">' + ingredient.nature + ', ' : ingredient.nature + ', ')
+        chaine += (ingredient.allergene == 1 ? '<b class="allergene">' + ingredient.nature + '</b>, ' : ingredient.nature + ', ')
     }
     chaine = chaine.substring(0, chaine.length - 2);
     console.log(chaine)
