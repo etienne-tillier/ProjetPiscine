@@ -207,7 +207,7 @@ fieldset{
     
 }
 
-.entrer_text, #newTVA, #tauxTVA, #newTypeIngredient{
+.entrer_text, #newTVA, #tauxTVA, #newTypeIngredient, #tauxUpdateTVA{
     font-size: 20px;
     margin-top: 30px;
     width: 100%;

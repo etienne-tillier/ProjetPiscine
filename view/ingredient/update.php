@@ -132,8 +132,8 @@
                         </select>
                     </div>
                     <input id="newTVA" type="text" name="newTVA" placeholder="Nouvelle TVA" style="display: none">
-                    <input id="tauxTVA" type="text" name="tauxTVA" placeholder="taux TVA en %"" style="display: none">
-                    <input id="tauxUpdateTVA" type="text" name="tauxUpdateTVA" placeholder="nouveau taux TVA en %" style="display: none"></p>
+                    <input id="tauxTVA" type="text" name="tauxTVA" placeholder="Taux TVA en %"" style="display: none">
+                    <input id="tauxUpdateTVA" type="text" name="tauxUpdateTVA" placeholder="Nouveau taux TVA en %" style="display: none"></p>
                 </div>
 
                 <div class="reponse4">
