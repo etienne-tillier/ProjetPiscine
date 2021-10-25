@@ -160,6 +160,6 @@ window.onload = function () {
     </style>
 <div id="boutons">
     <ul>
-        <li class="case"><a href="#" onclick="window.print()">Imprimer la FT</p></li>
+        <li class="case"><a href="#" onclick="window.print()"><i class="fas fa-print"></i> Imprimer la FT</p></li>
     </ul>
 </div>

@@ -101,7 +101,7 @@
 	border-color: rgb(196, 156, 108);
 	border-radius: 10px;
     cursor: pointer;
-
+    transition: all 0.5s;
 }
 
 .case, .btn_copy
@@ -126,27 +126,8 @@
 	color: rgb(196, 156, 108);
 }
 
-/*.btn-copy 
-{
-    font-family: cursive;   
-    background-color: wheat;
-    transition: all 0.75s;
-    border : 2px solid rgba(25, 25, 1);
-    margin: auto;
-    padding: 30px;
-    border-radius: 70%;
-
-.btn-copy a{
-    text-decoration: none;
-	color: black;
-	transition: 400ms;
+#boutons li:hover{
+	border-radius: 3.5vw;
+	border:solid 2.2px rgb(196, 156, 108);
 }
 
-.btn-copy a:hover
-{
-    border : 2px dashed rgba(0, 0, 0);
-    padding: 45px;
-    transition: all 0.75s;
-
-}
-*/
